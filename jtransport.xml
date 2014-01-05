@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+	<name>JTransport</name>
+	<author>vdkhai</author>
+	<authorEmail>vdkhai@gmail.com</authorEmail>
+	<copyright>Copyright 2006 - 2013. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later.</license>
+	<creationDate>2013-01-01</creationDate>
+	<version>1.0</version>
+	<description>Data transport for joomla</description>
+
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">sql/install.sql</file>
+		</sql>
+	</install>
+
+	<files folder="site">
+		<filename>index.html</filename>
+	</files>
+
+	<administration>
+		<menu img="components/com_jtransport/images/jtransport.png">COM_JTRANSPORT</menu>
+
+		<files folder="admin">
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>images</folder>
+			<folder>includes</folder>
+			<folder>language</folder>
+			<folder>libraries</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>views</folder>
+
+			<filename>jtransport.php</filename>
+			<filename>access.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+		</files>
+
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_jtransport.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_jtransport.sys.ini</language>
+		</languages>
+	</administration>
+
+</extension>

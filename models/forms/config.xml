@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="global" label="COM_JTRANSPORT_CONFIG_GLOBAL">
+		<field
+			name="transport_method"
+			type="list"
+			label="COM_JTRANSPORT_TRANSPORT_METHOD_LABLE"
+			description="COM_JTRANSPORT_TRANSPORT_METHOD_DESC"
+            labelclass="control-label"
+			default="webservice">
+				<option value="webservice">COM_JTRANSPORT_TRANSPORT_METHOD_WEBSERVICE</option>
+				<option value="database">COM_JTRANSPORT_TRANSPORT_METHOD_DATABASE</option>
+		</field>
+
+		<field
+			name="chunk_limit"
+			type="text"
+            class="btn-group"
+			label="COM_JTRANSPORT_CHUNK_LIMIT_LABEL"
+			description="COM_JTRANSPORT_CHUNK_LIMIT_DESC"
+            labelclass="control-label"
+			default="100">
+		</field>
+
+		<field
+			name="core_version"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_VERSION_LABEL"
+			description="COM_JTRANSPORT_CORE_VERSION_DESC"
+            labelclass="control-label"
+			default="j15">
+				<option value="j15">COM_JTRANSPORT_CORE_VERSION_J15</option>
+				<option value="j25">COM_JTRANSPORT_CORE_VERSION_J25</option>
+		</field>
+	</fieldset>
+
+	<fieldset name="webservice" label="COM_JTRANSPORT_CONFIG_WEBSERVICE">
+		<field
+			name="webservice_hostname"
+			type="text"
+			class="btn-group"
+			label="COM_JTRANSPORT_WEBSERVICE_HOSTNAME_LABEL"
+			description="COM_JTRANSPORT_WEBSERVICE_HOSTNAME_DESC"
+            labelclass="control-label">
+		</field>
+
+		<field
+			name="webservice_username"
+			type="text"
+			class="btn-group"
+			label="COM_JTRANSPORT_WEBSERVICE_USERNAME_LABEL"
+			description="COM_JTRANSPORT_WEBSERVICE_USERNAME_DESC"
+            labelclass="control-label">
+		</field>
+
+		<field
+			name="webservice_password"
+			type="password"
+			class="btn-group"
+			label="COM_JTRANSPORT_WEBSERVICE_PASSWORD_LABEL"
+			description="COM_JTRANSPORT_WEBSERVICE_PASSWORD_DESC"
+			default=""
+            labelclass="control-label">
+		</field>
+
+		<field
+			name="webservice_security_key"
+			type="password"
+			class="btn-group"
+			label="COM_JTRANSPORT_WEBSERVICE_SECURITY_KEY_LABEL"
+			description="COM_JTRANSPORT_WEBSERVICE_SECURITY_KEY_DESC"
+			default=""
+            labelclass="control-label">
+		</field>
+	</fieldset>
+
+	<fieldset name="database" lable="COM_JTRANSPORT_CONFIG_DATABASE">
+		<field
+			name="database_driver"
+			type="list"
+			label="COM_JTRANSPORT_DATABASE_DRIVER_LABEL"
+			description="COM_JTRANSPORT_DATABASE_DRIVER_DESC"
+            labelclass="control-label">
+				<option value="mysql">COM_JTRANSPORT_DATABASE_DRIVER_MYSQL</option>
+				<option value="mysqli">COM_JTRANSPORT_DATABASE_DRIVER_MYSQLI</option>
+		</field>
+
+		<field
+			name="database_hostname"
+			type="text"
+			class="btn-group"
+			label="COM_JTRANSPORT_DATABASE_HOSTNAME_LABEL"
+			description="COM_JTRANSPORT_DATABASE_HOSTNAME_DESC"
+            labelclass="control-label">
+		</field>
+
+		<field
+			name="database_username"
+			type="text"
+			class="btn-group"
+			label="COM_JTRANSPORT_DATABASE_USERNAME_LABEL"
+			description="COM_JTRANSPORT_DATABASE_USERNAME_DESC"
+            labelclass="control-label">
+		</field>
+
+		<field
+			name="database_password"
+			type="password"
+			class="btn-group"
+			label="COM_JTRANSPORT_DATABASE_PASSWORD_LABEL"
+			description="COM_JTRANSPORT_DATABASE_PASSWORD_DESC"
+            labelclass="control-label"
+			default="">
+		</field>
+
+		<field
+			name="database_name"
+			type="text"
+			class="btn-group"
+			label="COM_JTRANSPORT_DATABASE_NAME_LABEL"
+			description="COM_JTRANSPORT_DATABASE_NAME_DESC"
+            labelclass="control-label">
+		</field>
+
+		<field
+			name="table_prefix"
+			type="text"
+			class="btn-group"
+			label="COM_JTRANSPORT_DATABASE_TABLE_PREFIX_LABEL"
+			description="COM_JTRANSPORT_DATABASE_TABLE_PREFIX_DESC"
+            labelclass="control-label">
+		</field>
+	</fieldset>
+
+	<fieldset name="core_transport" label="COM_JTRANSPORT_CONFIG_CORE">
+		<field
+			name="transport_user"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_USER_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_USER_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_category"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_CATEGORY_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_CATEGORY_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_content"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_CONTENT_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_CONTENT_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_content_frontpage"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_CONTENT_FRONTPAGE_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_CONTENT_FRONTPAGE_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_menu"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_MENU_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_MENU_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_menu_type"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_MENU_TYPE_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_MENU_TYPE_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_module"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_MODULE_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_MODULE_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_module_menu"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_MODULE_MENU_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_MODULE_MENU_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_banner"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_banner_client"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_CLIENT_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_CLIENT_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_banner_track"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_TRACK_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_TRACK_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_contact"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_CONTACT_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_CONTACT_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_newsfeed"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_NEWSFEED_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_NEWSFEED_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="transport_weblink"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_CORE_TRANSPORT_WEBLINK_LABEL"
+			description="COM_JTRANSPORT_CORE_TRANSPORT_WEBLINK_DESC"
+            labelclass="control-label"
+			default="1">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+	</fieldset>
+
+	<fieldset name="advance" label="COM_JTRANSPORT_CONFIG_ADVANCE">
+		<field
+			name="remove_target_user"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_USER_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_USER_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_category"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CATEGORY_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CATEGORY_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_content"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CONTENT_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CONTENT_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_content_frontpage"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CONTENT_PRONTPAGE_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CONTENT_FRONTPAGE_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_menu"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MENU_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MENU_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_menu_type"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MENU_TYPE_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MENU_TYPE_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_module"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MODULE_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MODULE_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_module_menu"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MODULE_MENU_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MODULE_MENU_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_banner"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_banner_client"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_CLIENT_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_CLIENT_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_banner_track"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_TRACK_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_TRACK_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_contact"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CONTACT_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CONTACT_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_newsfeed"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_NEWSFEED_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_NEWSFEED_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="remove_target_weblink"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_WEBLINK_LABEL"
+			description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_WEBLINK_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+	</fieldset>
+
+	<fieldset name="debug" label="COM_JTRANSPORT_CONFIG_DEBUG">
+		<field
+			name="php_error_report"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_DEBUG_PHP_ERROR_REPORT_LABEL"
+			description="COM_JTRANSPORT_DEBUG_PHP_ERROR_REPORT_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="debug_step"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_DEBUG_STEP_LABEL"
+			description="COM_JTRANSPORT_DEBUG_STEP_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="debug_transport"
+			type="radio"
+			class="btn-group"
+			label="COM_JTRANSPORT_DEBUG_TRANSPORT_LABEL"
+			description="COM_JTRANSPORT_DEBUG_TRANSPORT_DESC"
+            labelclass="control-label"
+			default="0">
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+		</field>
+	</fieldset>
+</form>
