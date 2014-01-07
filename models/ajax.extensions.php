@@ -12,15 +12,15 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-JLoader::register('RedMigrator', JPATH_COMPONENT_ADMINISTRATOR . '/includes/redmigrator.class.php');
-JLoader::register('RedMigratorStep', JPATH_COMPONENT_ADMINISTRATOR . '/includes/redmigrator.step.class.php');
-JLoader::register('RedMigratorExtensions', JPATH_COMPONENT_ADMINISTRATOR . '/includes/redmigrator.extensions.class.php');
+JLoader::register('JTransport', JPATH_COMPONENT_ADMINISTRATOR . '/includes/jtransport.class.php');
+JLoader::register('JTransportStep', JPATH_COMPONENT_ADMINISTRATOR . '/includes/jtransport.step.class.php');
+JLoader::register('JTransportExtensions', JPATH_COMPONENT_ADMINISTRATOR . '/includes/jtransport.extensions.class.php');
 
 /**
- * RedMigrator Model
+ * JTransport Model
  *
  */
-class RedMigratorModelAjaxExtensions extends RModelAdmin
+class JTransportModelAjaxExtensions extends JModelLegacy
 {
 	/**
 	 * Migrate the extensions
@@ -32,10 +32,10 @@ class RedMigratorModelAjaxExtensions extends RModelAdmin
 	function extensions()
 	{
 		// Get the step
-		$step = RedMigratorStep::getInstance('extensions', true);
+		$step = JTransportStep::getInstance('extensions', true);
 
-		// Get RedMigratorExtensions instance
-		$extensions = RedMigrator::getInstance($step);
+		// Get JTransportExtensions instance
+		$extensions = JTransport::getInstance($step);
 
 		// Initialize 3rd extensions
 		$success = $extensions->upgrade();
@@ -45,7 +45,7 @@ class RedMigratorModelAjaxExtensions extends RModelAdmin
 			$step->status = 2;
 			$step->_updateStep();
 
-			if (!RedMigratorHelper::isCli())
+			if (!JTransportHelper::isCli())
 			{
 				echo "success";
 			}

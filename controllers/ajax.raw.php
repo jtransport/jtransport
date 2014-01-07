@@ -93,25 +93,4 @@ class JTransportControllerAjax extends JControllerLegacy
 			JTransportHelper::returnError(500, $e->getMessage());
 		}
 	}
-
-	/**
-	 * Run JTransport extensions
-	 *
-	 * @return none
-	 */
-	public function extensions()
-	{
-		// Get the model for the view.
-		$model = $this->getModel('AjaxExtensions');
-
-		// Running the extensions
-		try
-		{
-			$model->extensions();
-		}
-		catch (Exception $e)
-		{
-			JTransportHelper::returnError(500, $e->getMessage());
-		}
-	}
 }

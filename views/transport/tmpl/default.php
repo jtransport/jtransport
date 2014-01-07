@@ -26,6 +26,9 @@ $params	= $this->params;
 
 <script type="text/javascript">
     var transport_method = '<?php echo $params->transport_method; ?>';
+    var chunk_limit = '<?php echo $params->chunk_limit; ?>';
+    var core_version = '<?php echo $params->core_version; ?>';
+
 
 	$(function () {
         $('#error').css('display','none');
@@ -99,18 +102,6 @@ $params	= $this->params;
     {
         alert('xxx');
     }
-
-	/*viewModel.maximum.subscribe(function (newValue) {
-		$('#all-steps-progress').progressbar('setMaximum', newValue);
-	}, viewModel);
-
-	viewModel.position.subscribe(function (newValue) {
-		$('#all-steps-progress').progressbar('setPosition', newValue);
-	}, viewModel);
-
-	viewModel.step.subscribe(function (newValue) {
-		$('#all-steps-progress').progressbar('setStep', newValue);
-	}, viewModel);*/
 
 	Joomla.submitbutton = function(task)
 	{
