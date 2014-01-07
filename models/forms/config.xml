@@ -32,6 +32,7 @@
 			default="j15">
 				<option value="j15">COM_JTRANSPORT_CORE_VERSION_J15</option>
 				<option value="j25">COM_JTRANSPORT_CORE_VERSION_J25</option>
+				<option value="nocore">COM_JTRANSPORT_CORE_VERSION_NO_CORE</option>
 		</field>
 	</fieldset>
 
