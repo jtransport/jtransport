@@ -34,6 +34,8 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		// Getting the component parameter with global settings
 		$params = JComponentHelper::getParams('com_jtransport');
 		$this->params = $params->toObject();
+
+		parent::__construct();
 	}
 
 	/**
@@ -71,7 +73,8 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		if ($params->transport_method == "database")
 		{
 			if ($params->database_hostname == '' || $params->database_username == ''
-				|| $params->database_db == '' || $params->database_dbprefix == '')
+				|| $params->database_name == '' || $params->table_prefix == ''
+				|| $params->chunk_limit == '')
 			{
 				throw new Exception('COM_JTRANSPORT_ERROR_DATABASE_CONFIG');
 			}
@@ -178,11 +181,11 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		// Xml file includes core steps
 		$schemasPath = JPATH_COMPONENT_ADMINISTRATOR . "/includes/schemas";
 
-		if ($core_version == 'J15') // J15 core
+		if ($core_version == "j15") // J15 core
 		{
 			$xml_file = $schemasPath . "/joomla15/steps.xml";
 		}
-		else // J25 core
+		else // $core_version == "j25"
 		{
 			$xml_file = $schemasPath . "/joomla25/steps.xml";
 		}
@@ -192,7 +195,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 
 		$query = $this->_db->getQuery(true);
 
-		// Skipping the steps setted by user
+		// Set steps status inputted by user
 		foreach ($core_transport as $k => $v)
 		{
 			$transport = substr($k, 0, 9);
@@ -200,14 +203,15 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 
 			if ($transport == "transport")
 			{
-				if ($v == 1)
+				if ($v == 0)
 				{
+					// Clear previous query
 					$query->clear();
 
 					// Set all status to 2 and clear state
-					$query->update('#__jtransport_steps')
-						->set('status = 2')
-						->where("name = '{$name}'");
+					$query->update("#__jtransport_steps")
+							->set("status = 2")
+							->where("name = '" . $name . "'");
 
 					try
 					{
@@ -218,20 +222,27 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 						throw new RuntimeException($e->getMessage());
 					}
 
+					// Clear previous query
 					$query->clear();
 
+					// Set state if transport users
 					if ($name == 'users')
 					{
 						$query->update('#__jtransport_steps')
-							->set('status = 2');
+								->set('status = 2');
 
-						if ($core_version == 0)
+						if ($core_version == "j15")
 						{
-							$query->where('name = "arogroup" OR name = "usergroupmap" OR name = "aclaro"');
+							$query->where('name = "arogroup"', 'OR')
+									->where('name = "usergroupmap"', 'OR')
+									->where('name = "aclaro"');
 						}
-						else
+						else // $core_version == "j25"
 						{
-							$query->where('name = "usergroups" OR name = "usergroupmap" OR name = "usernotes" OR name = "userprofiles"');
+							$query->where('name = "usergroups"', 'OR')
+									->where('name = "usergroupmap"', 'OR')
+									->where('name = "usernotes"', 'OR')
+									->where('name = "userprofiles"');
 						}
 
 						try
@@ -244,13 +255,14 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 						}
 					}
 
+					// Set state if transport categories
 					if ($name == 'categories')
 					{
-						if ($core_version == 0)
+						if ($core_version == "j15")
 						{
 							$query->update('#__jtransport_steps')
-								->set('status = 2')
-								->where('name = "sections"');
+									->set('status = 2')
+									->where('name = "sections"');
 
 							try
 							{
@@ -276,10 +288,10 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 	{
 		// Getting the plugins list
 		$query = $this->_db->getQuery(true);
-		$query->select('*');
-		$query->from('#__extensions');
+		$query->select("*");
+		$query->from("#__extensions");
 		$query->where("type = 'plugin'");
-		$query->where("folder = 'redmigrator'");
+		$query->where("folder = 'jtransport'");
 		$query->where("enabled = 1");
 
 		// Setting the query and getting the result
@@ -300,70 +312,15 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 			// Looking for xml files
 			$files = (array) JFolder::files(JPATH_PLUGINS . "/redmigrator/{$plugin->element}/extensions", '\.xml$', true, true);
 
+			// Populate xml to db
 			foreach ($files as $xmlfile)
 			{
 				if (!empty($xmlfile))
 				{
-					$element = JFile::stripExt(basename($xmlfile));
-
-					if (array_key_exists($element, $this->extensions))
-					{
-						// Read xml definition file
-						$xml = simplexml_load_file($xmlfile);
-
-						// Getting the php file
-						if (!empty($xml->installer->file[0]))
-						{
-							$phpfile = JPATH_ROOT . '/' . trim($xml->installer->file[0]);
-						}
-
-						if (empty($phpfile))
-						{
-							$default_phpfile = JPATH_PLUGINS . "/redmigrator/{$plugin->element}/extensions/{$element}.php";
-							$phpfile = file_exists($default_phpfile) ? $default_phpfile : null;
-						}
-
-						// Getting the class
-						if (!empty($xml->installer->class[0]))
-						{
-							$class = trim($xml->installer->class[0]);
-						}
-
-						// Saving the extensions and migrating the tables
-						if (!empty($phpfile) || !empty($xmlfile))
-						{
-							// Adding tables to migrate
-							if (!empty($xml->tables[0]))
-							{
-								$count = count($xml->tables[0]->table);
-
-								for ($i = 0; $i < $count; $i++)
-								{
-									$table = new StdClass;
-									$attributes = $xml->tables->table[$i]->attributes();
-									$table->name = (string) $xml->tables->table[$i];
-									$table->title = (string) $attributes->title;
-									$table->tbl_key = (string) $attributes->tbl_key;
-									$table->source = (string) $xml->tables->table[$i];
-									$table->destination = (string) $attributes->destination;
-									$table->type = (string) $attributes->type;
-									$table->class = (string) $attributes->class;
-
-									if (!$this->_db->insertObject('#__redmigrator_steps', $table))
-									{
-										throw new Exception($this->_db->getErrorMsg());
-									}
-								}
-							}
-						} /*End if*/
-					} /*End if*/
-				} /*End if*/
-
-				unset($class);
-				unset($phpfile);
-				unset($xmlfile);
-			} /*End foreach*/
-		} /*End foreach*/
+					JTransportHelper::populateSteps($xmlfile);
+				}
+			}
+		}
 	}
-} // End class
+}
 

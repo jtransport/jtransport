@@ -13,19 +13,8 @@
 		</field>
 
 		<field
-			name="chunk_limit"
-			type="text"
-            class="btn-group"
-			label="COM_JTRANSPORT_CHUNK_LIMIT_LABEL"
-			description="COM_JTRANSPORT_CHUNK_LIMIT_DESC"
-            labelclass="control-label"
-			default="100">
-		</field>
-
-		<field
 			name="core_version"
-			type="radio"
-			class="btn-group"
+			type="list"
 			label="COM_JTRANSPORT_CORE_VERSION_LABEL"
 			description="COM_JTRANSPORT_CORE_VERSION_DESC"
             labelclass="control-label"
@@ -132,11 +121,21 @@
 			description="COM_JTRANSPORT_DATABASE_TABLE_PREFIX_DESC"
             labelclass="control-label">
 		</field>
+
+		<field
+				name="chunk_limit"
+				type="text"
+				class="btn-group"
+				label="COM_JTRANSPORT_CHUNK_LIMIT_LABEL"
+				description="COM_JTRANSPORT_CHUNK_LIMIT_DESC"
+				labelclass="control-label"
+				default="100">
+		</field>
 	</fieldset>
 
 	<fieldset name="core_transport" label="COM_JTRANSPORT_CONFIG_CORE">
 		<field
-			name="transport_user"
+			name="transport_users"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_USER_LABEL"
@@ -148,7 +147,7 @@
 		</field>
 
 		<field
-			name="transport_category"
+			name="transport_categories"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_CATEGORY_LABEL"
@@ -196,7 +195,7 @@
 		</field>
 
 		<field
-			name="transport_menu_type"
+			name="transport_menu_types"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_MENU_TYPE_LABEL"
@@ -208,7 +207,7 @@
 		</field>
 
 		<field
-			name="transport_module"
+			name="transport_modules"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_MODULE_LABEL"
@@ -220,7 +219,7 @@
 		</field>
 
 		<field
-			name="transport_module_menu"
+			name="transport_modules_menu"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_MODULE_MENU_LABEL"
@@ -232,7 +231,7 @@
 		</field>
 
 		<field
-			name="transport_banner"
+			name="transport_banners"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_LABEL"
@@ -244,7 +243,7 @@
 		</field>
 
 		<field
-			name="transport_banner_client"
+			name="transport_banner_clients"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_CLIENT_LABEL"
@@ -256,7 +255,7 @@
 		</field>
 
 		<field
-			name="transport_banner_track"
+			name="transport_banner_tracks"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_BANNER_TRACK_LABEL"
@@ -268,7 +267,7 @@
 		</field>
 
 		<field
-			name="transport_contact"
+			name="transport_contacts"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_CONTACT_LABEL"
@@ -280,7 +279,7 @@
 		</field>
 
 		<field
-			name="transport_newsfeed"
+			name="transport_newsfeeds"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_NEWSFEED_LABEL"
@@ -292,7 +291,7 @@
 		</field>
 
 		<field
-			name="transport_weblink"
+			name="transport_weblinks"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_CORE_TRANSPORT_WEBLINK_LABEL"
@@ -306,7 +305,7 @@
 
 	<fieldset name="advance" label="COM_JTRANSPORT_CONFIG_ADVANCE">
 		<field
-			name="remove_target_user"
+			name="remove_target_users"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_USER_LABEL"
@@ -318,7 +317,7 @@
 		</field>
 
 		<field
-			name="remove_target_category"
+			name="remove_target_categories"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CATEGORY_LABEL"
@@ -366,7 +365,7 @@
 		</field>
 
 		<field
-			name="remove_target_menu_type"
+			name="remove_target_menu_types"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MENU_TYPE_LABEL"
@@ -378,7 +377,7 @@
 		</field>
 
 		<field
-			name="remove_target_module"
+			name="remove_target_modules"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MODULE_LABEL"
@@ -390,7 +389,7 @@
 		</field>
 
 		<field
-			name="remove_target_module_menu"
+			name="remove_target_modules_menu"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_MODULE_MENU_LABEL"
@@ -402,7 +401,7 @@
 		</field>
 
 		<field
-			name="remove_target_banner"
+			name="remove_target_banners"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_LABEL"
@@ -414,7 +413,7 @@
 		</field>
 
 		<field
-			name="remove_target_banner_client"
+			name="remove_target_banner_clients"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_CLIENT_LABEL"
@@ -426,7 +425,7 @@
 		</field>
 
 		<field
-			name="remove_target_banner_track"
+			name="remove_target_banner_tracks"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_BANNER_TRACK_LABEL"
@@ -438,7 +437,7 @@
 		</field>
 
 		<field
-			name="remove_target_contact"
+			name="remove_target_contacts"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_CONTACT_LABEL"
@@ -450,7 +449,7 @@
 		</field>
 
 		<field
-			name="remove_target_newsfeed"
+			name="remove_target_newsfeeds"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_NEWSFEED_LABEL"
@@ -462,7 +461,7 @@
 		</field>
 
 		<field
-			name="remove_target_weblink"
+			name="remove_target_weblinks"
 			type="radio"
 			class="btn-group"
 			label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_WEBLINK_LABEL"

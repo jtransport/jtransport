@@ -20,8 +20,8 @@ class JTransportControllerAjax extends JControllerLegacy
 	/**
 	 * Get Model
 	 *
-	 * @param string $name
-	 * @param string $prefix
+	 * @param   string  $name    Name
+	 * @param   string  $prefix  Prefix
 	 *
 	 * @return object
 	 */
