@@ -1,25 +1,21 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-JLoader::register('JTransport', JPATH_COMPONENT_ADMINISTRATOR . '/includes/redmigrator.class.php');
-JLoader::register('JTransportStep', JPATH_COMPONENT_ADMINISTRATOR . '/includes/redmigrator.step.class.php');
+JLoader::register('JTransport', JPATH_COMPONENT_ADMINISTRATOR . '/includes/jtransport.class.php');
+JLoader::register('JTransportStep', JPATH_COMPONENT_ADMINISTRATOR . '/includes/jtransport.step.class.php');
 
 /**
  * JTransport Model
  *
  */
-class JTransportModelAjaxTransport extends RModelAdmin
+class JTransportModelAjaxTransport extends JModelLegacy
 {
 	/**
 	 * Migrate
@@ -31,7 +27,7 @@ class JTransportModelAjaxTransport extends RModelAdmin
 	 *
 	 * @throws Exception
 	 */
-	function migrate($table = false, $extensions = false)
+	function transport($table = false, $extensions = false)
 	{
 		if ($table === false)
 		{
@@ -45,12 +41,12 @@ class JTransportModelAjaxTransport extends RModelAdmin
 
 		// Init the JTransport instance
 		$step = JTransportStep::getInstance($table, $extensions);
-		$redmigrator = JTransport::getInstance($step);
+		$jtransport = JTransport::getInstance($step);
 
 		// Get the database structure
 		if ($step->first == true && $extensions == 'tables')
 		{
-			$redmigrator->getTableStructure();
+			$jtransport->getTableStructure();
 		}
 
 		// Run the upgrade
@@ -58,7 +54,7 @@ class JTransportModelAjaxTransport extends RModelAdmin
 		{
 			try
 			{
-				$redmigrator->upgrade();
+				$jtransport->upgrade();
 			}
 			catch (Exception $e)
 			{
@@ -89,7 +85,7 @@ class JTransportModelAjaxTransport extends RModelAdmin
 			$step->stop = -1;
 		}
 
-		// Update #__redmigrator_steps table if id = last_id
+		// Update #__jtransport_steps table if id = last_id
 		if ( ( ($step->total <= $step->cid) || ($step->stop == -1) && ($empty == false) ) )
 		{
 			$step->next = true;
@@ -98,13 +94,7 @@ class JTransportModelAjaxTransport extends RModelAdmin
 			$step->_updateStep();
 		}
 
-		if (!JTransportHelper::isCli())
-		{
-			echo $step->getParameters();
-		}
-		else
-		{
-			return $step->getParameters();
-		}
+		// Return params to client
+		echo $step->getParameters();
 	}
 } // End class
