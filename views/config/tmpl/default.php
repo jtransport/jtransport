@@ -59,12 +59,6 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
                     </div>
                 </div>
                 <div class="control-group">
-		            <?php echo $this->form->getLabel('chunk_limit'); ?>
-                    <div class="controls">
-		                <?php echo $this->form->getInput('chunk_limit'); ?>
-                    </div>
-                </div>
-                <div class="control-group">
                     <?php echo $this->form->getLabel('core_version'); ?>
                     <div class="controls">
 			            <?php echo $this->form->getInput('core_version'); ?>
@@ -140,21 +134,27 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
 					    <?php echo $this->form->getInput('table_prefix'); ?>
                     </div>
 				</div>
+				<div class="control-group">
+					<?php echo $this->form->getLabel('chunk_limit'); ?>
+					<div class="controls">
+						<?php echo $this->form->getInput('chunk_limit'); ?>
+					</div>
+				</div>
 			</fieldset>
 		</div>
 
 		<div class="tab-pane" id="coretransport">
 			<fieldset class="adminform">
 				<div class="control-group">
-					<?php echo $this->form->getLabel('transport_user'); ?>
+					<?php echo $this->form->getLabel('transport_users'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_user'); ?>
+					    <?php echo $this->form->getInput('transport_users'); ?>
                     </div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_category'); ?>
+					<?php echo $this->form->getLabel('transport_categories'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_category'); ?>
+					    <?php echo $this->form->getInput('transport_categories'); ?>
                     </div>
                 </div>
                 <div class="control-group">
@@ -176,57 +176,57 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
                     </div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_menu_type'); ?>
+					<?php echo $this->form->getLabel('transport_menu_types'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_menu_type'); ?>
+					    <?php echo $this->form->getInput('transport_menu_types'); ?>
                     </div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_module'); ?>
+					<?php echo $this->form->getLabel('transport_modules'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_module'); ?>
+					    <?php echo $this->form->getInput('transport_modules'); ?>
                     </div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_module_menu'); ?>
+					<?php echo $this->form->getLabel('transport_modules_menu'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_module_menu'); ?>
+					    <?php echo $this->form->getInput('transport_modules_menu'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_banner'); ?>
+					<?php echo $this->form->getLabel('transport_banners'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_banner'); ?>
+					    <?php echo $this->form->getInput('transport_banners'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_banner_client'); ?>
+					<?php echo $this->form->getLabel('transport_banner_clients'); ?>
                     <div class="controls">
-					<?php echo $this->form->getInput('transport_banner_client'); ?>
+					<?php echo $this->form->getInput('transport_banner_clients'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_banner_track'); ?>
+					<?php echo $this->form->getLabel('transport_banner_tracks'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_banner_track'); ?>
+					    <?php echo $this->form->getInput('transport_banner_tracks'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_contact'); ?>
+					<?php echo $this->form->getLabel('transport_contacts'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_contact'); ?>
+					    <?php echo $this->form->getInput('transport_contacts'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_newsfeed'); ?>
+					<?php echo $this->form->getLabel('transport_newsfeeds'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_newsfeed'); ?>
+					    <?php echo $this->form->getInput('transport_newsfeeds'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('transport_weblink'); ?>
+					<?php echo $this->form->getLabel('transport_weblinks'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('transport_weblink'); ?>
+					    <?php echo $this->form->getInput('transport_weblinks'); ?>
 					</div>
 				</div>
 			</fieldset>
