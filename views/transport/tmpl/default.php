@@ -29,22 +29,59 @@ $params	= $this->params;
 		$('#warning').css('display','none');
 
 		$("#start-transport").click(function() {
+			preTransportProcess();
+		});
+
+		preTransportProcess = function()
+		{
 			$.ajax({
 				url:'index.php?option=com_jtransport&format=raw&task=ajax.preTransport',
 				success:function(result){
-
 					var object = JSON.decode(result);
 
-					if (object.number == 500)
+					// User's config error
+					if (object != null && object.number == 500)
 					{
 						$("#debug").html(object.text);
 					}
-
-					$("#one-step-progress").css("width", "10%");
-					$("#one-step-text").html("10% Complete");
+					else
+					{
+						$("#debug").html("Pre transport progress: completed");
+						stepProcess();
+						// $("#one-step-progress").css("width", "10%");
+						// $("#one-step-text").html("10% Complete");
+					}
 				}
 			});
-		});
+		}
+
+		var stepNo = 0;
+		var preStep = '';
+
+		stepProcess = function()
+		{
+			$.ajax({
+				url:'index.php?option=com_jtransport&format=raw&task=ajax.step',
+				success:function(result){
+					var object = JSON.decode(result);
+
+					if (object.total == 0)
+					{
+						if (object.name == object.laststep)
+						{
+							alert('Transport Success');
+						}
+						else
+						{
+							stepProcess();
+						}
+					}
+
+
+					alert(result);
+				}
+			});
+		}
 	});
 
 	Joomla.submitbutton = function(task)

@@ -1,20 +1,19 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- *
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for Users
  *
  * This class takes the users from the source site and inserts them into the target site.
  */
-class RedMigratorUsernotes extends RedMigrator
+class JTransportUsernotes extends JTransport
 {
 	/**
 	 * Change structure of table and value of fields
@@ -33,13 +32,13 @@ class RedMigratorUsernotes extends RedMigrator
 
 			if (!empty($row['user_id']))
 			{
-				$newUserId = RedMigratorHelper::lookupNewId('arrUsers', $row['user_id']);
+				$newUserId = JTransportHelper::lookupNewId('arrUsers', $row['user_id']);
 				$row['user_id'] = $newUserId;
 			}
 
 			if (!empty($row['created_user_id']))
 			{
-				$newCreatedUserId = RedMigratorHelper::lookupNewId('arrUsers', $row['created_user_id']);
+				$newCreatedUserId = JTransportHelper::lookupNewId('arrUsers', $row['created_user_id']);
 				$row['created_user_id'] = $newCreatedUserId;
 			}
 		}

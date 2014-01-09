@@ -1,13 +1,13 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+
 /**
  * Upgrade class for Newsfeeds
  *
@@ -15,7 +15,7 @@
  *
  * @since  0.4.5
  */
-class RedMigratorNewsfeeds extends RedMigrator
+class JTransportNewsfeeds extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.
@@ -38,12 +38,12 @@ class RedMigratorNewsfeeds extends RedMigrator
 
 			if ($row['created_by'] != '')
 			{
-				$row['created_by'] = RedMigratorHelper::lookupNewId('arrUsers', (int) $row['created_by']);
+				$row['created_by'] = JTransportHelper::lookupNewId('arrUsers', (int) $row['created_by']);
 			}
 
 			if ($row['modified_by'] != '')
 			{
-				$row['modified_by'] = RedMigratorHelper::lookupNewId('arrUsers', (int) $row['modified_by']);
+				$row['modified_by'] = JTransportHelper::lookupNewId('arrUsers', (int) $row['modified_by']);
 			}
 
 			if (version_compare(PHP_VERSION, '3.0', '>='))

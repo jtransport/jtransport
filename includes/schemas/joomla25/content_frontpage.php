@@ -1,19 +1,18 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for FrontEnd content
  *
  */
-class RedMigratorContentFrontpage extends RedMigrator
+class JTransportContentFrontpage extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.
@@ -28,7 +27,7 @@ class RedMigratorContentFrontpage extends RedMigrator
 
 			if ($row['content_id'] != '')
 			{
-				$row['content_id'] = RedMigratorHelper::lookupNewId('arrContent', (int) $row['content_id']);
+				$row['content_id'] = JTransportHelper::lookupNewId('arrContent', (int) $row['content_id']);
 			}
 		}
 

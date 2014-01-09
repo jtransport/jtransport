@@ -1,13 +1,12 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for Users
@@ -16,7 +15,7 @@
  *
  * @since  0.4.4
  */
-class RedMigratorUsers extends RedMigrator
+class JTransportUsers extends JTransport
 {
 
 
@@ -32,7 +31,7 @@ class RedMigratorUsers extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$new_id = RedMigratorHelper::getAutoIncrement('users') - 1;
+		$new_id = JTransportHelper::getAutoIncrement('users') - 1;
 
 		// Do some custom post processing on the list.
 		foreach ($rows as &$row)
@@ -44,12 +43,12 @@ class RedMigratorUsers extends RedMigrator
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrUsers = $session->get('arrUsers', null, 'redmigrator');
+			$arrUsers = $session->get('arrUsers', null, 'JTransport');
 
 			$arrUsers[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrUsers', $arrUsers, 'redmigrator');
+			$session->set('arrUsers', $arrUsers, 'JTransport');
 
 			$row['id'] = null;
 

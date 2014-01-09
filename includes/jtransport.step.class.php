@@ -9,7 +9,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 /**
- * redmigrator step class
+ * jtransport step class
  */
 class JTransportStep
 {
@@ -78,25 +78,15 @@ class JTransportStep
 	/**
 	 * Constructor
 	 *
-	 * @param null $name
-	 * @param bool $extensions
+	 * @param   null  $name  Name
 	 */
-	function __construct($name = null, $extensions = false)
+	function __construct($name = null)
 	{
 		JLoader::import('legacy.component.helper');
 
 		// Creating dabatase instance for this installation
 		$this->_db = JFactory::getDBO();
-
-		// Set step table
-		if ($extensions == false)
-		{
-			$this->_table = '#__redmigrator_steps';
-		}
-		elseif ($extensions == true)
-		{
-			$this->_table = '#__redmigrator_extensions';
-		}
+		$this->_table = '#__jtransport_steps';
 
 		// Load the last step from database
 		$this->_load($name);
@@ -105,17 +95,16 @@ class JTransportStep
 	/**
 	 * Get step instance
 	 *
-	 * @param   string  $name        Name
-	 * @param   bool    $extensions  True if there 3rd extensions
+	 * @param   string  $name  Name
 	 *
-	 * @return  redmigrator  A redmigrator object.
+	 * @return  jtransport  A jtransport object.
 	 */
-	public static function getInstance($name = null, $extensions = false)
+	public static function getInstance($name = null)
 	{
-		// Create our new redmigrator connector based on the options given.
+		// Create our new jtransport connector based on the options given.
 		try
 		{
-			$instance = new JTransportStep($name, $extensions);
+			$instance = new JTransportStep($name);
 		}
 		catch (RuntimeException $e)
 		{
@@ -176,7 +165,7 @@ class JTransportStep
 
 		// Get the last step and save to session
 		$session = JFactory::getSession();
-		$laststep = $session->get('laststep', '', 'redmigrator');
+		$laststep = $session->get('laststep', '', 'jtransport');
 
 		if ($laststep == '')
 		{
@@ -194,7 +183,7 @@ class JTransportStep
 
 			$laststep = $this->_db->loadResult();
 
-			$session->set('laststep', $laststep, 'redmigrator');
+			$session->set('laststep', $laststep, 'jtransport');
 		}
 		else
 		{
@@ -202,7 +191,7 @@ class JTransportStep
 		}
 
 		// Get total of steps and save to session
-		$stepTotal = $session->get('stepTotal', 0, 'redmigrator');
+		$stepTotal = $session->get('stepTotal', 0, 'jtransport');
 
 		if ($stepTotal == 0)
 		{
@@ -210,14 +199,14 @@ class JTransportStep
 			$query = $this->_db->getQuery(true);
 
 			$query->select('count(*)')
-					->from('#__redmigrator_steps')
+					->from('#__jtransport_steps')
 					->where('status = 0');
 
 			$this->_db->setQuery($query);
 
 			$stepTotal = $this->_db->loadResult();
 
-			$session->set('stepTotal', $stepTotal, 'redmigrator');
+			$session->set('stepTotal', $stepTotal, 'jtransport');
 		}
 		else
 		{
@@ -235,7 +224,7 @@ class JTransportStep
 	 *
 	 * @return array|bool
 	 */
-	public function getStep($name = false, $json = true)
+	public function getStep($name = false)
 	{
 		// Check if step is loaded
 		if (empty($name))
@@ -243,7 +232,8 @@ class JTransportStep
 			return false;
 		}
 
-		$params = JTransportHelper::getParams();
+		$params = JComponentHelper::getParams('com_jtransport');
+		$params = $params->toObject();
 
 		$limit = $params->chunk_limit;
 
@@ -348,7 +338,7 @@ class JTransportStep
 
 		if (!empty($name))
 		{
-			$query->where("name = '{$name}'");
+			$query->where("name = " . $this->_db->quote($name));
 		}
 		else
 		{
@@ -403,11 +393,9 @@ class JTransportStep
 			}
 		}
 
-		// $query->where("name = {$this->_db->quote($this->name)}");
 		$query->where("name = " . $this->_db->quote($this->name));
 
 		$this->_db->setQuery($query);
-
 		$this->_db->execute();
 
 		// Check for query error.
@@ -436,8 +424,8 @@ class JTransportStep
 
 		$query = $this->_db->getQuery(true);
 		$query->update($this->_table);
-		$query->set("`cid` = '{$cid}'");
-		$query->where("name = {$this->_db->quote($name)}");
+		$query->set("cid = " . $this->_db->quote($cid));
+		$query->where("name = " . $this->_db->quote($name));
 
 		// Execute the query
 		return $this->_db->setQuery($query)->execute();

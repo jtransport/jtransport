@@ -2,7 +2,7 @@
 /**
  * JTransport
  *
- * @author   vdkhai
+ * @author vdkhai
  */
 
 // No direct access to this file
@@ -17,19 +17,6 @@ defined('_JEXEC') or die('Restricted access');
  */
 class JTransportControllerAjax extends JControllerLegacy
 {
-	/**
-	 * Get Model
-	 *
-	 * @param   string  $name    Name
-	 * @param   string  $prefix  Prefix
-	 *
-	 * @return object
-	 */
-	public function getModel($name = '', $prefix = 'JTransportModel')
-	{
-		return parent::getModel($name, $prefix, array('ignore_request' => true));
-	}
-
 	/**
 	 * Run the JTransport checks
 	 *
@@ -49,7 +36,6 @@ class JTransportControllerAjax extends JControllerLegacy
 		{
 			JTransportHelper::returnError(500, $e->getMessage());
 		}
-
 	}
 
 	/**

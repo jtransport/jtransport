@@ -1,13 +1,13 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- *
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+
 /**
  * Upgrade class for modules
  *
@@ -15,7 +15,7 @@
  *
  * @since  0.4.5
  */
-class RedMigratorModules extends RedMigrator
+class JTransportModules extends JTransport
 {
 	private $map = array(
 							// Old	                => // New
@@ -39,7 +39,7 @@ class RedMigratorModules extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$new_id = RedMigratorHelper::getAutoIncrement('modules') - 1;
+		$new_id = JTransportHelper::getAutoIncrement('modules') - 1;
 
 		// Get the component parameter with global settings
 		$params = $this->getParams();
@@ -57,12 +57,12 @@ class RedMigratorModules extends RedMigrator
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrModules = $session->get('arrModules', null, 'redmigrator');
+			$arrModules = $session->get('arrModules', null, 'JTransport');
 
 			$arrModules[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrModules', $arrModules, 'redmigrator');
+			$session->set('arrModules', $arrModules, 'JTransport');
 
 			$row['id'] = null;
 

@@ -235,15 +235,15 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
 		<div class="tab-pane" id="advance">
 			<fieldset class="adminform">
 				<div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_user'); ?>
+					<?php echo $this->form->getLabel('remove_target_users'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_user'); ?>
+					    <?php echo $this->form->getInput('remove_target_users'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_category'); ?>
+					<?php echo $this->form->getLabel('remove_target_categories'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_category'); ?>
+					    <?php echo $this->form->getInput('remove_target_categories'); ?>
 					</div>
                 </div>
                 <div class="control-group">
@@ -265,57 +265,57 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_menu_type'); ?>
+					<?php echo $this->form->getLabel('remove_target_menu_types'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_menu_type'); ?>
+					    <?php echo $this->form->getInput('remove_target_menu_types'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_module'); ?>
+					<?php echo $this->form->getLabel('remove_target_modules'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_module'); ?>
+					    <?php echo $this->form->getInput('remove_target_modules'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_module_menu'); ?>
+					<?php echo $this->form->getLabel('remove_target_modules_menu'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_module_menu'); ?>
+					    <?php echo $this->form->getInput('remove_target_modules_menu'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_banner'); ?>
+					<?php echo $this->form->getLabel('remove_target_banners'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_banner'); ?>
+					    <?php echo $this->form->getInput('remove_target_banners'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_banner_client'); ?>
+					<?php echo $this->form->getLabel('remove_target_banner_clients'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_banner_client'); ?>
+					    <?php echo $this->form->getInput('remove_target_banner_clients'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_banner_track'); ?>
+					<?php echo $this->form->getLabel('remove_target_banner_tracks'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_banner_track'); ?>
+					    <?php echo $this->form->getInput('remove_target_banner_tracks'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_contact'); ?>
+					<?php echo $this->form->getLabel('remove_target_contacts'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_contact'); ?>
+					    <?php echo $this->form->getInput('remove_target_contacts'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_newsfeed'); ?>
+					<?php echo $this->form->getLabel('remove_target_newsfeeds'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_newsfeed'); ?>
+					    <?php echo $this->form->getInput('remove_target_newsfeeds'); ?>
 					</div>
                 </div>
                 <div class="control-group">
-					<?php echo $this->form->getLabel('remove_target_weblink'); ?>
+					<?php echo $this->form->getLabel('remove_target_weblinks'); ?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('remove_target_weblink'); ?>
+					    <?php echo $this->form->getInput('remove_target_weblinks'); ?>
                     </div>
 				</div>
 			</fieldset>
