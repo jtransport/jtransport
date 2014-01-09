@@ -1,20 +1,19 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for Contacts
  *
  * This class takes the contacts from the existing site and inserts them into the new site.
  */
-class RedMigratorContacts extends RedMigrator
+class JTransportContacts extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.
@@ -35,12 +34,12 @@ class RedMigratorContacts extends RedMigrator
 
 			if ($row['user_id'] != '')
 			{
-				$row['user_id'] = RedMigratorHelper::lookupNewId('arrUsers', (int) $row['user_id']);
+				$row['user_id'] = JTransportHelper::lookupNewId('arrUsers', (int) $row['user_id']);
 			}
 
 			if ($row['catid'] != '')
 			{
-				$row['catid'] = RedMigratorHelper::lookupNewId('arrCategories', (int) $row['catid']);
+				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
 			}
 
 			if (version_compare(PHP_VERSION, '3.0', '>='))

@@ -1,13 +1,12 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- *
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for categories
@@ -16,7 +15,7 @@
  *
  * @since  0.4.5
  */
-class RedMigratorCategories extends RedMigrator
+class JTransportCategories extends JTransport
 {
 	/**
 	 * Change structure of table and value of fields
@@ -35,7 +34,7 @@ class RedMigratorCategories extends RedMigrator
 
 			if (is_numeric($row['section']))
 			{
-				$row['parent_id'] = RedMigratorHelper::lookupNewId('arrCategories', (int) $row['section']);
+				$row['parent_id'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['section']);
 				$row['extension'] = 'com_content';
 			}
 			else

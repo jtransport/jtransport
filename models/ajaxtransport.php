@@ -14,6 +14,7 @@ JLoader::register('JTransportStep', JPATH_COMPONENT_ADMINISTRATOR . '/includes/j
 /**
  * JTransport Model
  *
+ * @since  1.0.0
  */
 class JTransportModelAjaxTransport extends JModelLegacy
 {

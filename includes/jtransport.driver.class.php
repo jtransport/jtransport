@@ -11,11 +11,12 @@ defined('_JEXEC') or die('Restricted access');
 /**
  * JTransport driver class
  *
+ * @since  1.0.1
  */
 class JTransportDriver
 {
 	/**
-	 * Config params
+	 * User's config params
 	 *
 	 * @var object
 	 */
@@ -38,14 +39,15 @@ class JTransportDriver
 	/**
 	 * Constructor
 	 *
-	 * @param JTransportStep $step
+	 * @param   JTransportStep  $step  Step
 	 */
 	public function __construct(JTransportStep $step = null)
 	{
-		JLoader::import('legacy.component.helper');
+		// JLoader::import('legacy.component.helper');
 
-		// Get config params
-		$this->params = JTransportHelper::getParams();
+		// Get user's config params
+		$params = JComponentHelper::getParams('com_jtransport');
+		$this->params = $params->toObject();
 
 		// Creating dabatase instance for this installation
 		$this->_db = JFactory::getDBO();
@@ -57,9 +59,11 @@ class JTransportDriver
 	/**
 	 * Create driver instance depend on $param->method (database or restful)
 	 *
-	 * @param   stdClass   $options  Parameters to be passed to the database driver.
+	 * @param   JTransportStep  $step  Step
 	 *
-	 * @return  JTransport  A JTransport object.
+	 * @return mixed
+	 *
+	 * @throws RuntimeException
 	 */
 	public static function getInstance(JTransportStep $step = null)
 	{
@@ -67,11 +71,12 @@ class JTransportDriver
 		JLoader::import('joomla.filesystem.file');
 
 		// Getting the params and Joomla version web and cli
-		$params = JTransportHelper::getParams();
+		$params = JComponentHelper::getParams('com_jtransport');
+		$params = $params->toObject();
 
 		// Derive the class name from the driver.
-		$class_name = 'JTransportDriver' . ucfirst(strtolower($params->method));
-		$class_file = JPATH_COMPONENT_ADMINISTRATOR . '/includes/driver/' . $params->method . '.php';
+		$class_name = 'JTransportDriver' . ucfirst(strtolower($params->transport_method));
+		$class_file = JPATH_COMPONENT_ADMINISTRATOR . '/includes/driver/' . $params->transport_method . '.php';
 
 		// Require the driver file
 		if (JFile::exists($class_file))
@@ -82,7 +87,7 @@ class JTransportDriver
 		// If the class still doesn't exist we have nothing left to do but throw an exception.  We did our best.
 		if (!class_exists($class_name))
 		{
-			throw new RuntimeException(sprintf('Unable to load JTransport Driver: %s', $params->method));
+			throw new RuntimeException(sprintf('Unable to load JTransport Driver: %s', $params->transport_method));
 		}
 
 		// Create our new JTransportDriver connector based on the options given.
@@ -109,21 +114,19 @@ class JTransportDriver
 	}
 
 	/**
-	 * Update the step id
+	 * Update step cid
 	 *
-	 * @return  int  The next id
-	 *
-	 * @since   3.0.0
+	 * @return int
 	 */
-	public function _getStepID()
+	public function _getStepCID()
 	{
 		return $this->_step->cid;
 	}
 
 	/**
-	 * @return  string	The step name
+	 * Get step name
 	 *
-	 * @since   3.0
+	 * @return null
 	 */
 	public function _getStepName()
 	{

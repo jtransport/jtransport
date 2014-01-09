@@ -1,13 +1,12 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for categories
@@ -16,7 +15,7 @@
  *
  * @since  0.4.5
  */
-class RedMigratorCategories extends RedMigrator
+class JTransportCategories extends JTransport
 {
 	/**
 	 * Change structure of table and value of fields
@@ -30,7 +29,7 @@ class RedMigratorCategories extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$new_id = RedMigratorHelper::getAutoIncrement('categories') - 1;
+		$new_id = JTransportHelper::getAutoIncrement('categories') - 1;
 
 		// Do some custom post processing on the list.
 		foreach ($rows as &$row)
@@ -51,27 +50,27 @@ class RedMigratorCategories extends RedMigrator
 				$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 			}
 
-			$arrCategories = $session->get('arrCategories', null, 'redmigrator');
+			$arrCategories = $session->get('arrCategories', null, 'JTransport');
 
 			$arrCategories[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrCategories', $arrCategories, 'redmigrator');
+			$session->set('arrCategories', $arrCategories, 'JTransport');
 
 			if ((int) $row['parent_id'] != 0)
 			{
 				// Parent item was inserted, so lookup new id
 				if ((int) $row['id'] > (int) $row['parent_id'])
 				{
-					$row['parent_id'] = RedMigratorHelper::lookupNewId('arrCategories', (int) $row['parent_id']);
+					$row['parent_id'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['parent_id']);
 				}
 				else // Parent item haven't been inserted, so will lookup new id and update item apter hook
 				{
-					$arrCategoriesSwapped = $session->get('arrCategoriesSwapped', null, 'redmigrator');
+					$arrCategoriesSwapped = $session->get('arrCategoriesSwapped', null, 'JTransport');
 
 					$arrCategoriesSwapped[] = array('new_id' => $new_id, 'old_parent_id' => (int) $row['parent_id']);
 
-					$session->set('arrCategoriesSwapped', $arrCategoriesSwapped, 'redmigrator');
+					$session->set('arrCategoriesSwapped', $arrCategoriesSwapped, 'JTransport');
 
 					$row['parent_id'] = $this->getRootId();
 				}
@@ -95,7 +94,7 @@ class RedMigratorCategories extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$arrMenuSwapped = $session->get('arrCategoriesSwapped', null, 'redmigrator');
+		$arrMenuSwapped = $session->get('arrCategoriesSwapped', null, 'JTransport');
 
 		foreach ($arrMenuSwapped as $item)
 		{
@@ -103,7 +102,7 @@ class RedMigratorCategories extends RedMigrator
 
 			$objTable->load($item['new_id']);
 
-			$objTable->parent_id = RedMigratorHelper::lookupNewId('arrCategories', $item['old_parent_id']);
+			$objTable->parent_id = JTransportHelper::lookupNewId('arrCategories', $item['old_parent_id']);
 
 			$objTable->setLocation($objTable->parent_id, 'last-child');
 

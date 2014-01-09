@@ -1,13 +1,13 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+
 /**
  * Upgrade class for modules menu
  *
@@ -15,7 +15,7 @@
  *
  * @since  0.4.5
  */
-class RedMigratorModulesMenu extends RedMigrator
+class JTransportModulesMenu extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.
@@ -31,12 +31,12 @@ class RedMigratorModulesMenu extends RedMigrator
 
 			if ($row['moduleid'] != '')
 			{
-				$row['moduleid'] = RedMigratorHelper::lookupNewId('arrModules', (int) $row['moduleid']);
+				$row['moduleid'] = JTransportHelper::lookupNewId('arrModules', (int) $row['moduleid']);
 			}
 
 			if ($row['menuid'] != '' && (int) $row['menuid'] > 0)
 			{
-				$row['menuid'] = RedMigratorHelper::lookupNewId('arrMenu', (int) $row['menuid']);
+				$row['menuid'] = JTransportHelper::lookupNewId('arrMenu', (int) $row['menuid']);
 			}
 
 			// Module or menu item doesn't exist

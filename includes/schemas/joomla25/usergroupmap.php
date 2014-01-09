@@ -1,13 +1,12 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for the Usergroup Map
@@ -16,7 +15,7 @@
  * User id's are maintained in this upgrade process.
  *
  */
-class RedMigratorUsergroupMap extends RedMigrator
+class JTransportUsergroupMap extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.
@@ -35,13 +34,13 @@ class RedMigratorUsergroupMap extends RedMigrator
 
 			if (!empty($row['user_id']))
 			{
-				$newUserId = RedMigratorHelper::lookupNewId('arrUsers', $row['user_id']);
+				$newUserId = JTransportHelper::lookupNewId('arrUsers', $row['user_id']);
 				$row['user_id'] = $newUserId;
 			}
 
 			if (!empty($row['group_id']))
 			{
-				$newGroupId = RedMigratorHelper::lookupNewId('arrUsergroups', $row['group_id']);
+				$newGroupId = JTransportHelper::lookupNewId('arrUsergroups', $row['group_id']);
 				$row['group_id'] = $newGroupId;
 			}
 		}

@@ -1,13 +1,12 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- *
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for Banners
@@ -16,7 +15,7 @@
  *
  * @since  0.4.5
  */
-class RedMigratorBanners extends RedMigrator
+class JTransportBanners extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.
@@ -31,7 +30,7 @@ class RedMigratorBanners extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$new_id = RedMigratorHelper::getAutoIncrement('banners') - 1;
+		$new_id = JTransportHelper::getAutoIncrement('banners') - 1;
 
 		foreach ($rows as &$row)
 		{
@@ -42,19 +41,19 @@ class RedMigratorBanners extends RedMigrator
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrBanners = $session->get('arrBanners', null, 'redmigrator');
+			$arrBanners = $session->get('arrBanners', null, 'JTransport');
 
 			$arrBanners[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrBanners', $arrBanners, 'redmigrator');
+			$session->set('arrBanners', $arrBanners, 'JTransport');
 
 			$row['id'] = null;
 			$row['alias'] = $row['alias'] . '_old';
 
 			if ($row['catid'] != '')
 			{
-				$row['catid'] = RedMigratorHelper::lookupNewId('arrCategories', (int) $row['catid']);
+				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
 			}
 
 			$temp = new JRegistry($row['params']);
