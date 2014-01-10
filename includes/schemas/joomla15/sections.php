@@ -41,12 +41,12 @@ class JTransportSections extends JTransport
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrCategories = $session->get('arrCategories', null, 'JTransport');
+			$arrCategories = $session->get('arrCategories', null, 'jtransport');
 
 			$arrCategories[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrCategories', $arrCategories, 'JTransport');
+			$session->set('arrCategories', $arrCategories, 'jtransport');
 
 			$row['id'] = null;
 			$row['alias'] = $row['alias'] . '_old';

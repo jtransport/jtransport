@@ -11,11 +11,7 @@ defined('_JEXEC') or die('Restricted access');
 /**
  * Upgrade class for the Usergroup Map
  *
- * This translates the group mapping table from 1.5 to 3.0.
- * Group id's up to 30 need to be mapped to the new group id's.
- * Group id's over 30 can be used as is.
- * User id's are maintained in this upgrade process.
- *
+ * @since  1.0.0
  */
 class JTransportAclaro extends JTransport
 {

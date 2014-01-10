@@ -40,12 +40,12 @@ class JTransportModules extends JTransport
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrModules = $session->get('arrModules', null, 'JTransport');
+			$arrModules = $session->get('arrModules', null, 'jtransport');
 
 			$arrModules[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrModules', $arrModules, 'JTransport');
+			$session->set('arrModules', $arrModules, 'jtransport');
 
 			$row['id'] = null;
 

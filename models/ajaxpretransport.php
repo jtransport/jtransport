@@ -107,7 +107,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		$session->set('laststep', '', 'jtransport');
 
 		// Map section old id to new id
-		$session->set('arrSections', array(), 'redmigrator');
+		$session->set('arrSections', array(), 'jtransport');
 
 		// Map category old id to new id
 		$session->set('arrCategories', array(), 'jtransport');
@@ -296,15 +296,15 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		foreach ($plugins as $plugin)
 		{
 			// Remove database or 3rd extensions if exists
-			$uninstall_script = JPATH_PLUGINS . "/redmigrator/{$plugin->element}/sql/uninstall.utf8.sql";
+			$uninstall_script = JPATH_PLUGINS . "/jtransport/{$plugin->element}/sql/uninstall.utf8.sql";
 			JTransportHelper::populateDatabase($this->_db, $uninstall_script);
 
 			// Install blank database of new 3rd extensions
-			$install_script = JPATH_PLUGINS . "/redmigrator/{$plugin->element}/sql/install.utf8.sql";
+			$install_script = JPATH_PLUGINS . "/jtransport/{$plugin->element}/sql/install.utf8.sql";
 			JTransportHelper::populateDatabase($this->_db, $install_script);
 
 			// Looking for xml files
-			$files = (array) JFolder::files(JPATH_PLUGINS . "/redmigrator/{$plugin->element}/extensions", '\.xml$', true, true);
+			$files = (array) JFolder::files(JPATH_PLUGINS . "/jtransport/{$plugin->element}/extensions", '\.xml$', true, true);
 
 			// Populate xml to db
 			foreach ($files as $xmlfile)

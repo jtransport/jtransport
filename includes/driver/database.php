@@ -217,7 +217,7 @@ class JTransportDriverDatabase extends JTransportDriver
 		if ($pagination === true)
 		{
 			$chunk_limit = (int) $this->params->chunk_limit;
-			$oid = (int) $this->_getStepID();
+			$oid = (int) $this->_getStepCID();
 
 			$query->setLimit($chunk_limit, $oid);
 		}

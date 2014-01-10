@@ -35,12 +35,12 @@ class JTransportContent extends JTransport
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrContent = $session->get('arrContent', null, 'JTransport');
+			$arrContent = $session->get('arrContent', null, 'jtransport');
 
 			$arrContent[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrContent', $arrContent, 'JTransport');
+			$session->set('arrContent', $arrContent, 'jtransport');
 
 			$row['id'] = null;
 

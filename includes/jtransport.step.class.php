@@ -443,11 +443,6 @@ class JTransportStep
 		$update_cid = $this->_getStepCID() + 1;
 
 		$this->_updateCID($update_cid);
-
-		if (JTransportHelper::isCli())
-		{
-			echo "•";
-		}
 	}
 
 	/**

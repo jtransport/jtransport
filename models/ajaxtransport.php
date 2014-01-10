@@ -21,31 +21,25 @@ class JTransportModelAjaxTransport extends JModelLegacy
 	/**
 	 * Migrate
 	 *
-	 * @param   bool  $table       Table
-	 * @param   bool  $extensions  Extension
+	 * @param   bool  $table  Table
 	 *
 	 * @return mixed
 	 *
 	 * @throws Exception
 	 */
-	function transport($table = false, $extensions = false)
+	function transport($table = false)
 	{
 		if ($table === false)
 		{
 			$table = JRequest::getCmd('table', '');
 		}
 
-		if ($extensions === false)
-		{
-			$extensions = JRequest::getCmd('extensions', '');
-		}
-
 		// Init the JTransport instance
-		$step = JTransportStep::getInstance($table, $extensions);
+		$step = JTransportStep::getInstance($table);
 		$jtransport = JTransport::getInstance($step);
 
 		// Get the database structure
-		if ($step->first == true && $extensions == 'tables')
+		if ($step->first == true)
 		{
 			$jtransport->getTableStructure();
 		}
@@ -55,7 +49,7 @@ class JTransportModelAjaxTransport extends JModelLegacy
 		{
 			try
 			{
-				$jtransport->upgrade();
+				$jtransport->transport();
 			}
 			catch (Exception $e)
 			{
