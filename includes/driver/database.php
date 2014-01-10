@@ -11,6 +11,7 @@ defined('_JEXEC') or die('Restricted access');
 /**
  * JTransport database utility class
  *
+ * @since  1.0.0
  */
 class JTransportDriverDatabase extends JTransportDriver
 {
@@ -29,17 +30,17 @@ class JTransportDriverDatabase extends JTransportDriver
 	/**
 	 * Constructor
 	 *
-	 * @param JTransportStep $step
+	 * @param   JTransportStep  $step  Step
 	 */
 	function __construct(JTransportStep $step = null)
 	{
-        parent::__construct($step);
+		parent::__construct($step);
 
-        $class = 'JTransport';
+		$class = 'JTransport';
 
 		if (!empty($step->class))
-        {
-            $class = $step->class;
+		{
+			$class = $step->class;
 		}
 
 		$name = '';
@@ -49,7 +50,7 @@ class JTransportDriverDatabase extends JTransportDriver
 			$name = $step->name;
 		}
 
-		$type = 'core';
+		$type = 'core15';
 
 		if (!empty($step->type))
 		{
@@ -62,12 +63,12 @@ class JTransportDriverDatabase extends JTransportDriver
 		$this->_conditions = call_user_func($class . '::getConditionsHook');
 
 		$db_config = array();
-		$db_config['driver'] = $this->params->old_dbtype;
-		$db_config['host'] = $this->params->old_hostname;
-		$db_config['user'] = $this->params->old_username;
-		$db_config['password'] = $this->params->old_password;
-		$db_config['database'] = $this->params->old_db;
-		$db_config['prefix'] = $this->params->old_dbprefix;
+		$db_config['driver'] = $this->params->database_driver;
+		$db_config['host'] = $this->params->database_hostname;
+		$db_config['user'] = $this->params->database_username;
+		$db_config['password'] = $this->params->database_password;
+		$db_config['database'] = $this->params->database_name;
+		$db_config['prefix'] = $this->params->table_prefix;
 
 		$this->_db_old = JDatabase::getInstance($db_config);
 	}
@@ -139,7 +140,16 @@ class JTransportDriverDatabase extends JTransportDriver
 	 *
 	 * @since  3.1.0
 	 */
-	public function _processQuery( $conditions, $pagination = false )
+
+	/**
+	 * Process the conditions
+	 *
+	 * @param         $conditions  Conditions
+	 * @param   bool  $pagination  Pagination
+	 *
+	 * @return JDatabaseQuery
+	 */
+	public function _processQuery($conditions, $pagination = false)
 	{
 		// Create a new query object.
 		$query = $this->_db->getQuery(true);
@@ -207,7 +217,7 @@ class JTransportDriverDatabase extends JTransportDriver
 		if ($pagination === true)
 		{
 			$chunk_limit = (int) $this->params->chunk_limit;
-			$oid = (int) $this->_getStepID();
+			$oid = (int) $this->_getStepCID();
 
 			$query->setLimit($chunk_limit, $oid);
 		}
@@ -215,11 +225,10 @@ class JTransportDriverDatabase extends JTransportDriver
 		return $query;
 	}
 
-	/*
+	/**
+	 * Get condition hook
 	 *
-	 * @return	void
-	 * @since	3.0.0
-	 * @throws	Exception
+	 * @return mixed|null
 	 */
 	public function getConditionsHook()
 	{
@@ -227,9 +236,12 @@ class JTransportDriverDatabase extends JTransportDriver
 	}
 
 	/**
- 	* 
-	* @param string $table The table name
-	*/
+	 * Check if table exists
+	 *
+	 * @param   string  $table  The table name
+	 *
+	 * @return string
+	 */
 	function tableExists($table)
 	{
 		$tables = array();
@@ -241,9 +253,9 @@ class JTransportDriverDatabase extends JTransportDriver
 	}
 
 	/**
-	 * @return  string	The table name
+	 * Get source table
 	 *
-	 * @since   3.0
+	 * @return  string	The table name
 	 */
 	public function getSourceTable()
 	{
@@ -251,9 +263,9 @@ class JTransportDriverDatabase extends JTransportDriver
 	}
 
 	/**
-	 * @return  string	The table name
+	 * Get destination table
 	 *
-	 * @since   3.0
+	 * @return  string	The table name
 	 */
 	public function getDestinationTable()
 	{
@@ -261,9 +273,9 @@ class JTransportDriverDatabase extends JTransportDriver
 	}
 
 	/**
-	 * @return  string	The table key name
+	 * Get key name
 	 *
-	 * @since   3.0
+	 * @return  string	The table key name
 	 */
 	public function getKeyName()
 	{

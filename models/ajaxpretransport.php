@@ -20,7 +20,7 @@ JLoader::register('JTransportStep', JPATH_COMPONENT_ADMINISTRATOR . '/includes/j
 class JTransportModelAjaxPreTransport extends JModelLegacy
 {
 	/**
-	 * Config params
+	 * Use's config params
 	 *
 	 * @var null
 	 */
@@ -31,7 +31,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 	 */
 	public function __construct()
 	{
-		// Getting the component parameter with global settings
+		// Getting the user's config params
 		$params = JComponentHelper::getParams('com_jtransport');
 		$this->params = $params->toObject();
 
@@ -45,6 +45,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 	 */
 	public function preTransport()
 	{
+		// User's config params
 		$params = $this->params;
 
 		// Check safe_mode_gid
@@ -56,16 +57,11 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		// Check for bad configurations
 		if ($params->transport_method == "webservice")
 		{
-			if (!isset($params->webservice_hostname) || !isset($params->webservice_username)
-				|| !isset($params->webservice_password) || !isset($params->webservice_security_key) )
-			{
-				throw new Exception('COM_JTRANSPORT_ERROR_REST_CONFIG');
-			}
-
 			if ($params->webservice_hostname == 'http://www.example.org/' || $params->webservice_hostname == ''
-				|| $params->webservice_username == '' || $params->webservice_password == '' || $params->webservice_security_key == '')
+				|| $params->webservice_username == '' || $params->webservice_password == ''
+				|| $params->webservice_security_key == '')
 			{
-				throw new Exception('COM_JTRANSPORT_ERROR_REST_CONFIG');
+				throw new Exception('COM_JTRANSPORT_ERROR_WEBSERVICE_CONFIG');
 			}
 		}
 
@@ -111,7 +107,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		$session->set('laststep', '', 'jtransport');
 
 		// Map section old id to new id
-		$session->set('arrSections', array(), 'redmigrator');
+		$session->set('arrSections', array(), 'jtransport');
 
 		// Map category old id to new id
 		$session->set('arrCategories', array(), 'jtransport');
@@ -167,10 +163,8 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 	 */
 	public function initJoomlaCore()
 	{
+		// User's config param
 		$params = $this->params;
-
-		// Importing helper tags
-		JLoader::import('cms.helper.tags');
 
 		// Convert the params to array
 		$core_transport = (array) $params;
@@ -302,15 +296,15 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		foreach ($plugins as $plugin)
 		{
 			// Remove database or 3rd extensions if exists
-			$uninstall_script = JPATH_PLUGINS . "/redmigrator/{$plugin->element}/sql/uninstall.utf8.sql";
+			$uninstall_script = JPATH_PLUGINS . "/jtransport/{$plugin->element}/sql/uninstall.utf8.sql";
 			JTransportHelper::populateDatabase($this->_db, $uninstall_script);
 
 			// Install blank database of new 3rd extensions
-			$install_script = JPATH_PLUGINS . "/redmigrator/{$plugin->element}/sql/install.utf8.sql";
+			$install_script = JPATH_PLUGINS . "/jtransport/{$plugin->element}/sql/install.utf8.sql";
 			JTransportHelper::populateDatabase($this->_db, $install_script);
 
 			// Looking for xml files
-			$files = (array) JFolder::files(JPATH_PLUGINS . "/redmigrator/{$plugin->element}/extensions", '\.xml$', true, true);
+			$files = (array) JFolder::files(JPATH_PLUGINS . "/jtransport/{$plugin->element}/extensions", '\.xml$', true, true);
 
 			// Populate xml to db
 			foreach ($files as $xmlfile)

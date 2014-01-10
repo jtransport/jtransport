@@ -9,10 +9,11 @@
 defined('_JEXEC') or die('Restricted access');
 
 /**
- * JTransport RESTful utility class
+ * JTransport webservice utility class
  *
+ * @since  1.0.0
  */
-class JTransportDriverRestful extends JTransportDriver
+class JTransportDriverWebservice extends JTransportDriver
 {
 	/**
 	 * Constructor
@@ -36,9 +37,9 @@ class JTransportDriverRestful extends JTransportDriver
 		$data = array();
 
 		// Setting the headers for REST
-		$restful_username = $this->params->restful_username;
-		$restful_password = $this->params->restful_password;
-		$restful_key = $this->params->restful_key;
+		$restful_username = $this->params->webservice_username;
+		$restful_password = $this->params->webservice_password;
+		$restful_key = $this->params->webservice_security_key;
 
 		// Setting the headers for REST
 		$str = $restful_username . ":" . $restful_password;
@@ -109,13 +110,13 @@ class JTransportDriverRestful extends JTransportDriver
 			$data['limit'] = 1;
 		}
 
-		$request = $http->get($this->params->restful_hostname . '/index.php', $data);
+		$request = $http->get($this->params->webservice_hostname . '/index.php', $data);
 
 		$code = $request->code;
 
 		if ($code == 500)
 		{
-			throw new Exception('COM_REDMIGRATOR_REDMIGRATOR_ERROR_REST_REQUEST');
+			throw new Exception('COM_JTRANSPORT_JTRANSPORT_ERROR_REST_REQUEST');
 		}
 		else
 		{

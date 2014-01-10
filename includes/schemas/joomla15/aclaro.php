@@ -1,24 +1,19 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- * 
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
 
 /**
  * Upgrade class for the Usergroup Map
  *
- * This translates the group mapping table from 1.5 to 3.0.
- * Group id's up to 30 need to be mapped to the new group id's.
- * Group id's over 30 can be used as is.
- * User id's are maintained in this upgrade process.
- *
+ * @since  1.0.0
  */
-class RedMigratorAclaro extends RedMigrator
+class JTransportAclaro extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.

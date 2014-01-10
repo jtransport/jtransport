@@ -1,13 +1,13 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- *
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+
 /**
  * Upgrade class for Menus
  *
@@ -16,7 +16,7 @@
  * @since  0.4.5
  */
 
-class RedMigratorMenu extends RedMigrator
+class JTransportMenu extends JTransport
 {
 	private $arrSystemComponents = array('Home');
 
@@ -31,7 +31,7 @@ class RedMigratorMenu extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$new_id = RedMigratorHelper::getAutoIncrement('menu') - 1;
+		$new_id = JTransportHelper::getAutoIncrement('menu') - 1;
 
 		foreach ($rows as $k => &$row)
 		{
@@ -51,12 +51,12 @@ class RedMigratorMenu extends RedMigrator
 				$new_id ++;
 				$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-				$arrMenu = $session->get('arrMenu', null, 'redmigrator');
+				$arrMenu = $session->get('arrMenu', null, 'jtransport');
 
 				$arrMenu[] = $arrTemp;
 
 				// Save the map to session
-				$session->set('arrMenu', $arrMenu, 'redmigrator');
+				$session->set('arrMenu', $arrMenu, 'jtransport');
 
 				if ((int) $row['parent'] == 0)
 				{
@@ -67,15 +67,15 @@ class RedMigratorMenu extends RedMigrator
 					// Parent item was inserted, so lookup new id
 					if ((int) $row['id'] > (int) $row['parent'])
 					{
-						$row['parent_id'] = RedMigratorHelper::lookupNewId('arrMenu', (int) $row['parent']);
+						$row['parent_id'] = JTransportHelper::lookupNewId('arrMenu', (int) $row['parent']);
 					}
 					else // Parent item haven't been inserted, so will lookup new id and update item after hook
 					{
-						$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'redmigrator');
+						$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'jtransport');
 
 						$arrMenuSwapped[] = array('new_id' => $new_id, 'old_parent_id' => (int) $row['parent_id']);
 
-						$session->set('arrMenuSwapped', $arrMenuSwapped, 'redmigrator');
+						$session->set('arrMenuSwapped', $arrMenuSwapped, 'jtransport');
 
 						$row['parent_id'] = $this->getRootId();
 					}
@@ -115,7 +115,7 @@ class RedMigratorMenu extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'redmigrator');
+		$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'jtransport');
 
 		foreach ($arrMenuSwapped as $item)
 		{
@@ -123,7 +123,7 @@ class RedMigratorMenu extends RedMigrator
 
 			$objTable->load($item['new_id']);
 
-			$objTable->parent_id = RedMigratorHelper::lookupNewId('arrMenu', $item['old_parent_id']);
+			$objTable->parent_id = JTransportHelper::lookupNewId('arrMenu', $item['old_parent_id']);
 
 			$objTable->setLocation($objTable->parent_id, 'last-child');
 

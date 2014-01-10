@@ -1,19 +1,19 @@
 <?php
 /**
- * @package     RedMIGRATOR.Backend
- * @subpackage  Controller
+ * JTransport
  *
- * @copyright   Copyright (C) 2005 - 2013 redCOMPONENT.com. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE
- *
- *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
+ * @author vdkhai
  */
+
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+
 /**
  * Migrate class for content
  *
  * This class takes the content from the existing site and inserts them into the new site.
  */
-class RedMigratorContent extends RedMigrator
+class JTransportContent extends JTransport
 {
 	/**
 	 * Sets the data in the destination database.
@@ -24,7 +24,7 @@ class RedMigratorContent extends RedMigrator
 	{
 		$session = JFactory::getSession();
 
-		$new_id = RedMigratorHelper::getAutoIncrement('content') - 1;
+		$new_id = JTransportHelper::getAutoIncrement('content') - 1;
 
 		foreach ($rows as &$row)
 		{
@@ -35,28 +35,28 @@ class RedMigratorContent extends RedMigrator
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrContent = $session->get('arrContent', null, 'redmigrator');
+			$arrContent = $session->get('arrContent', null, 'jtransport');
 
 			$arrContent[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrContent', $arrContent, 'redmigrator');
+			$session->set('arrContent', $arrContent, 'jtransport');
 
 			$row['id'] = null;
 
 			if ($row['catid'] != '')
 			{
-				$row['catid'] = RedMigratorHelper::lookupNewId('arrCategories', (int) $row['catid']);
+				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
 			}
 
 			if ($row['created_by'] != '')
 			{
-				$row['created_by'] = RedMigratorHelper::lookupNewId('arrUsers', (int) $row['created_by']);
+				$row['created_by'] = JTransportHelper::lookupNewId('arrUsers', (int) $row['created_by']);
 			}
 
 			if ($row['modified_by'] != '')
 			{
-				$row['modified_by'] = RedMigratorHelper::lookupNewId('arrUsers', (int) $row['modified_by']);
+				$row['modified_by'] = JTransportHelper::lookupNewId('arrUsers', (int) $row['modified_by']);
 			}
 
 			if (version_compare(PHP_VERSION, '3.0', '>='))
