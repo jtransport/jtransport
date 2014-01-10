@@ -83,7 +83,7 @@ $params	= $this->params;
 
 					if (debug_step == 1)
 					{
-						$("#debug").append(result + "<br/>");
+						$("#debug").append('<span class="icon-star"></span>  ' + result + '<br/><br/>');
 					}
 
 					if (preStep != object.name)
@@ -179,7 +179,7 @@ $params	= $this->params;
                     <div id="warning" class="warning"></div>
 					<div id="log" class="log"></div>
 				</div>
-				<div id="debug-area" class="span6">
+				<div id="debug-area" class="span8">
 					<h2>Debug</h2>
 					<div id="debug" class="debug"></div>
 				</div>
