@@ -76,12 +76,12 @@ class JTransportMenu extends JTransport
 					$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 				}
 
-				$arrMenu = $session->get('arrMenu', null, 'JTransport');
+				$arrMenu = $session->get('arrMenu', null, 'jtransport');
 
 				$arrMenu[] = $arrTemp;
 
 				// Save the map to session
-				$session->set('arrMenu', $arrMenu, 'JTransport');
+				$session->set('arrMenu', $arrMenu, 'jtransport');
 
 				// Not migrate root menu
 				if ((int) $row['parent_id'] == 0)
@@ -97,11 +97,11 @@ class JTransportMenu extends JTransport
 					}
 					else // Parent item haven't been inserted, so will lookup new id and update item apter hook
 					{
-						$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'JTransport');
+						$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'jtransport');
 
 						$arrMenuSwapped[] = array('new_id' => $new_id, 'old_parent_id' => (int) $row['parent_id']);
 
-						$session->set('arrMenuSwapped', $arrMenuSwapped, 'JTransport');
+						$session->set('arrMenuSwapped', $arrMenuSwapped, 'jtransport');
 
 						$row['parent_id'] = $this->getRootId();
 					}
@@ -134,7 +134,7 @@ class JTransportMenu extends JTransport
 	{
 		$session = JFactory::getSession();
 
-		$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'JTransport');
+		$arrMenuSwapped = $session->get('arrMenuSwapped', null, 'jtransport');
 
 		foreach ($arrMenuSwapped as $item)
 		{

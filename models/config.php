@@ -75,27 +75,28 @@ class JTransportModelConfig extends JModelAdmin
         return $data;
     }
 
-    /**
+	/**
      * Method to save the form data.
      *
-     * @param   array  The form data.
+     * @param   array  $data  The form data.
      *
      * @return  boolean  True on success.
+     *
      * @since   1.6
      */
-    public function save($data)
-    {
-	    $query = $this->_db->getQuery(true);
+	public function save($data)
+	{
+		$query = $this->_db->getQuery(true);
 
-	    $query->update("#__extensions")
-		        ->set("params = '" . json_encode($data) . "'")
-		        ->where("type = 'component'")
-		        ->where("element = 'com_jtransport'");
+		$query->update("#__extensions")
+				->set("params = '" . json_encode($data) . "'")
+				->where("type = 'component'")
+				->where("element = 'com_jtransport'");
 
-	    $this->_db->setQuery($query);
+		$this->_db->setQuery($query);
 
-	    $this->_db->execute();
+		$this->_db->execute();
 
-	    return true;
-    }
+		return true;
+	}
 }

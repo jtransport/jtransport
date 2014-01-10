@@ -41,12 +41,12 @@ class JTransportBanners extends JTransport
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrBanners = $session->get('arrBanners', null, 'JTransport');
+			$arrBanners = $session->get('arrBanners', null, 'jtransport');
 
 			$arrBanners[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrBanners', $arrBanners, 'JTransport');
+			$session->set('arrBanners', $arrBanners, 'jtransport');
 
 			$row['id'] = null;
 			$row['alias'] = $row['alias'] . '_old';

@@ -72,10 +72,12 @@ class JTransport
 		// Set the current step
 		$this->_step = $step;
 
-		JLoader::import('legacy.component.helper');
+		// JLoader::import('legacy.component.helper');
 		JLoader::import('cms.version.version');
 
-		$this->params = JTransportHelper::getParams();
+		// Getting the params and Joomla version web and cli
+		$params = JComponentHelper::getParams('com_jtransport');
+		$this->params = $params->toObject();
 
 		// Getting the J! version
 		$version = new JVersion;
@@ -102,16 +104,16 @@ class JTransport
 		}
 
 		// Set time limit to 0
-		if (!@ini_get('safe_mode'))
+		/*if (!@ini_get('safe_mode'))
 		{
 			if (!empty($this->params->timelimit))
 			{
 				set_time_limit(0);
 			}
-		}
+		}*/
 
 		// Make sure we can see all errors.
-		if (!empty($this->params->error_reporting))
+		if (!empty($this->params->php_error_report))
 		{
 			error_reporting(E_ALL);
 			@ini_set('display_errors', 1);
@@ -148,12 +150,6 @@ class JTransport
 			return false;
 		}
 
-		// Correct the 3rd party extensions class name
-		if (isset($step->element))
-		{
-			$step->class = empty($step->class) ? 'JTransportExtensions' : $step->class;
-		}
-
 		// Getting the class name
 		if (isset($step->class))
 		{
@@ -187,7 +183,7 @@ class JTransport
 	 *
 	 * @return	boolean
 	 */
-	public function upgrade()
+	public function transport()
 	{
 		try
 		{
@@ -225,7 +221,7 @@ class JTransport
 			return false;
 		}
 
-		$method = $this->params->method;
+		$method = $this->params->transport_method;
 
 		if ($method == 'database' || $this->_step->type != 'core')
 		{
@@ -421,7 +417,7 @@ class JTransport
 		$table = $this->getSourceTable();
 
 		// Getting the structure
-		if ($this->params->method == 'database')
+		if ($this->params->transport_method == 'database')
 		{
 			$result = $this->_driver->_db_old->getTableCreate($table);
 			$structure = str_replace($this->_driver->_db_old->getPrefix(), "#__", "{$result[$table]} ;\n\n");
@@ -568,7 +564,7 @@ class JTransport
 	{
 		// Getting the categories id's
 		$query = "SELECT new"
-					. " FROM #__redmigrator_{$table}";
+					. " FROM #__jtransport_{$table}";
 
 		if ($section !== false)
 		{

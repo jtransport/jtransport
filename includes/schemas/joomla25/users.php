@@ -39,12 +39,12 @@ class JTransportUsers extends JTransport
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrUsers = $session->get('arrUsers', null, 'JTransport');
+			$arrUsers = $session->get('arrUsers', null, 'jtransport');
 
 			$arrUsers[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrUsers', $arrUsers, 'JTransport');
+			$session->set('arrUsers', $arrUsers, 'jtransport');
 
 			$row['id'] = null;
 

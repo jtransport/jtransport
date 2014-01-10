@@ -70,7 +70,7 @@ class JTransportUsergroupMap extends JTransport
 		$query = $db->getQuery(true);
 
 		$query->select('user_id')
-				->from('#__JTransport_core_acl_aro')
+				->from('#__jtransport_core_acl_aro')
 				->where('aro_id = ' . $aroId);
 
 		$db->setQuery($query);
