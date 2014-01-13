@@ -24,7 +24,7 @@
 
 		<table name="menu_types" title="Menus Types" tbl_key="id" source="menu_types" destination="menu_types" type="core15" class="JTransportMenuTypes" />
 
-		<table name="modules" title="Core Modules" tbl_key="id" source="modules" destination="modules" type="core15" class="JTransportModules" />
+		<table name="modules" title="Modules" tbl_key="id" source="modules" destination="modules" type="core15" class="JTransportModules" />
 
 		<table name="modules_menu" title="Modules Menus" tbl_key="moduleid" source="modules_menu" destination="modules_menu" type="core15" class="JTransportModulesMenu" />
 

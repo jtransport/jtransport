@@ -69,11 +69,21 @@ $params	= $this->params;
 				success:function(result){
 					var object = JSON.decode(result);
 
+					if (object.start == 0)
+					{
+						$("#one-step-progress").css("width", "0%");
+						$("#one-step-text").html("");
+						$("#log").append("Transport " + object.title + "<span id='" + object.name + "_status'>: 0/" + object.total + " items" + "<span/>");
+						$("#log").append("<br/>");
+					}
+
 					if (object.total == 0)
 					{
 						if (object.name == object.laststep)
 						{
-							alert('Transport Success');
+							$("#all-steps-progress").css("width", "100%");
+							$("#all-steps-text").html("100% Complete");
+							alert('Transport Completed');
 						}
 						else
 						{
@@ -81,20 +91,20 @@ $params	= $this->params;
 						}
 					}
 
-					if (debug_step == 1)
-					{
-						$("#debug").append('<span class="icon-star"></span>  ' + result + '<br/><br/>');
-					}
-
 					if (preStep != object.name)
 					{
+						var allStepsPercent = Math.round((stepNo * 100) / object.stepTotal);
+						$("#all-steps-progress").css("width", allStepsPercent + "%");
+						$("#all-steps-text").html(allStepsPercent + "% Complete");
+
 						stepNo ++;
 						preStep = object.name;
 					}
 
-					var allStepsPercent = Math.round((stepNo * 100) / object.stepTotal);
-					$("#all-steps-progress").css("width", allStepsPercent + "%");
-					$("#all-steps-text").html(allStepsPercent + "% Complete");
+					if (debug_step == 1)
+					{
+						$("#debug").append('<span class="icon-ok"></span><br/>' + result + '<br/><br/>');
+					}
 
 					if (transport_method == 'database')
 					{
@@ -105,8 +115,6 @@ $params	= $this->params;
 					}
 				}
 			});
-
-			// stepProcess();
 		}
 
 		transportProgress = function(table)
@@ -116,15 +124,13 @@ $params	= $this->params;
 				success:function(result){
 					var object = JSON.decode(result);
 
+					// Update one step's progress bar status
 					var oneStepPercent = Math.round((object.cid * 100) / object.total);
 					$("#one-step-progress").css("width", oneStepPercent + "%");
 					$("#one-step-text").html(oneStepPercent + "% Complete");
 
-					// Enable transport debug
-					if (debug_transport == 1)
-					{
-						$("#debug").append(result + "<br/>");
-					}
+					// Write log status
+					$("#" + object.name + "_status").html(": " + object.cid + "/" + object.total + " items");
 
 					// End of one step transport
 					if (object.cid == object.stop.toInt() + 1 || object.next == 1)
@@ -132,12 +138,12 @@ $params	= $this->params;
 						// This step is last step and end chunk of this step -> finish transport
 						if (object.name == object.laststep && object.end == 1)
 						{
+							$("#all-steps-progress").css("width", "100%");
+							$("#all-steps-text").html("100% Complete");
 							alert("Transport completed");
 						}
 						else if (object.next == 1) // This step is not last step
 						{
-							//$("#one-step-progress").css("width", "0%");
-							//$("#one-step-text").html("");
 							stepProcess();
 						}
 					}

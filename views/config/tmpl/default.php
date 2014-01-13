@@ -335,12 +335,12 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
 					    <?php echo $this->form->getInput('debug_step'); ?>
 					</div>
                 </div>
-                <div class="control-group">
-					<?php echo $this->form->getLabel('debug_transport'); ?>
+                <!--<div class="control-group">
+					<?php /*echo $this->form->getLabel('debug_transport'); */?>
                     <div class="controls">
-					    <?php echo $this->form->getInput('debug_transport'); ?>
+					    <?php /*echo $this->form->getInput('debug_transport'); */?>
                     </div>
-				</div>
+				</div>-->
 			</fieldset>
 		</div>
 		<!-- End Tabs -->
