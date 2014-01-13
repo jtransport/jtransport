@@ -61,8 +61,6 @@ class JTransportStep
 
 	public $end = false;
 
-	public $extensions = false;
-
 	public $_table = false;
 
 	public $debug = '';
@@ -220,7 +218,6 @@ class JTransportStep
 	 * Get the next step
 	 *
 	 * @param   bool  $name  Name
-	 * @param   bool  $json  Json
 	 *
 	 * @return array|bool
 	 */
