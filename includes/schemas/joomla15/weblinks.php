@@ -34,6 +34,9 @@ class JTransportWeblinks extends JTransport
 			// Convert the array into an object.
 			$row = (array) $row;
 
+            $row['id'] = null;
+            $row['alias'] = $row['alias'] . '_old';
+
 			$row['language'] = '*';
 
 			unset($row['published']);
