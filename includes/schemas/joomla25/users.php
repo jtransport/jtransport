@@ -48,41 +48,66 @@ class JTransportUsers extends JTransport
 
 			$row['id'] = null;
 
-			if (version_compare(PHP_VERSION, '3.0', '>='))
-			{
-				unset($row['usertype']);
-			}
+            // Change username if it is exist in destination table
+            if ($this->_checkUsernameExist($row['username']))
+            {
+                $row['username'] = $row['username'] . '_old';
+            }
 
-			if ($this->_checkUserExist($row['username'], $row['email']))
-			{
-				$row['username'] = $row['username'] . '_old';
-				$row['email'] = $row['email'] . '_old';
-			}
+            // Change email if it is exist in destination table
+            if ($this->_checkEmailExist($row['email']))
+            {
+                $row['email'] = $row['email'] . '_old';
+            }
+
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;
 	}
 
-	/**
-	 * Check if username or email exist in target db
-	 *
-	 * @param   string  $username  Username of source db
-	 * @param   string  $email     Email of source db
-	 *
-	 * @return mixed
-	 */
-	protected function _checkUserExist($username, $email)
-	{
-		$query = $this->_db->getQuery(true);
+    /**
+     * Check if username exist in target db
+     *
+     * @param   string  $username  Username of source db
+     *
+     * @return mixed
+     */
+    protected function _checkUsernameExist($username)
+    {
+        $query = $this->_db->getQuery(true);
 
-		$query->select('count(id)')
-				->from('#__users')
-				->where('username = "' . $username . '" OR email = "' . $email . '"');
+        $query->select('count(id)')
+            ->from('#__users')
+            ->where('username = "' . $username . '"');
 
-		$this->_db->setQuery($query);
+        $this->_db->setQuery($query);
 
-		$exist = $this->_db->loadResult();
+        $exist = $this->_db->loadResult();
 
-		return $exist;
-	}
+        return $exist;
+    }
+
+    /**
+     * Check if email exist in target db
+     *
+     * @param   string  $email  Email of source db
+     *
+     * @return mixed
+     */
+    protected function _checkEmailExist($email)
+    {
+        $query = $this->_db->getQuery(true);
+
+        $query->select('count(id)')
+            ->from('#__users')
+            ->where('email = "' . $email . '"');
+
+        $this->_db->setQuery($query);
+
+        $exist = $this->_db->loadResult();
+
+        return $exist;
+    }
 }

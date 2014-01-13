@@ -39,16 +39,8 @@ class JTransportWeblinks extends JTransport
 
 			$row['language'] = '*';
 
-			unset($row['published']);
-
-			if (version_compare(PHP_VERSION, '3.0', '>='))
-			{
-				$row['created'] = $row['date'];
-				unset($row['approved']);
-				unset($row['archived']);
-				unset($row['date']);
-				unset($row['sid']);
-			}
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

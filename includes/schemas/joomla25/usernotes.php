@@ -41,6 +41,9 @@ class JTransportUsernotes extends JTransport
 				$newCreatedUserId = JTransportHelper::lookupNewId('arrUsers', $row['created_user_id']);
 				$row['created_user_id'] = $newCreatedUserId;
 			}
+
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

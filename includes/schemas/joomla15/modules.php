@@ -105,9 +105,8 @@ class JTransportModules extends JTransport
 
 			$row['published'] = 0;
 
-			unset($row['numnews']);
-			unset($row['iscore']);
-			unset($row['control']);
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

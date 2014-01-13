@@ -77,6 +77,9 @@ class JTransportUsergroups extends JTransport
 				$row['title'] = $row['title'] . '_old';
 				$row['lft'] = null;
 				$row['rgt'] = null;
+
+                // Remove fields not exist in destination table
+                $this->_removeUnusedFields($row);
 			}
 		}
 

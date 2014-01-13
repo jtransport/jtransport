@@ -52,10 +52,8 @@ class JTransportContacts extends JTransport
 				$row['modified_by'] = JTransportHelper::lookupNewId('arrUsers', (int) $row['modified_by']);
 			}
 
-			if (version_compare(PHP_VERSION, '3.0', '>='))
-			{
-				unset($row['imagepos']);
-			}
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

@@ -34,13 +34,8 @@ class JTransportAclaro extends JTransport
 			$row['aro_id'] = $row['id'];
 			$row['user_id'] = $row['value'];
 
-			// Remove unused fields.
-			unset($row['id']);
-			unset($row['section_value']);
-			unset($row['value']);
-			unset($row['order_value']);
-			unset($row['name']);
-			unset($row['hidden']);
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

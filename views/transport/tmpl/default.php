@@ -185,7 +185,7 @@ $params	= $this->params;
                     <div id="warning" class="warning"></div>
 					<div id="log" class="log"></div>
 				</div>
-				<div id="debug-area" class="span8">
+				<div id="debug-area" class="span6">
 					<h2>Debug</h2>
 					<div id="debug" class="debug"></div>
 				</div>

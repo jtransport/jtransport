@@ -59,13 +59,8 @@ class JTransportContent extends JTransport
 				$row['modified_by'] = JTransportHelper::lookupNewId('arrUsers', (int) $row['modified_by']);
 			}
 
-			if (version_compare(PHP_VERSION, '3.0', '>='))
-			{
-				unset($row['title_alias']);
-				unset($row['sectionid']);
-				unset($row['mask']);
-				unset($row['parentid']);
-			}
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

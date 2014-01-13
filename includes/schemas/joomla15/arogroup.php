@@ -84,9 +84,8 @@ class JTransportUsergroups extends JTransport
 				$row['lft'] = null;
 				$row['rgt'] = null;
 
-				// Remove unused fields.
-				unset($row['name']);
-				unset($row['value']);
+                // Remove fields not exist in destination table
+                $this->_removeUnusedFields($row);
 			}
 		}
 

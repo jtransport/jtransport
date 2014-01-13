@@ -60,13 +60,8 @@ class JTransportCategories extends JTransport
 			$row['lft'] = null;
 			$row['rgt'] = null;
 
-			unset($row['name']);
-			unset($row['image']);
-			unset($row['section']);
-			unset($row['image_position']);
-			unset($row['editor']);
-			unset($row['ordering']);
-			unset($row['count']);
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

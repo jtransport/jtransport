@@ -88,18 +88,8 @@ class JTransportMenu extends JTransport
 
 				$row['published'] = 0;
 
-				unset($row['name']);
-				unset($row['parent']);
-				unset($row['componentid']);
-				unset($row['sublevel']);
-				unset($row['pollid']);
-				unset($row['utaccess']);
-
-				// In J3x, column ordering has been removed
-				if (version_compare(PHP_VERSION, '3.0', '>='))
-				{
-					unset($row['ordering']);
-				}
+                // Remove fields not exist in destination table
+                $this->_removeUnusedFields($row);
 			}
 		}
 
