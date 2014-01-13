@@ -36,10 +36,8 @@ class JTransportNewsfeeds extends JTransport
 
 			$row['id'] = null;
 
-			if (version_compare(PHP_VERSION, '3.0', '>='))
-			{
-				unset($row['filename']);
-			}
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

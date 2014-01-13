@@ -36,6 +36,9 @@ class JTransportBannerTracks extends JTransport
 			{
 				$row['banner_id'] = JTransportHelper::lookupNewId('arrBanners', (int) $row['banner_id']);
 			}
+
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

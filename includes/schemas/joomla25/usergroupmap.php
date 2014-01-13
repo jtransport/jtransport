@@ -43,6 +43,9 @@ class JTransportUsergroupMap extends JTransport
 				$newGroupId = JTransportHelper::lookupNewId('arrUsergroups', $row['group_id']);
 				$row['group_id'] = $newGroupId;
 			}
+
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

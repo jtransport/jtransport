@@ -80,6 +80,9 @@ class JTransportCategories extends JTransport
 				$row['lft'] = null;
 				$row['rgt'] = null;
 			}
+
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

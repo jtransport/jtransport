@@ -42,10 +42,8 @@ class JTransportContacts extends JTransport
 				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
 			}
 
-			if (version_compare(PHP_VERSION, '3.0', '>='))
-			{
-				unset($row['imagepos']);
-			}
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

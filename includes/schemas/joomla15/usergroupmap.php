@@ -48,9 +48,8 @@ class JTransportUsergroupMap extends JTransport
 				$row['group_id'] = $newGroupId;
 			}
 
-			// Remove unused fields.
-			unset($row['section_value']);
-			unset($row['aro_id']);
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

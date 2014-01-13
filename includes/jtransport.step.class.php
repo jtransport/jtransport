@@ -23,10 +23,6 @@ class JTransportStep
 
 	public $class = null;
 
-	public $replace = '';
-
-	public $xmlpath = '';
-
 	public $element = null;
 
 	public $conditions = null;

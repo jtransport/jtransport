@@ -31,6 +31,9 @@ class JTransportBannerClients extends JTransport
 			$row = (array) $row;
 
 			$row['id'] = null;
+
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

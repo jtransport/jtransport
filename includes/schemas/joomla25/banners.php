@@ -54,6 +54,9 @@ class JTransportBanners extends JTransport
 			{
 				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
 			}
+
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

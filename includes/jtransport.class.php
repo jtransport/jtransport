@@ -9,7 +9,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 /**
- * JTransport utility class for migrations
+ * JTransport utility class for transportation
  *
  */
 class JTransport
@@ -687,4 +687,38 @@ class JTransport
 	{
 		return '#__' . $this->_step->destination;
 	}
+
+    /**
+     * Get field list of destination table
+     *
+     * @return mixed
+     */
+    protected function _getFieldList()
+    {
+        $this->_db->getTableColumns($this->getDestinationTable());
+
+        $columns = $this->_db->loadColumn();
+
+        return $columns;
+    }
+
+    /**
+     * Remove source table's fields not in destination table
+     *
+     * @param   array  $row  Source row
+     */
+    protected function _removeUnusedFields(&$row)
+    {
+        // Destination table's fields
+        $arrFieldList = $this->_getFieldList();
+
+        // Remove fields not exist in destination table
+        foreach ($row as $key => $value)
+        {
+            if (!in_array($key, $arrFieldList))
+            {
+                unset($row[$key]);
+            }
+        }
+    }
 } // End class

@@ -50,40 +50,42 @@ class JTransportUsers extends JTransport
 			// Save the map to session
 			$session->set('arrUsers', $arrUsers, 'jtransport');
 
+            // Avoid conflict id with rows of destination table
 			$row['id'] = null;
 
-			if ($this->_checkUserExist($row['username'], $row['email']))
+            // Change username if it is exist in destination table
+			if ($this->_checkUsernameExist($row['username']))
 			{
 				$row['username'] = $row['username'] . '_old';
-				$row['email'] = $row['email'] . '_old';
 			}
 
-			unset($row['gid']);
+            // Change email if it is exist in destination table
+            if ($this->_checkEmailExist($row['email']))
+            {
+                $row['email'] = $row['email'] . '_old';
+            }
 
-			if (version_compare(PHP_VERSION, '3.0', '>='))
-			{
-				unset($row['usertype']);
-			}
+            // Remove fields not exist in destination table
+            $this->_removeUnusedFields($row);
 		}
 
 		return $rows;
 	}
 
 	/**
-	 * Check if username or email exist in target db
+	 * Check if username exist in target db
 	 *
 	 * @param   string  $username  Username of source db
-	 * @param   string  $email     Email of source db
 	 *
 	 * @return mixed
 	 */
-	protected function _checkUserExist($username, $email)
+	protected function _checkUsernameExist($username)
 	{
 		$query = $this->_db->getQuery(true);
 
 		$query->select('count(id)')
 			->from('#__users')
-			->where('username = "' . $username . '" OR email = "' . $email . '"');
+			->where('username = "' . $username . '"');
 
 		$this->_db->setQuery($query);
 
@@ -91,4 +93,26 @@ class JTransportUsers extends JTransport
 
 		return $exist;
 	}
+
+    /**
+     * Check if email exist in target db
+     *
+     * @param   string  $email  Email of source db
+     *
+     * @return mixed
+     */
+    protected function _checkEmailExist($email)
+    {
+        $query = $this->_db->getQuery(true);
+
+        $query->select('count(id)')
+            ->from('#__users')
+            ->where('email = "' . $email . '"');
+
+        $this->_db->setQuery($query);
+
+        $exist = $this->_db->loadResult();
+
+        return $exist;
+    }
 }
