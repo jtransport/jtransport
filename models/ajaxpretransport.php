@@ -79,6 +79,10 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		// Clean tables
 		$this->cleanTables();
 
+		$session = JFactory::getSession();
+		$session->set('stepTotal', 0, 'jtransport');
+		$session->set('laststep', '', 'jtransport');
+
 		// Don't transport joomla core
 		if ($params->core_version != "nocore")
 		{
@@ -102,9 +106,6 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 	{
 		// Init session values
 		$session = JFactory::getSession();
-
-		$session->set('stepTotal', 0, 'jtransport');
-		$session->set('laststep', '', 'jtransport');
 
 		// Map section old id to new id
 		$session->set('arrSections', array(), 'jtransport');
