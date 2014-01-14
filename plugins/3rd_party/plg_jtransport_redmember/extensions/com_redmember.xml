@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>redMEMBER for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="redmember_country" title="redMEMBER Country" tbl_key="" source="redmember_country" destination="redmember_country" type="redmember" class="JTransportRedmemberCountry"/>
+
+		<table name="redmember_currency" title="redMEMBER Currency" tbl_key="" source="redmember_currency" destination="redmember_currency" type="redmember" class="JTransportRedmemberCurrency"/>
+
+		<table name="redmember_fields" title="redMEMBER Field" tbl_key="" source="redmember_fields" destination="redmember_fields" type="redmember" class="JTransportRedmemberField"/>
+
+		<table name="redmember_fields_value" title="redMEMBER Field Value" tbl_key="" source="redmember_fields_value" destination="redmember_fields_values" type="redmember" class="JTransportRedmemberFieldValue"/>
+
+		<table name="redmember_filemanager" title="redMEMBER Filemanager" tbl_key="" source="redmember_filemanager" destination="redmember_filemanager" type="redmember" class="JTransportRedmemberFilemanager"/>
+
+		<table name="redmember_filemanager_categories" title="redMEMBER Filemanager Category" tbl_key="" source="redmember_filemanager_categories" destination="redmember_filemanager_categories" type="redmember" class="JTransportRedmemberFilemanagerCategory"/>
+
+		<table name="redmember_forum_category" title="redMEMBER Forum Category" tbl_key="" source="redmember_forum_category" destination="redmember_forum_category" type="redmember" class="JTransportRedmemberForumCategory"/>
+
+		<table name="redmember_forum_post" title="redMEMBER Forum Post" tbl_key="" source="redmember_forum_post" destination="redmember_forum_post" type="redmember" class="JTransportRedmemberForumPost"/>
+
+		<table name="redmember_forum_section" title="redMEMBER Forum Section" tbl_key="" source="redmember_forum_section" destination="redmember_forum_section" type="redmember" class="JTransportRedmemberForumSection"/>
+
+		<table name="redmember_forum_subscribe" title="redMEMBER Forum Subscribe" tbl_key="" source="redmember_forum_subscribe" destination="redmember_forum_subscribe" type="redmember" class="JTransportRedmemberForumSubscribe"/>
+
+		<table name="redmember_forum_thread" title="redMEMBER Forum Thread" tbl_key="" source="redmember_forum_thread" destination="redmember_forum_thread" type="redmember" class="JTransportRedmemberForumThread"/>
+
+		<table name="redmember_mail" title="redMEMBER Mail" tbl_key="" source="redmember_mail" destination="redmember_mail" type="redmember" class="JTransportRedmemberMail"/>
+
+		<table name="redmember_membershipfee" title="redMEMBER Membershipfee" tbl_key="" source="redmember_membershipfee" destination="redmember_membership" type="redmember" class="JTransportRedmemberMembershipfee"/>
+
+		<table name="redmember_newsletter" title="redMEMBER Newsletter" tbl_key="" source="redmember_newsletter" destination="redmember_newsletter" type="redmember" class="JTransportRedmemberNewsletter"/>
+
+		<table name="redmember_newsletter_subscription" title="redMEMBER Newsletter Subscription" tbl_key="" source="redmember_newsletter_subscription" destination="redmember_newsletter_subscription" type="redmember" class="JTransportRedmemberNewsletterSubscription"/>
+
+		<table name="redmember_newsletter_tracker" title="redMEMBER Newsletter Tracker" tbl_key="" source="redmember_newsletter_tracker" destination="redmember_newsletter_tracker" type="redmember" class="JTransportRedmemberNewsletterTracker"/>
+
+		<table name="redmember_payment_method" title="redMEMBER Payment Method" tbl_key="" source="redmember_payment_method" destination="redmember_payment_method" type="redmember" class="JTransportRedmemberPaymentMethod"/>
+
+		<table name="redmember_search" title="redMEMBER Search" tbl_key="" source="redmember_search" destination="redmember_search" type="redmember" class="JTransportRedmemberSearch"/>
+
+		<table name="redmember_search_form" title="redMEMBER Search Form" tbl_key="" source="redmember_search_form" destination="redmember_search_form" type="redmember" class="JTransportRedmemberSearchForm"/>
+
+		<table name="redmember_state" title="redMEMBER State" tbl_key="" source="redmember_state" destination="redmember_state" type="redmember" class="JTransportRedmemberState"/>
+
+		<table name="redmember_state" title="redMEMBER Tab" tbl_key="" source="redmember_state" destination="redmember_tab" type="redmember" class="JTransportRedmemberTab"/>
+
+		<table name="redmember_template" title="redMEMBER Template" tbl_key="" source="redmember_template" destination="redmember_template" type="redmember" class="JTransportRedmemberTemplate"/>
+
+		<table name="redmember_users" title="redMEMBER User" tbl_key="" source="redmember_users" destination="redmember_users" type="redmember" class="JTransportRedmemberUser"/>
+
+		<table name="redmember_usertype" title="redMEMBER User type" tbl_key="" source="redmember_usertype" destination="redmember_usergroups" type="redmember" class="JTransportRedmemberUserType"/>
+
+		<table name="redmember_vatgroup" title="redMEMBER Vatgroup" tbl_key="" source="redmember_vatgroup" destination="redmember_vatgroup" type="redmember" class="JTransportRedmemberVatgroup"/>
+
+		<table name="redmember_vatrates" title="redMEMBER Vatrate" tbl_key="" source="redmember_vatrates" destination="vatrates" type="redmember" class="JTransportRedmemberVatrate"/>
+	</tables>
+
+</jtransport>
