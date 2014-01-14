@@ -32,8 +32,8 @@ class JTransportContentFrontpage extends JTransport
 				$row['content_id'] = JTransportHelper::lookupNewId('arrContent', (int) $row['content_id']);
 			}
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;

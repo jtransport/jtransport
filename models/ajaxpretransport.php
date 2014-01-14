@@ -107,6 +107,9 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		// Init session values
 		$session = JFactory::getSession();
 
+		// $session->set('stepTotal', 0, 'jtransport');
+		// $session->set('laststep', '', 'jtransport');
+
 		// Map section old id to new id
 		$session->set('arrSections', array(), 'jtransport');
 
@@ -281,6 +284,8 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 	 */
 	public function init3rdExtensions()
 	{
+		JLoader::import('joomla.filesystem.folder');
+
 		// Getting the plugins list
 		$query = $this->_db->getQuery(true);
 		$query->select("*");
