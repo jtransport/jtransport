@@ -36,8 +36,16 @@ class JTransportNewsfeeds extends JTransport
 
 			$row['id'] = null;
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			$row['access'] = 1;
+			$row['language'] = '*';
+
+			if ($row['catid'] != '')
+			{
+				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
+			}
+
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;

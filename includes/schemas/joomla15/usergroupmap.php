@@ -48,8 +48,8 @@ class JTransportUsergroupMap extends JTransport
 				$row['group_id'] = $newGroupId;
 			}
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;

@@ -62,8 +62,10 @@ class JTransportBanners extends JTransport
 
 			$row['language'] = '*';
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			$row['state'] = $row['showBanner'];
+
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;

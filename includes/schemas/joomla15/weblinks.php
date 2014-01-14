@@ -34,13 +34,22 @@ class JTransportWeblinks extends JTransport
 			// Convert the array into an object.
 			$row = (array) $row;
 
-            $row['id'] = null;
-            $row['alias'] = $row['alias'] . '_old';
+			$row['id'] = null;
+			$row['alias'] = $row['alias'] . '_old';
 
 			$row['language'] = '*';
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			$row['params'] = $this->convertParams($row['params']);
+
+			if ($row['catid'] != '')
+			{
+				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
+			}
+
+			$row['state'] = $row['published'];
+
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;
