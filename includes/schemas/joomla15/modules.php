@@ -5,9 +5,6 @@
  * @author vdkhai
  */
 
-// No direct access to this file
-defined('_JEXEC') or die('Restricted access');
-
 /**
  * Upgrade class for modules
  *
@@ -81,6 +78,8 @@ class JTransportModules extends JTransport
 			// Language
 			$row['language'] = "*";
 
+			$row['params'] = $this->convertParams($row['params']);
+
 			// Module field changes
 			if ($row['module'] == "mod_mainmenu")
 			{
@@ -105,10 +104,25 @@ class JTransportModules extends JTransport
 
 			$row['published'] = 0;
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;
+	}
+
+	/**
+	 * A hook to be able to modify params prior as they are converted to JSON.
+	 *
+	 * @param   object  $object  Object
+	 *
+	 * @return none
+	 */
+	protected function convertParamsHook($object)
+	{
+		if (isset($object->startLevel))
+		{
+			$object->startLevel++;
+		}
 	}
 }

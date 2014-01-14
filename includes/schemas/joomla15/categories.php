@@ -5,9 +5,6 @@
  * @author vdkhai
  */
 
-// No direct access to this file
-defined('_JEXEC') or die('Restricted access');
-
 /**
  * Upgrade class for categories
  *
@@ -27,14 +24,30 @@ class JTransportCategories extends JTransport
 	 */
 	public function dataHook($rows)
 	{
+		$session = JFactory::getSession();
+
+		$new_id = JTransportHelper::getAutoIncrement('categories') - 1;
+
 		// Do some custom post processing on the list.
 		foreach ($rows as &$row)
 		{
 			$row = (array) $row;
 
+			// Create a map of old id and new id
+			$old_id = (int) $row['id'];
+			$new_id ++;
+			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
+
+			$arrCategories = $session->get('arrCategories', null, 'jtransport');
+
+			$arrCategories[] = $arrTemp;
+
+			// Save the map to session
+			$session->set('arrCategories', $arrCategories, 'jtransport');
+
 			if (is_numeric($row['section']))
 			{
-				$row['parent_id'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['section']);
+				$row['parent_id'] = JTransportHelper::lookupNewId('arrSections', (int) $row['section']);
 				$row['extension'] = 'com_content';
 			}
 			else
@@ -60,8 +73,14 @@ class JTransportCategories extends JTransport
 			$row['lft'] = null;
 			$row['rgt'] = null;
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			$row['params'] = $this->convertParams($row['params']);
+			$row['title'] = str_replace("'", "&#39;", $row['title']);
+			$row['description'] = str_replace("'", "&#39;", $row['description']);
+			$row['language'] = '*';
+			$row['access'] = $row['access'] + 1;
+
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;

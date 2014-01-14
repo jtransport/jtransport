@@ -5,9 +5,6 @@
  * @author vdkhai
  */
 
-// No direct access to this file
-defined('_JEXEC') or die('Restricted access');
-
 /**
  * Upgrade class for sections
  *
@@ -41,12 +38,12 @@ class JTransportSections extends JTransport
 			$new_id ++;
 			$arrTemp = array('old_id' => $old_id, 'new_id' => $new_id);
 
-			$arrCategories = $session->get('arrCategories', null, 'jtransport');
+			$arrSections = $session->get('arrSections', null, 'jtransport');
 
-			$arrCategories[] = $arrTemp;
+			$arrSections[] = $arrTemp;
 
 			// Save the map to session
-			$session->set('arrCategories', $arrCategories, 'jtransport');
+			$session->set('arrSections', $arrSections, 'jtransport');
 
 			$row['id'] = null;
 			$row['alias'] = $row['alias'] . '_old';
@@ -55,8 +52,18 @@ class JTransportSections extends JTransport
 			$row['lft'] = null;
 			$row['rgt'] = null;
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			$row['params'] = $this->convertParams($row['params']);
+			$row['title'] = str_replace("'", "&#39;", $row['title']);
+			$row['description'] = str_replace("'", "&#39;", $row['description']);
+			$row['language'] = '*';
+			$row['access'] = $row['access'] + 1;
+
+			unset($row['name']);
+			unset($row['image']);
+			unset($row['scope']);
+			unset($row['image_position']);
+			unset($row['ordering']);
+			unset($row['count']);
 		}
 
 		return $rows;

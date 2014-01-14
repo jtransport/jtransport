@@ -50,23 +50,23 @@ class JTransportUsers extends JTransport
 			// Save the map to session
 			$session->set('arrUsers', $arrUsers, 'jtransport');
 
-            // Avoid conflict id with rows of destination table
+			// Avoid conflict id with rows of destination table
 			$row['id'] = null;
 
-            // Change username if it is exist in destination table
+			// Change username if it is exist in destination table
 			if ($this->_checkUsernameExist($row['username']))
 			{
 				$row['username'] = $row['username'] . '_old';
 			}
 
-            // Change email if it is exist in destination table
-            if ($this->_checkEmailExist($row['email']))
-            {
-                $row['email'] = $row['email'] . '_old';
-            }
+			// Change email if it is exist in destination table
+			if ($this->_checkEmailExist($row['email']))
+			{
+				$row['email'] = $row['email'] . '_old';
+			}
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;
@@ -94,25 +94,25 @@ class JTransportUsers extends JTransport
 		return $exist;
 	}
 
-    /**
-     * Check if email exist in target db
-     *
-     * @param   string  $email  Email of source db
-     *
-     * @return mixed
-     */
-    protected function _checkEmailExist($email)
-    {
-        $query = $this->_db->getQuery(true);
+	/**
+	 * Check if email exist in target db
+	 *
+	 * @param   string  $email  Email of source db
+	 *
+	 * @return mixed
+	 */
+	protected function _checkEmailExist($email)
+	{
+		$query = $this->_db->getQuery(true);
 
-        $query->select('count(id)')
-            ->from('#__users')
-            ->where('email = "' . $email . '"');
+		$query->select('count(id)')
+				->from('#__users')
+				->where('email = "' . $email . '"');
 
-        $this->_db->setQuery($query);
+		$this->_db->setQuery($query);
 
-        $exist = $this->_db->loadResult();
+		$exist = $this->_db->loadResult();
 
-        return $exist;
-    }
+		return $exist;
+	}
 }

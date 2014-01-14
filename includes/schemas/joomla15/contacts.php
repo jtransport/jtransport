@@ -42,8 +42,12 @@ class JTransportContacts extends JTransport
 				$row['catid'] = JTransportHelper::lookupNewId('arrCategories', (int) $row['catid']);
 			}
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			$row['language'] = '*';
+			$row['access'] = $row['access'] + 1;
+			$row['params'] = $this->convertParams($row['params']);
+
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;

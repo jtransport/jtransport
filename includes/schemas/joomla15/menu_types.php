@@ -39,8 +39,8 @@ class JTransportMenuTypes extends JTransport
 				$rows[$k] = false;
 			}
 
-            // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+			// Remove fields not exist in destination table
+			$this->_removeUnusedFields($row);
 		}
 
 		return $rows;
