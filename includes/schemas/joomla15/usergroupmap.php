@@ -31,7 +31,7 @@ class JTransportUsergroupMap extends JTransport
 	public function dataHook($rows)
 	{
 		// Do some custom post processing on the list.
-		foreach ($rows as &$row)
+		foreach ($rows as $k => &$row)
 		{
 			$row = (array) $row;
 
@@ -40,12 +40,22 @@ class JTransportUsergroupMap extends JTransport
 				$oldUserId = $this->_lookupUserId($row['aro_id']);
 				$newUserId = JTransportHelper::lookupNewId('arrUsers', $oldUserId);
 				$row['user_id'] = $newUserId;
+
+				if ($row['user_id'] == -1)
+				{
+					$rows[$k] = false;
+				}
 			}
 
 			if (!empty($row['group_id']))
 			{
 				$newGroupId = JTransportHelper::lookupNewId('arrUsergroups', $row['group_id']);
 				$row['group_id'] = $newGroupId;
+
+				if ($row['group_id'] == -1)
+				{
+					$rows[$k] = false;
+				}
 			}
 
 			// Remove fields not exist in destination table

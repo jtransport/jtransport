@@ -53,6 +53,7 @@ class JTransportModelAjaxTransport extends JModelLegacy
 			}
 			catch (Exception $e)
 			{
+				JTransportHelper::writeFile('log_transport_progress_error.txt', $e->getMessage() . "\n");
 				throw new Exception($e->getMessage());
 			}
 		}
