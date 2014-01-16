@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>Virtuemart for Joomla 1.7</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="vm_auth_group" title="VIRTUEMART Auth Group" tbl_key="" source="vm_auth_group" destination="virtuemart_permgroups" type="virtuemart" class="JTransportVirtuemartAuthGroup"/>
+
+		<table name="vm_category" title="VIRTUEMART Category" tbl_key="category_id" source="vm_category" destination="virtuemart_categories" type="virtuemart" class="JTransportVirtuemartCategory"/>
+
+		<table name="vm_category_xref" title="VIRTUEMART Category Xref" tbl_key="" source="vm_category_xref" destination="virtuemart_category_categories" type="virtuemart" class="JTransportVirtuemartCategoryCategory"/>
+
+		<table name="vm_country" title="VIRTUEMART Country" tbl_key="country_id" source="vm_country" destination="virtuemart_countries" type="virtuemart" class="JTransportVirtuemartCountry"/>
+
+		<table name="vm_state" title="VIRTUEMART State" tbl_key="state_id" source="vm_state" destination="virtuemart_states" type="virtuemart" class="JTransportVirtuemartState"/>
+
+		<table name="vm_coupons" title="VIRTUEMART Coupon" tbl_key="coupon_id" source="vm_coupons" destination="virtuemart_coupons" type="virtuemart" class="JTransportVirtuemartCoupon"/>
+
+		<table name="vm_currency" title="VIRTUEMART Currency" tbl_key="currency_id" source="vm_currency" destination="virtuemart_currencies" type="virtuemart" class="JTransportVirtuemartCurrency"/>
+
+		<table name="vm_manufacturer" title="VIRTUEMART Manufacturer" tbl_key="manufacturer_id" source="vm_manufacturer" destination="virtuemart_manufacturers" type="virtuemart" class="JTransportVirtuemartManufacturer"/>
+
+		<table name="vm_manufacturer_category" title="VIRTUEMART Manufacturer - Category" tbl_key="" source="vm_manufacturer_category" destination="virtuemart_manufacturercategories" type="virtuemart" class="JTransportVirtuemartManufacturerCategory"/>
+
+		<!-- Remove -->
+		<!-- <table name="" title="VIRTUEMART Module" tbl_key="module_id" source="" destination="virtuemart_modules" type="virtuemart" class="JTransportVirtuemartModule">vm_module</table> -->
+
+		<table name="vm_orders" title="VIRTUEMART Order" tbl_key="order_id" source="vm_orders" destination="virtuemart_orders" type="virtuemart" class="JTransportVirtuemartOrder"/>
+
+		<table name="vm_order_history" title="VIRTUEMART Order history" tbl_key="order_status_history_id" source="vm_order_history" destination="virtuemart_order_histories" type="virtuemart" class="JTransportVirtuemartOrderHistory"/>
+
+		<table name="vm_order_item" title="VIRTUEMART Order item" tbl_key="order_item_id" source="vm_order_item" destination="virtuemart_order_items" type="virtuemart" class="JTransportVirtuemartOrderItem"/>
+
+		<table name="vm_order_status" title="VIRTUEMART Order status" tbl_key="order_status_id" source="vm_order_status" destination="virtuemart_orderstates" type="virtuemart" class="JTransportVirtuemartOrderStatus"/>
+
+		<table name="vm_order_user_info" title="VIRTUEMART Order user info" tbl_key="order_info_id" source="vm_order_user_info" destination="virtuemart_order_userinfos" type="virtuemart" class="JTransportVirtuemartOrderUserInfo"/>
+
+		<table name="vm_payment_method" title="VIRTUEMART Payment method" tbl_key="payment_method_id" source="vm_payment_method" destination="virtuemart_paymentmethods" type="virtuemart" class="JTransportVirtuemartPaymentMethod"/>
+
+		<table name="vm_product" title="VIRTUEMART Product" tbl_key="product_id" source="vm_product" destination="virtuemart_products" type="virtuemart" class="JTransportVirtuemartProduct"/>
+
+		<table name="vm_product_category_xref" title="VIRTUEMART Product - Category" tbl_key="" source="vm_product_category_xref" destination="virtuemart_product_categories" type="virtuemart" class="JTransportVirtuemartProductCategory"/>
+
+		<table name="vm_product_mf_xref" title="VIRTUEMART Product - Manufacture" tbl_key="" source="vm_product_mf_xref" destination="virtuemart_product_manufacturers" type="virtuemart" class="JTransportVirtuemartProductManufacture"/>
+
+		<table name="vm_product_price" title="VIRTUEMART Product Price" tbl_key="product_price_id" source="vm_product_price" destination="virtuemart_product_prices" type="virtuemart" class="JTransportVirtuemartProductPrice"/>
+
+		<table name="vm_product_relations" title="VIRTUEMART Product Relation" tbl_key="" source="vm_product_relations" destination="virtuemart_product_relations" type="virtuemart" class="JTransportVirtuemartProductRelation"/>
+
+		<table name="vm_product_reviews" title="VIRTUEMART Product Review" tbl_key="" source="vm_product_reviews" destination="virtuemart_rating_reviews" type="virtuemart" class="JTransportVirtuemartProductReview"/>
+
+		<table name="vm_product_votes" title="VIRTUEMART Product Vote" tbl_key="" source="vm_product_votes" destination="virtuemart_rating_votes" type="virtuemart" class="JTransportVirtuemartProductVote"/>
+
+		<table name="vm_shopper_group" title="VIRTUEMART Shopper group" tbl_key="shopper_group_id" source="vm_shopper_group" destination="virtuemart_shoppergroups" type="virtuemart" class="JTransportVirtuemartShopperGroup"/>
+
+		<table name="vm_shopper_vendor_xref" title="VIRTUEMART Shopper Vendor Xref" tbl_key="" source="vm_shopper_vendor_xref" destination="virtuemart_vmuser_shoppergroups" type="virtuemart" class="JTransportVirtuemartShopperVendorXref"/>
+
+		<table name="vm_userfield" title="VIRTUEMART User field" tbl_key="fieldid" source="vm_userfield" destination="virtuemart_userfields" type="virtuemart" class="JTransportVirtuemartUserField"/>
+
+		<table name="vm_userfield_values" title="VIRTUEMART User field values" tbl_key="fieldvalueid" source="vm_userfield_values" destination="virtuemart_userfield_values" type="virtuemart" class="JTransportVirtuemartUserFieldValue"/>
+
+		<table name="vm_user_info" title="VIRTUEMART User info" tbl_key="user_info_id" source="vm_user_info" destination="virtuemart_userinfos" type="virtuemart" class="JTransportVirtuemartUserInfo"/>
+
+		<table name="vm_vendor" title="VIRTUEMART Vendor" tbl_key="vendor_id" source="vm_vendor" destination="virtuemart_vendors" type="virtuemart" class="JTransportVirtuemartVendor"/>
+
+		<table name="vm_zone_shipping" title="VIRTUEMART Zone shipping" tbl_key="zone_id" source="vm_zone_shipping" destination="virtuemart_worldzones" type="virtuemart" class="JTransportVirtuemartZoneShipping"/>
+	</tables>
+
+</jtransport>
