@@ -59,9 +59,6 @@ class JTransportDriverDatabase extends JTransportDriver
 
 		JTransportHelper::requireClass($name, $type, $class);
 
-		// @@ Fix bug using PHP < 5.2.3 version
-		$this->_conditions = call_user_func($class . '::getConditionsHook');
-
 		$db_config = array();
 		$db_config['driver'] = $this->params->database_driver;
 		$db_config['host'] = $this->params->database_hostname;
@@ -109,8 +106,8 @@ class JTransportDriverDatabase extends JTransportDriver
 	/**
 	 * Get total of the rows of the table
 	 *
-	 * @access	public
-	 * @return	int	The total of rows
+	 * @return int
+	 * @throws Exception
 	 */
 	public function getTotal()
 	{
