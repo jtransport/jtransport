@@ -122,6 +122,9 @@ $params	= $this->params;
 			$.ajax({
 				url:'index.php?option=com_jtransport&format=raw&task=ajax.transport&table=' + table,
 				success:function(result){
+
+// alert(result);
+
 					var object = JSON.decode(result);
 
 					// Update one step's progress bar status

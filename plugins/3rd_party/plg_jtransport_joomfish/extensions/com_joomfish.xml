@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>Joomfish for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+        <table name="languages" title="Language" tbl_key="" source="languages" destination="languages" type="joomfish" class="JTransportJoomfishLanguage"/>
+        
+		<table name="jf_content" title="Joomfish Content" tbl_key="" source="jf_content" destination="jf_content" type="joomfish" class="JTransportJoomfishContent"/>
+
+		<table name="jf_languages_ext" title="Joomfish Language Ext" tbl_key="" source="jf_languages_ext" destination="jf_languages_ext" type="joomfish" class="JTransportJoomfishLanguageExt"/>
+
+		<table name="jf_tableinfo" title="Joomfish Table Info" tbl_key="" source="jf_tableinfo" destination="jf_tableinfo" type="joomfish" class="JTransportJoomfishTableInfo"/>
+	</tables>
+
+</jtransport>

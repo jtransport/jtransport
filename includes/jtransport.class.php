@@ -209,8 +209,6 @@ class JTransport
 	 */
 	protected function setDestinationData($rows = false)
 	{
-		$name = $this->_step->_getStepName();
-
 		// Get the source data.
 		if ($rows === false)
 		{
@@ -221,50 +219,8 @@ class JTransport
 			return false;
 		}
 
-		$method = $this->params->transport_method;
-
-		if ($method == 'database' || $this->_step->type != 'core')
-		{
-			if (method_exists($this, 'databaseHook'))
-			{
-				$rows = $this->databaseHook($rows);
-			}
-		}
-
-		if ($this->_step->first == true && $this->_step->cid == 0)
-		{
-			// Calling the structure modificator hook
-			$structureHook = 'structureHook_' . $name;
-
-			if (method_exists($this, $structureHook))
-			{
-				try
-				{
-					$this->$structureHook();
-				}
-				catch (Exception $e)
-				{
-					throw new Exception($e->getMessage());
-				}
-			}
-		}
-
-		// Calling the data modificator hook
-		$dataHookFunc = 'dataHook_' . $name;
-
-		// If method exists call the custom dataHook
-		if (method_exists($this, $dataHookFunc))
-		{
-			try
-			{
-				$rows = $this->$dataHookFunc($rows);
-			}
-			catch (Exception $e)
-			{
-				throw new Exception($e->getMessage());
-			}
-		}
-		else // If method not exists call the default dataHook
+		// Transport data for target structure
+		if (method_exists($this, 'dataHook'))
 		{
 			try
 			{
@@ -276,6 +232,7 @@ class JTransport
 			}
 		}
 
+		// Insert data into target table
 		if ($rows !== false)
 		{
 			try
@@ -362,14 +319,14 @@ class JTransport
 	/**
 	 * @return array
 	 */
-	public static function getConditionsHook()
+	/*public static function getConditionsHook()
 	{
 		$conditions = array();
 		$conditions['where'] = array();
 
 		// Do customisation of the params field here for specific data.
 		return $conditions;
-	}
+	}*/
 
 	/**
 	 * Fake method of dataHook if it not exists
@@ -422,7 +379,7 @@ class JTransport
 			$result = $this->_driver->_db_old->getTableCreate($table);
 			$structure = str_replace($this->_driver->_db_old->getPrefix(), "#__", "{$result[$table]} ;\n\n");
 		}
-		elseif ($this->params->method == 'rest')
+		elseif ($this->params->method == 'webservice')
 		{
 			$structure = $this->_driver->requestRest("tablestructure", str_replace('#__', '', $table));
 		}
@@ -431,12 +388,12 @@ class JTransport
 		$structure = str_replace('CREATE TABLE', 'CREATE TABLE IF NOT EXISTS', $structure);
 
 		// Replacing the table name from xml
-		$replaced_table = $this->replaceTable($table);
+		/*$replaced_table = $this->replaceTable($table);
 
 		if ($replaced_table != $table)
 		{
 			$structure = str_replace($table, $replaced_table, $structure);
-		}
+		}*/
 
 		// Inserting the structure to new site
 		$this->_db->setQuery($structure);
@@ -453,7 +410,7 @@ class JTransport
 	 *
 	 * @return mixed
 	 */
-	protected function replaceTable($table, $structure = null)
+	/*protected function replaceTable($table, $structure = null)
 	{
 		$replaced_table = $table;
 
@@ -466,7 +423,7 @@ class JTransport
 		}
 
 		return $replaced_table;
-	}
+	}*/
 
 	/**
 	 * @return  string	The destination table key name

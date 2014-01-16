@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="jtransport" method="upgrade">
+	<name>JTransport - Joomfish plugin</name>
+	<author>vdkhai</author>
+	<creationDate>January 1st, 2013</creationDate>
+	<copyright>All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later.</license>
+	<authorEmail>vudinhkhai@gmail.com</authorEmail>
+	<version>1.0.0</version>
+	<description>JTransport script for Joomfish</description>
+
+	<files>
+		<filename plugin="jtransport_joomfish">jtransport_joomfish.php</filename>
+		<folder>extensions</folder>
+		<folder>inflector</folder>
+		<folder>schemas</folder>
+		<folder>sql</folder>
+	</files>
+</extension>
