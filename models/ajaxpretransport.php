@@ -167,14 +167,11 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 	 */
 	public function initJoomlaCore()
 	{
-		// User's config param
-		$params = $this->params;
-
 		// Convert the params to array
-		$core_transport = (array) $params;
+		$params = (array) $this->params;
 
 		// Version of source joomla (J15 or J25)
-		$core_version = $core_transport['core_version'];
+		$core_version = $params['core_version'];
 
 		// Xml file includes core steps
 		$schemasPath = JPATH_COMPONENT_ADMINISTRATOR . "/includes/schemas";
@@ -194,7 +191,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		$query = $this->_db->getQuery(true);
 
 		// Set steps status inputted by user
-		foreach ($core_transport as $k => $v)
+		foreach ($params as $k => $v)
 		{
 			$transport = substr($k, 0, 9);
 			$name = substr($k, 10, 18);
@@ -267,7 +264,8 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 			}
 		}
 
-		if ($core_transport['transport_users'] == 0 || $core_transport['transport_usergroups'] == 0)
+		// Not transport user usergroup map if not transport user or usergroup
+		if ($params['transport_users'] == 0 || $params['transport_usergroups'] == 0)
 		{
 			// Clear previous query
 			$query->clear();
@@ -292,6 +290,61 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 			catch (RuntimeException $e)
 			{
 				throw new RuntimeException($e->getMessage());
+			}
+		}
+
+		// Clean joomla core table data setted by user's config
+		foreach ($params as $k => $v)
+		{
+			$remove_target = substr($k, 0, 12);
+			$name = substr($k, 13, 21);
+
+			if ($remove_target == "remove_target")
+			{
+				if ($v == 1)
+				{
+					$condition = "";
+
+					if ($name == "users")
+					{
+						$currentUser = JFactory::getUser();
+						$condition = "username != " . $currentUser->username;
+					}
+					else if ($name == "usergroups")
+					{
+						$condition = "id != 1 AND id != 8";
+					}
+					else if ($name == "categories")
+					{
+						$condition = "id != 1";
+					}
+					else if ($name == "menu")
+					{
+						$condition = "type != 'component'";
+					}
+					else if ($name == "menutypes")
+					{
+						$condition = "id != 1";
+					}
+					else if ($name == "modules")
+					{
+						$condition = "id != 1 AND id != 2";
+					}
+
+
+					$query->clear();
+
+					$query->delete("#__" . $name)->where($condition);
+
+					try
+					{
+						$this->_db->setQuery($query)->execute();
+					}
+					catch (RuntimeException $e)
+					{
+						throw new RuntimeException($e->getMessage());
+					}
+				}
 			}
 		}
 	}
