@@ -6,11 +6,11 @@
 	<tables>
 		<table name="users" title="Users" tbl_key="id" source="users" destination="users" type="core15" class="JTransportUsers" />
 
-		<table name="arogroup" title="Users Groups" tbl_key="id" source="core_acl_aro_groups" destination="usergroups" type="core15" class="JTransportUsergroups" />
+		<table name="usergroups" title="Users Groups" tbl_key="id" source="core_acl_aro_groups" destination="usergroups" type="core15" class="JTransportUsergroups" />
 
-		<table name="aclaro" title="Users Groups" tbl_key="id" source="core_acl_aro" destination="jtransport_core_acl_aro" type="core15" class="JTransportAclaro" />
+		<table name="aclaro" title="Users - Usergroups Map" tbl_key="id" source="core_acl_aro" destination="jtransport_core_acl_aro" type="core15" class="JTransportAclaro" />
 
-		<table name="usergroupmap" title="Users Groups" tbl_key="aro_id" source="core_acl_groups_aro_map" destination="user_usergroup_map" type="core15" class="JTransportUsergroupMap" />
+		<table name="usergroupmap" title="Users - Usergroups Map" tbl_key="aro_id" source="core_acl_groups_aro_map" destination="user_usergroup_map" type="core15" class="JTransportUsergroupMap" />
 
 		<table name="sections" title="Sections" tbl_key="id" source="sections" destination="categories" type="core15" class="JTransportSections" />
 

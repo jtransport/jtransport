@@ -17,8 +17,6 @@ defined('_JEXEC') or die('Restricted access');
  */
 class JTransportUsers extends JTransport
 {
-
-
 	/**
 	 * Change structure of table and value of fields
 	 * so data can be inserted into target db

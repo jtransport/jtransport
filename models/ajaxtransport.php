@@ -38,12 +38,6 @@ class JTransportModelAjaxTransport extends JModelLegacy
 		$step = JTransportStep::getInstance($table);
 		$jtransport = JTransport::getInstance($step);
 
-		// Get the database structure
-		/*if ($step->first == true)
-		{
-			$jtransport->getTableStructure();
-		}*/
-
 		// Run the upgrade
 		if ($step->total > 0)
 		{

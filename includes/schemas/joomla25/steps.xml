@@ -8,7 +8,7 @@
 
 		<table name="usergroups" title="Users groups" source="usergroups" destination="usergroups" type="core25" class="jTransportUsergroups" />
 
-		<table name="usergroupmap" title="Users groups" source="user_usergroup_map" destination="user_usergroup_map" type="core25" class="jTransportUsergroupMap" />
+		<table name="usergroupmap" title="Users - Usergroups Map" source="user_usergroup_map" destination="user_usergroup_map" type="core25" class="jTransportUsergroupMap" />
 
 		<table name="usernotes" title="Users notes" source="user_notes" destination="user_notes" type="core25" class="jTransportUsernotes" />
 
