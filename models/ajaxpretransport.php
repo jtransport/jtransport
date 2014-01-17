@@ -226,19 +226,10 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 					// Set state if transport users
 					if ($name == 'users')
 					{
-						$query->update('#__jtransport_steps')
-								->set('status = 2');
-
 						if ($core_version == "j15")
 						{
-							$query->where('name = "arogroup"', 'OR')
-									->where('name = "usergroupmap"', 'OR')
-									->where('name = "aclaro"');
-						}
-						else // $core_version == "j25"
-						{
-							$query->where('name = "usergroups"', 'OR')
-									->where('name = "usergroupmap"', 'OR')
+							$query->update('#__jtransport_steps')
+									->set('status = 2')
 									->where('name = "usernotes"', 'OR')
 									->where('name = "userprofiles"');
 						}
@@ -273,6 +264,34 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 						}
 					}
 				}
+			}
+		}
+
+		if ($core_transport['transport_users'] == 0 || $core_transport['transport_usergroups'] == 0)
+		{
+			// Clear previous query
+			$query->clear();
+
+			$query->update('#__jtransport_steps')
+					->set('status = 2');
+
+			if ($core_version == "j15")
+			{
+				$query->where('name = "usergroupmap"', 'OR')
+						->where('name = "aclaro"');
+			}
+			else // $core_version == "j25"
+			{
+				$query->where('name = "usergroupmap"');
+			}
+
+			try
+			{
+				$this->_db->setQuery($query)->execute();
+			}
+			catch (RuntimeException $e)
+			{
+				throw new RuntimeException($e->getMessage());
 			}
 		}
 	}

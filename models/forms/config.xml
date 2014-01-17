@@ -147,6 +147,18 @@
 		</field>
 
 		<field
+				name="transport_usergroups"
+				type="radio"
+				class="btn-group"
+				label="COM_JTRANSPORT_CORE_TRANSPORT_USERGROUP_LABEL"
+				description="COM_JTRANSPORT_CORE_TRANSPORT_USERGROUP_DESC"
+				labelclass="control-label"
+				default="1">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+		</field>
+
+		<field
 			name="transport_categories"
 			type="radio"
 			class="btn-group"
@@ -314,6 +326,18 @@
 			default="0">
 				<option value="0">JNO</option>
 				<option value="1">JYES</option>
+		</field>
+
+		<field
+				name="remove_target_usergroups"
+				type="radio"
+				class="btn-group"
+				label="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_USERGROUP_LABEL"
+				description="COM_JTRANSPORT_ADVANCE_REMOVE_TARGET_USERGROUP_DESC"
+				labelclass="control-label"
+				default="0">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
 		</field>
 
 		<field

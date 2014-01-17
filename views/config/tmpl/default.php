@@ -151,6 +151,12 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
 					    <?php echo $this->form->getInput('transport_users'); ?>
                     </div>
                 </div>
+				<div class="control-group">
+					<?php echo $this->form->getLabel('transport_usergroups'); ?>
+					<div class="controls">
+						<?php echo $this->form->getInput('transport_usergroups'); ?>
+					</div>
+				</div>
                 <div class="control-group">
 					<?php echo $this->form->getLabel('transport_categories'); ?>
                     <div class="controls">
@@ -240,6 +246,12 @@ JLoader::import('helpers.sidebar', JPATH_COMPONENT_ADMINISTRATOR);
 					    <?php echo $this->form->getInput('remove_target_users'); ?>
 					</div>
                 </div>
+				<div class="control-group">
+					<?php echo $this->form->getLabel('remove_target_usergroups'); ?>
+					<div class="controls">
+						<?php echo $this->form->getInput('remove_target_usergroups'); ?>
+					</div>
+				</div>
                 <div class="control-group">
 					<?php echo $this->form->getLabel('remove_target_categories'); ?>
                     <div class="controls">
