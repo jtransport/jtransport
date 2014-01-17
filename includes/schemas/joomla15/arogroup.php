@@ -80,9 +80,18 @@ class JTransportUsergroups extends JTransport
 				}
 
 				$row['id'] = null;
-				$row['title'] = $row['name'] . '_old';
 				$row['lft'] = null;
 				$row['rgt'] = null;
+
+				// Change group title if it is exist in destination table
+				if ($this->_checkUsergroupExist($row['name']))
+				{
+					$row['title'] = $row['name'] . '_old';
+				}
+				else
+				{
+					$row['title'] = $row['name'];
+				}
 
                 // Remove fields not exist in destination table
                 $this->_removeUnusedFields($row);
@@ -208,5 +217,27 @@ class JTransportUsergroups extends JTransport
 		$id = $this->_db->loadResult();
 
 		return (int) $id;
+	}
+
+	/**
+	 * Check if usergroup exist in target db
+	 *
+	 * @param   string  $grouptitle  Group title of source db
+	 *
+	 * @return mixed
+	 */
+	protected function _checkUsergroupExist($grouptitle)
+	{
+		$query = $this->_db->getQuery(true);
+
+		$query->select('count(id)')
+			->from('#__usergroups')
+			->where('title = "' . $grouptitle . '"');
+
+		$this->_db->setQuery($query);
+
+		$exist = $this->_db->loadResult();
+
+		return $exist;
 	}
 }
