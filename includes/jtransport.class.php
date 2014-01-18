@@ -233,6 +233,9 @@ class JTransport
 			}
 		}
 
+        // Remove fields not exist in destination table
+        $this->_removeUnusedFields($rows);
+
 		// Insert data into target table
 		if ($rows !== false)
 		{
@@ -439,21 +442,21 @@ class JTransport
      *
      * @return mixed
      */
-    protected function _getFieldList()
+    /*protected function _getFieldList()
     {
         $this->_db->getTableColumns($this->getDestinationTable());
 
         $columns = $this->_db->loadColumn();
 
         return $columns;
-    }
+    }*/
 
     /**
      * Remove source table's fields not in destination table
      *
      * @param   array  $row  Source row
      */
-    protected function _removeUnusedFields(&$row)
+    /*protected function _removeUnusedFields(&$row)
     {
         // Destination table's fields
         $arrFieldList = $this->_getFieldList();
@@ -464,6 +467,30 @@ class JTransport
             if (!in_array($key, $arrFieldList))
             {
                 unset($row[$key]);
+            }
+        }
+    }*/
+
+    /**
+     * Remove source table's fields not in destination table
+     *
+     * @param   array  $rows  Source rows
+     */
+    protected function _removeUnusedFields(&$rows)
+    {
+        // Get destination table's fields
+        $this->_db->getTableColumns($this->getDestinationTable());
+        $arrFieldList = $this->_db->loadColumn();
+
+        foreach ($rows as &$row)
+        {
+            // Remove fields not exist in destination table
+            foreach ($row as $key => $value)
+            {
+                if (!in_array($key, $arrFieldList))
+                {
+                    unset($row[$key]);
+                }
             }
         }
     }

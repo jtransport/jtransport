@@ -80,7 +80,7 @@ class JTransportCategories extends JTransport
 			$row['access'] = $row['access'] + 1;
 
 			// Remove fields not exist in destination table
-			$this->_removeUnusedFields($row);
+			// $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

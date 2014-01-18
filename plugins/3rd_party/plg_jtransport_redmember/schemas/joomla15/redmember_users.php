@@ -22,7 +22,7 @@ class JTransportRedmemberUser extends JTransport
             $row['status_change_date'] = $row['deactivedate'];
 
 	        // Remove fields not exist in destination table
-	        $this->_removeUnusedFields($row);
+	        // $this->_removeUnusedFields($row);
         }
 
         return $rows;

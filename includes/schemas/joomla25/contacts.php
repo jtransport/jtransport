@@ -53,7 +53,7 @@ class JTransportContacts extends JTransport
 			}
 
             // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+            // $this->_removeUnusedFields($row);
 		}
 
 		return $rows;
