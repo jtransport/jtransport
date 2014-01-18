@@ -54,7 +54,7 @@ class JTransportKunenaCategory extends JTransport
             $row['last_topic_id'] = $this->getLastTopicId($row['id']);
 
 	        // Remove fields not exist in destination table
-	        $this->_removeUnusedFields($row);
+	        // $this->_removeUnusedFields($row);
 
             $this->insertIntoAlias($row);
         }        

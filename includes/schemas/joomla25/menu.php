@@ -114,7 +114,7 @@ class JTransportMenu extends JTransport
 					$row['published'] = 0;
 
                     // Remove fields not exist in destination table
-                    $this->_removeUnusedFields($row);
+                    // $this->_removeUnusedFields($row);
 				}
 			}
 		}

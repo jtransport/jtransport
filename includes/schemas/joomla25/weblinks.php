@@ -37,7 +37,7 @@ class JTransportWeblinks extends JTransport
             $row['alias'] = $row['alias'] . '_old';
 
             // Remove fields not exist in destination table
-            $this->_removeUnusedFields($row);
+            // $this->_removeUnusedFields($row);
 		}
 
 		return $rows;

@@ -11,6 +11,5 @@
 
 class JTransportKunenaVersion extends JTransport
 {
-
 }
 ?>

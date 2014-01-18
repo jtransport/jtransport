@@ -11,16 +11,5 @@
 
 class JTransportJoomfishTableInfo extends JTransport
 {
-	public function dataHook($rows)
-	{
-		// Do some custom post processing on the list.
-		foreach ($rows as &$row)
-		{
-			// Remove fields not exist in destination table
-			$this->_removeUnusedFields($row);
-		}
-
-		return $rows;
-	}
 }
 ?>
