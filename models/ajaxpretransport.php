@@ -296,8 +296,8 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 		// Clean joomla core table data setted by user's config
 		foreach ($params as $k => $v)
 		{
-			$remove_target = substr($k, 0, 12);
-			$name = substr($k, 13, 21);
+			$remove_target = substr($k, 0, 13);
+			$name = substr($k, 14, 21);
 
 			if ($remove_target == "remove_target")
 			{
@@ -308,7 +308,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 					if ($name == "users")
 					{
 						$currentUser = JFactory::getUser();
-						$condition = "username != " . $currentUser->username;
+						$condition = "username != '" . $currentUser->username . "'";
 					}
 					else if ($name == "usergroups")
 					{
@@ -316,7 +316,7 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 					}
 					else if ($name == "categories")
 					{
-						$condition = "id != 1";
+						$condition = "id > 7";
 					}
 					else if ($name == "menu")
 					{
@@ -328,13 +328,21 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 					}
 					else if ($name == "modules")
 					{
-						$condition = "id != 1 AND id != 2";
+						$condition = "id >17 AND id != 79 AND id != 86";
 					}
-
+                    else if ($name == "modules_menu")
+                    {
+                        $condition = "moduleid > 17 AND moduleid != 79 AND moduleid != 86";
+                    }
 
 					$query->clear();
 
-					$query->delete("#__" . $name)->where($condition);
+					$query->delete("#__" . $name);
+
+                    if ($condition != "")
+                    {
+                        $query->where($condition);
+                    }
 
 					try
 					{
