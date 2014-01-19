@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>Acymailing for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="acymailing_config" title="Acymailing Config" tbl_key="" source="acymailing_config" destination="acymailing_config" type="acymailing" class="JTransportAcymailingConfig"/>
+
+		<table name="acymailing_fields" title="Acymailing Field" tbl_key="" source="acymailing_fields" destination="acymailing_fields" type="acymailing" class="JTransportAcymailingField"/>
+
+		<table name="acymailing_filter" title="Acymailing Filter" tbl_key="" source="acymailing_filter" destination="acymailing_filter" type="acymailing" class="JTransportAcymailingFilter"/>
+
+		<!-- <table name="" title="Acymailing Geolocation" tbl_key="" source="" destination="acymailing_geolocation" type="acymailing" class="JTransportAcymailingGeolocation">acymailing_geolocation</table>
+
+		<table name="" title="Acymailing History" tbl_key="" source="" destination="acymailing_history" type="acymailing" class="JTransportAcymailingHistory">acymailing_history</table> -->
+
+		<table name="acymailing_list" title="Acymailing List" tbl_key="" source="acymailing_list" destination="acymailing_list" type="acymailing" class="JTransportAcymailingList"/>
+
+		<table name="acymailing_listcampaign" title="Acymailing Listcampaign" tbl_key="" source="acymailing_listcampaign" destination="acymailing_listcampaign" type="acymailing" class="JTransportAcymailingListcampaign"/>
+
+		<table name="acymailing_listmail" title="Acymailing Listmail" tbl_key="" source="acymailing_listmail" destination="acymailing_listmail" type="acymailing" class="JTransportAcymailingListmail"/>
+
+		<table name="acymailing_listsub" title="Acymailing Listsub" tbl_key="" source="acymailing_listsub" destination="acymailing_listsub" type="acymailing" class="JTransportAcymailingListsub"/>
+
+		<table name="acymailing_mail" title="Acymailing Mail" tbl_key="" source="acymailing_mail" destination="acymailing_mail" type="acymailing" class="JTransportAcymailingMail"/>
+
+		<table name="acymailing_queue" title="Acymailing Queue" tbl_key="" source="acymailing_queue" destination="acymailing_queue" type="acymailing" class="JTransportAcymailingQueue"/>
+
+		<table name="acymailing_stats" title="Acymailing Stat" tbl_key="" source="acymailing_stats" destination="acymailing_stats" type="acymailing" class="JTransportAcymailingStat"/>
+
+		<table name="acymailing_subscriber" title="Acymailing Subscriber" tbl_key="" source="acymailing_subscriber" destination="acymailing_subscriber" type="acymailing" class="JTransportAcymailingSubscriber"/>
+
+		<table name="acymailing_template" title="Acymailing Template" tbl_key="" source="acymailing_template" destination="acymailing_template" type="acymailing" class="JTransportAcymailingTemplate"/>
+
+		<table name="acymailing_url" title="Acymailing Url" tbl_key="" source="acymailing_url" destination="acymailing_url" type="acymailing" class="JTransportAcymailingUrl"/>
+
+		<table name="acymailing_urlclick" title="Acymailing Urlclick" tbl_key="" source="acymailing_urlclick" destination="acymailing_urlclick" type="acymailing" class="JTransportAcymailingUrlclick"/>
+
+		<table name="acymailing_userstats" title="Acymailing Userstat" tbl_key="" source="acymailing_userstats" destination="acymailing_userstats" type="acymailing" class="JTransportAcymailingUserstat"/>
+	</tables>
+
+</jtransport>
