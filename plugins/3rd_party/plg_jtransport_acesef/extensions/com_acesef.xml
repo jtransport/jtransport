@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>Acesef for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="acesef_bookmarks" title="Acesef Bookmark" tbl_key="" source="acesef_bookmarks" destination="acesef_bookmarks" type="acesef" class="JTransportAcesefBookmark"/>
+
+		<table name="acesef_extensions" title="Acesef Extension" tbl_key="" source="acesef_extensions" destination="acesef_extensions" type="acesef" class="JTransportAcesefExtension"/>
+
+		<table name="acesef_ilinks" title="Acesef Ilink" tbl_key="" source="acesef_ilinks" destination="acesef_ilinks" type="acesef" class="JTransportAcesefIlink"/>
+
+		<table name="acesef_metadata" title="Acesef Metadata" tbl_key="" source="acesef_metadata" destination="acesef_metadata" type="acesef" class="JTransportAcesefMetadata"/>
+
+		<table name="acesef_sitemap" title="Acesef Sitemap" tbl_key="" source="acesef_sitemap" destination="acesef_sitemap" type="acesef" class="JTransportAcesefSitemap"/>
+
+		<table name="acesef_tags" title="Acesef Tag" tbl_key="" source="acesef_tags" destination="acesef_tags" type="acesef" class="JTransportAcesefTag"/>
+
+		<table name="acesef_tags_map" title="Acesef Tag map" tbl_key="" source="acesef_tags_map" destination="acesef_tags_map" type="acesef" class="JTransportAcesefTagMap"/>
+
+		<table name="acesef_urls" title="Acesef Url" tbl_key="" source="acesef_urls" destination="acesef_urls" type="acesef" class="JTransportAcesefUrl"/>
+
+		<table name="acesef_urls_moved" title="Acesef Url moved" tbl_key="" source="acesef_urls_moved" destination="acesef_urls_moved" type="acesef" class="JTransportAcesefUrlMoved"/>
+	</tables>
+
+</jtransport>
