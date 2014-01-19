@@ -1,7 +1,5 @@
 <?php
 /**
- * RedMigrator Virtuemart Component adapter
- *
  * @package     RedMIGRATOR.Backend
  * @subpackage  Controller
  *
@@ -11,13 +9,7 @@
  *  redMIGRATOR is based on JUpgradePRO made by Matias Aguirre
  */
 
-defined('_JEXEC') or die;
-
-/**
- * redMigrator Virtuemart Plugin
- *
- * @since  1.5
- */
-class plgJTransportAcymailing extends JPlugin
+class JTransportAcesefTag extends JTransport
 {
 }
+?>

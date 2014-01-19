@@ -18,6 +18,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class plgJTransportAcymailing extends JPlugin
+class plgJTransportAcesef extends JPlugin
 {
+
 }
