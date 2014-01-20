@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>redEVENT for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="redevent_attackments" title="redEVENT Attachment" tbl_key="" source="redevent_attackments" destination="redevent_attackments" type="redevent" class="JTransportRedeventAttackment"/>
+
+		<table name="redevent_categories" title="redEVENT Category" tbl_key="" source="redevent_categories" destination="redevent_categories" type="redevent" class="JTransportRedeventCategory"/>
+
+		<!-- Remove -->
+		<!-- <table name="" title="redEVENT Country" tbl_key="" source="" destination="redevent_countries" type="redevent" class="JTransportRedeventCountry">redevent_countries</table> -->
+
+		<table name="redevent_events" title="redEVENT Event" tbl_key="" source="redevent_events" destination="redevent_events" type="redevent" class="JTransportRedeventEvent"/>
+
+		<table name="redevent_event_category_xref" title="redEVENT Event Category Xref" tbl_key="" source="redevent_event_category_xref" destination="redevent_event_category_xref" type="redevent" class="JTransportRedeventEventCategoryXref"/>
+
+		<table name="redevent_event_venue_xref" title="redEVENT Event Venue Xref" tbl_key="" source="redevent_event_venue_xref" destination="redevent_event_venue_xref" type="redevent" class="JTransportRedeventEventVenueXref"/>
+
+		<table name="redevent_fields" title="redEVENT Field" tbl_key="" source="redevent_fields" destination="redevent_fields" type="redevent" class="JTransportRedeventField"/>
+
+		<table name="redevent_groupmembers" title="redEVENT Group member" tbl_key="" source="redevent_groupmembers" destination="redevent_groupmembers" type="redevent" class="JTransportRedeventGroupmember"/>
+
+		<table name="redevent_groups" title="redEVENT Group" tbl_key="" source="redevent_groups" destination="redevent_groups" type="redevent" class="JTransportRedeventGroup"/>
+
+		<table name="redevent_groups_categories" title="redEVENT Group Category" tbl_key="" source="redevent_groups_categories" destination="redevent_groups_categories" type="redevent" class="JTransportRedeventGroupCategory"/>
+
+		<table name="redevent_groups_venues" title="redEVENT Group Venue" tbl_key="" source="redevent_groups_venues" destination="redevent_groups_venues" type="redevent" class="JTransportRedeventGroupVenue"/>
+
+		<table name="redevent_groups_venues_categories" title="redEVENT Group Venue Category" tbl_key="" source="redevent_groups_venues_categories" destination="redevent_groups_venues_categories" type="redevent" class="JTransportRedeventGroupVenueCategory"/>
+
+		<table name="redevent_pricegroups" title="redEVENT Price group" tbl_key="" source="redevent_pricegroups" destination="redevent_pricegroups" type="redevent" class="JTransportRedeventPricegroup"/>
+
+		<table name="redevent_recurrences" title="redEVENT Recurrence" tbl_key="" source="redevent_recurrences" destination="redevent_recurrences" type="redevent" class="JTransportRedeventRecurrence"/>
+
+		<table name="redevent_register" title="redEVENT Register" tbl_key="" source="redevent_register" destination="redevent_register" type="redevent" class="JTransportRedeventRegister"/>
+
+		<table name="redevent_repeats" title="redEVENT Repeat" tbl_key="" source="redevent_repeats" destination="redevent_repeats" type="redevent" class="JTransportRedeventRepeat"/>
+
+		<table name="redevent_roles" title="redEVENT Role" tbl_key="" source="redevent_roles" destination="redevent_roles" type="redevent" class="JTransportRedeventRole"/>
+
+		<table name="redevent_roles_redmember" title="redEVENT Role Redmember" tbl_key="" source="redevent_roles_redmember" destination="redevent_roles_redmember" type="redevent" class="JTransportRedeventRoleRedmember"/>
+
+		<table name="redevent_sessions_pricegroups" title="redEVENT Session Pricegroup" tbl_key="" source="redevent_sessions_pricegroups" destination="redevent_sessions_pricegroups" type="redevent" class="JTransportRedeventSessionPricegroup"/>
+
+		<table name="redevent_sessions_roles" title="redEVENT Session Role" tbl_key="" source="redevent_sessions_roles" destination="redevent_sessions_roles" type="redevent" class="JTransportRedeventSessionRole"/>
+
+		<table name="redevent_settings" title="redEVENT Setting" tbl_key="" source="redevent_settings" destination="redevent_settings" type="redevent" class="JTransportRedeventSetting"/>
+
+		<table name="redevent_textlibrary" title="redEVENT Text library" tbl_key="" source="redevent_textlibrary" destination="redevent_textlibrary" type="redevent" class="JTransportRedeventTextlibrary"/>
+
+		<table name="redevent_venues" title="redEVENT Venue" tbl_key="" source="redevent_venues" destination="redevent_venues" type="redevent" class="JTransportRedeventVenue"/>
+
+		<table name="redevent_venues_categories" title="redEVENT Venue Category" tbl_key="" source="redevent_venues_categories" destination="redevent_venues_categories" type="redevent" class="JTransportRedeventVenueCategory"/>
+
+		<table name="redevent_venue_category_xref" title="redEVENT Venue Category Xref" tbl_key="" source="redevent_venue_category_xref" destination="redevent_venue_category_xref" type="redevent" class="JTransportRedeventVenueCategoryXref"/>
+	</tables>
+
+</jtransport>
