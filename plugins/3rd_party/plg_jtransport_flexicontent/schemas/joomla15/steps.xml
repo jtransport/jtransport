@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>Flexicontent for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="flexicontent_advsearch_index" title="Flexicontent AdvSearch Index" tbl_key="" source="flexicontent_advsearch_index" destination="flexicontent_advsearch_index" type="flexicontent" class="JTransportFlexicontentAdvsearchIndex"/>
+
+		<table name="flexicontent_authors_ext" title="Flexicontent Authors Ext" tbl_key="" source="flexicontent_authors_ext" destination="flexicontent_authors_ext" type="flexicontent" class="JTransportFlexicontentAuthorsExt"/>
+
+		<table name="flexicontent_cats_item_relations" title="Flexicontent Cats Item Relations" tbl_key="" source="flexicontent_cats_item_relations" destination="flexicontent_cats_item_relations" type="flexicontent" class="JTransportFlexicontentCatsItemRelations"/>
+
+		<table name="flexicontent_favourites" title="Flexicontent Favourites" tbl_key="" source="flexicontent_favourites" destination="flexicontent_favourites" type="flexicontent" class="JTransportFlexicontentFavourites"/>
+
+		<table name="flexicontent_fields" title="Flexicontent Fields" tbl_key="" source="flexicontent_fields" destination="flexicontent_fields" type="flexicontent" class="JTransportFlexicontentFields"/>
+
+		<table name="flexicontent_fields_item_relations" title="Flexicontent Fields Item Relations" tbl_key="" source="flexicontent_fields_item_relations" destination="flexicontent_fields_item_relations" type="flexicontent" class="JTransportFlexicontentFieldsItemRelations"/>
+
+		<table name="flexicontent_fields_type_relations" title="Flexicontent Fields Type Relations" tbl_key="" source="flexicontent_fields_type_relations" destination="flexicontent_fields_type_relations" type="flexicontent" class="JTransportFlexicontentFieldsTypeRelations"/>
+
+		<table name="flexicontent_files" title="Flexicontent Files" tbl_key="" source="flexicontent_files" destination="flexicontent_files" type="flexicontent" class="JTransportFlexicontentFiles"/>
+
+		<table name="flexicontent_items_ext" title="Flexicontent Items Ext" tbl_key="" source="flexicontent_items_ext" destination="flexicontent_items_ext" type="flexicontent" class="JTransportFlexicontentItemsExt"/>
+
+		<table name="flexicontent_items_extravote" title="Flexicontent Items Extravote" tbl_key="" source="flexicontent_items_extravote" destination="flexicontent_items_extravote" type="flexicontent" class="JTransportFlexicontentItemsExtravote"/>
+
+		<table name="flexicontent_items_versions" title="Flexicontent Items Versions" tbl_key="" source="flexicontent_items_versions" destination="flexicontent_items_versions" type="flexicontent" class="JTransportFlexicontentItemsVersions"/>
+
+		<table name="flexicontent_tags" title="Flexicontent Tags" tbl_key="" source="flexicontent_tags" destination="flexicontent_tags" type="flexicontent" class="JTransportFlexicontentTags"/>
+
+		<table name="flexicontent_tags_item_relations" title="Flexicontent Tags Item Relations" tbl_key="" source="flexicontent_tags_item_relations" destination="flexicontent_tags_item_relations" type="flexicontent" class="JTransportFlexicontentTagsItemRelations"/>
+
+		<table name="flexicontent_templates" title="Flexicontent Templates" tbl_key="" source="flexicontent_templates" destination="flexicontent_templates" type="flexicontent" class="JTransportFlexicontentTemplates"/>
+
+		<table name="flexicontent_versions" title="Flexicontent Versions" tbl_key="" source="flexicontent_versions" destination="flexicontent_versions" type="flexicontent" class="JTransportFlexicontentVersions"/>
+	</tables>
+
+</jtransport>

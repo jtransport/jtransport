@@ -390,15 +390,12 @@ class JTransportModelAjaxPreTransport extends JModelLegacy
 			JTransportHelper::populateDatabase($this->_db, $install_script);
 
 			// Looking for xml files
-			$files = (array) JFolder::files(JPATH_PLUGINS . "/jtransport/{$plugin->element}/extensions", '\.xml$', true, true);
+			$xml_file = JPATH_PLUGINS . "/jtransport/{$plugin->element}/schemas/joomla15/steps.xml";
 
 			// Populate xml to db
-			foreach ($files as $xmlfile)
+			if (!empty($xml_file))
 			{
-				if (!empty($xmlfile))
-				{
-					JTransportHelper::populateSteps($xmlfile);
-				}
+				JTransportHelper::populateSteps($xml_file);
 			}
 		}
 	}

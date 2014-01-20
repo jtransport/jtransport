@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>redForm for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="rwf_configuration" title="redFORM Configuration" tbl_key="" source="rwf_configuration" destination="rwf_configuration" type="redform" class="JTransportRedformConfiguration"/>
+
+		<table name="rwf_fields" title="redFORM Field" tbl_key="" source="rwf_fields" destination="rwf_fields" type="redform" class="JTransportRedformField"/>
+
+		<table name="rwf_forms" title="redFORM Form" tbl_key="" source="rwf_forms" destination="rwf_forms" type="redform" class="JTransportRedformForm"/>
+
+		<table name="rwf_mailinglists" title="redFORM Mailinglist" tbl_key="" source="rwf_mailinglists" destination="rwf_mailinglists" type="redform" class="JTransportRedformMailinglist"/>
+
+		<table name="rwf_payment" title="redFORM Payment" tbl_key="" source="rwf_payment" destination="rwf_payment" type="redform" class="JTransportRedformPayment"/>
+
+		<table name="rwf_submitters" title="redFORM Submitter" tbl_key="" source="rwf_submitters" destination="rwf_submitters" type="redform" class="JTransportRedformSubmitter"/>
+
+		<table name="rwf_values" title="redFORM Value" tbl_key="" source="rwf_values" destination="rwf_values" type="redform" class="JTransportRedformValue"/>
+	</tables>
+
+</jtransport>

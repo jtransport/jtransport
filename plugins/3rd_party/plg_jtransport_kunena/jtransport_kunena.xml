@@ -11,7 +11,6 @@
 
 	<files>
 		<filename plugin="jtransport_kunena">jtransport_kunena.php</filename>
-		<folder>extensions</folder>
 		<folder>schemas</folder>
 		<folder>sql</folder>
 	</files>
