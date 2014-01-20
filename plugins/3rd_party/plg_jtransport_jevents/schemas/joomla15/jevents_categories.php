@@ -13,7 +13,6 @@ class JTransportJEventsCategory extends JTransport
 {
     public function dataHook($rows)
     {
-
         // Do some custom post processing on the list.
         foreach ($rows as &$row)
         {
