@@ -23,11 +23,6 @@ class JTransportDriverDatabase extends JTransportDriver
 	public $_db_old = null;
 
 	/**
-	 * @var null
-	 */
-	public $_conditions = null;
-
-	/**
 	 * Constructor
 	 *
 	 * @param   JTransportStep  $step  Step
@@ -82,11 +77,15 @@ class JTransportDriverDatabase extends JTransportDriver
 	 */
 	public function getSourceData()
 	{
-		// Get the conditions
-		$conditions = $this->getConditionsHook();
+		$query = $this->_db->getQuery(true);
 
-		// Process the conditions
-		$query = $this->_processQuery($conditions);
+		$query->select('*')
+			->from($this->getSourceTable());
+
+		if ($this->_step->tbl_key != "")
+		{
+			$query->order($this->_step->tbl_key);
+		}
 
 		$start = (int) $this->_getStepCID();
 		$limit = (int) $this->params->chunk_limit;
@@ -114,130 +113,26 @@ class JTransportDriverDatabase extends JTransportDriver
 	 */
 	public function getTotal()
 	{
-		// Get the conditions
-		$conditions = $this->getConditionsHook();
+		$query = $this->_db_old->getQuery(true);
 
-		// Process the conditions
-		$query = $this->_processQuery($conditions);
+		$query->select('COUNT(*)')
+				->from($this->getSourceTable());
 
-		// Get Total
+		// Setting the query
 		$this->_db_old->setQuery($query);
 
 		try
 		{
-			$total = $this->_db_old->loadAssocList();
+			// $rows = $this->_db_old->loadAssocList();
+			$total = $this->_db_old->loadResult();
 		}
 		catch (Exception $e)
 		{
 			throw new Exception($e->getMessage());
 		}
 
-		return (int) count($total);
-	}
-
-	/**
-	 * Process the conditions
-	 *
-	 * @access	public
-	 * @return	array	The conditions ready to be added to query
-	 *
-	 * @since  3.1.0
-	 */
-
-	/**
-	 * Process the conditions
-	 *
-	 * @param         $conditions  Conditions
-	 * @param   bool  $pagination  Pagination
-	 *
-	 * @return JDatabaseQuery
-	 */
-	public function _processQuery($conditions)
-	{
-		// Create a new query object.
-		$query = $this->_db->getQuery(true);
-
-		// Getting the SELECT clause
-		$select = isset($conditions['select']) ? $conditions['select'] : '*';
-		$select = trim(preg_replace('/\s+/', ' ', $select));
-
-		// Getting the TABLE and AS clause
-		$table = isset($conditions['as']) ? "{$this->getSourceTable()} AS {$conditions['as']}" : $this->getSourceTable();
-
-		// Building the query
-		$query->select($select);
-		$query->from(trim($table));
-
-		// Setting the join[s] into the query
-		if (isset($conditions['join']))
-		{
-			$count = count($conditions['join']);
-
-			for ($i = 0; $i < $count; $i++)
-			{
-				$query->join('LEFT', $conditions['join'][$i]);
-			}
-		}
-
-		// Setting the where[s] into the query
-		if (isset($conditions['where']))
-		{
-			$count = count($conditions['where']);
-
-			for ($i = 0; $i < $count; $i++)
-			{
-				$query->where(trim($conditions['where'][$i]));
-			}
-		}
-
-		// Setting the where[s] into the query
-		if (isset($conditions['where_or']))
-		{
-			$count = count($conditions['where_or']);
-
-			for ($i = 0; $i < $count; $i++)
-			{
-				$query->where(trim($conditions['where_or'][$i]), 'OR');
-			}
-		}
-
-		// Setting the GROUP BY into the query
-		if (isset($conditions['group_by']))
-		{
-			$query->group(trim($conditions['group_by']));
-		}
-
-		// Process the ORDER clause
-		$key = $this->getKeyName();
-
-		if (!empty($key))
-		{
-			$order = isset($conditions['order']) ? $conditions['order'] : "{$key} ASC";
-			$query->order($order);
-		}
-
-		// Pagination
-		/*if ($pagination === true)
-		{
-			$chunk_limit = (int) $this->params->chunk_limit;
-			$oid = (int) $this->_getStepCID();
-
-			$query->setLimit($chunk_limit, $oid);
-
-
-		}*/
-
-		return $query;
-	}
-
-	/**
-	 * Get condition hook
-	 *
-	 * @return mixed|null
-	 */
-	public function getConditionsHook()
-	{
-		return $this->_conditions;
+		// return (int) count($rows);
+		return (int) $total;
 	}
 
 	/**
