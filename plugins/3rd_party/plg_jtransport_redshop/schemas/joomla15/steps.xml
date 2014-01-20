@@ -1,0 +1,221 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>redSHOP for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="redshop_accessmanager" title="redSHOP Accessmanager" tbl_key="" source="redshop_accessmanager" destination="redshop_accessmanager" type="redshop" class="JTransportRedshopAccessmanager"/>
+
+		<table name="redshop_attribute_set" title="redSHOP Attribute set" tbl_key="" source="redshop_attribute_set" destination="redshop_attribute_set" type="redshop" class="JTransportRedshopAttributeSet"/>
+
+		<table name="redshop_cart" title="redSHOP Cart" tbl_key="" source="redshop_cart" destination="redshop_cart" type="redshop" class="JTransportRedshopCart"/>
+
+		<table name="redshop_catalog" title="redSHOP Catalog" tbl_key="" source="redshop_catalog" destination="redshop_catalog" type="redshop" class="JTransportRedshopCatalog"/>
+
+		<table name="redshop_catalog_colour" title="redSHOP Catalog colour" tbl_key="" source="redshop_catalog_colour" destination="redshop_catalog_colour" type="redshop" class="JTransportRedshopCatalogColour"/>
+
+		<table name="redshop_catalog_request" title="redSHOP Catalog request" tbl_key="" source="redshop_catalog_request" destination="redshop_catalog_request" type="redshop" class="JTransportRedshopCatalogRequest"/>
+
+		<table name="redshop_catalog_sample" title="redSHOP Catalog sample" tbl_key="" source="redshop_catalog_sample" destination="redshop_catalog_sample" type="redshop" class="JTransportRedshopCatalogSample"/>
+
+		<table name="redshop_category" title="redSHOP Category" tbl_key="" source="redshop_category" destination="redshop_category" type="redshop" class="JTransportRedshopCategory"/>
+
+		<table name="redshop_category_xref" title="redSHOP Category Xref" tbl_key="" source="redshop_category_xref" destination="redshop_category_xref" type="redshop" class="JTransportRedshopCategoryXref"/>
+
+		<table name="redshop_container" title="redSHOP Container" tbl_key="" source="redshop_container" destination="redshop_container" type="redshop" class="JTransportRedshopContainer"/>
+
+		<table name="redshop_category_product_xref" title="redSHOP Container Product Xref" tbl_key="" source="redshop_category_product_xref" destination="redshop_category_product_xref" type="redshop" class="JTransportRedshopCategoryProductXref"/>
+
+		<table name="redshop_country" title="redSHOP Country" tbl_key="" source="redshop_country" destination="redshop_country" type="redshop" class="JTransportRedshopCountry"/>
+
+		<table name="redshop_coupons" title="redSHOP Coupon" tbl_key="" source="redshop_coupons" destination="redshop_coupons" type="redshop" class="JTransportRedshopCoupon"/>
+
+		<table name="redshop_coupons_transaction" title="redSHOP Coupon Transaction" tbl_key="" source="redshop_coupons_transaction" destination="redshop_coupons_transaction" type="redshop" class="JTransportRedshopCouponTransaction"/>
+
+		<table name="redshop_cron" title="redSHOP Cron" tbl_key="" source="redshop_cron" destination="redshop_cron" type="redshop" class="JTransportRedshopCron"/>
+
+		<table name="redshop_currency" title="redSHOP Currency" tbl_key="" source="redshop_currency" destination="redshop_currency" type="redshop" class="JTransportRedshopCurrency"/>
+
+		<table name="redshop_customer_question" title="redSHOP Customer Question" tbl_key="" source="redshop_customer_question" destination="redshop_customer_question" type="redshop" class="JTransportRedshopCustomerQuestion"/>
+
+		<table name="redshop_discount" title="redSHOP Discount" tbl_key="" source="redshop_discount" destination="redshop_discount" type="redshop" class="JTransportRedshopDiscount"/>
+
+		<table name="redshop_discount_product" title="redSHOP Discount Product" tbl_key="" source="redshop_discount_product" destination="redshop_discount_product" type="redshop" class="JTransportRedshopDiscountProduct"/>
+
+		<table name="redshop_discount_product_shoppers" title="redSHOP Discount Product Shopper" tbl_key="" source="redshop_discount_product_shoppers" destination="redshop_discount_product_shoppers" type="redshop" class="JTransportRedshopDiscountProductShopper"/>
+
+		<table name="redshop_discount_shoppers" title="redSHOP Discount Shopper" tbl_key="" source="redshop_discount_shoppers" destination="redshop_discount_shoppers" type="redshop" class="JTransportRedshopDiscountShopper"/>
+
+		<table name="redshop_economic_accountgroup" title="redSHOP Economic Account group" tbl_key="" source="redshop_economic_accountgroup" destination="redshop_economic_accountgroup" type="redshop" class="JTransportRedshopEconomicAccountGroup"/>
+
+		<table name="redshop_fields" title="redSHOP Field" tbl_key="" source="redshop_fields" destination="redshop_fields" type="redshop" class="JTransportRedshopField"/>
+
+		<table name="redshop_fields_data" title="redSHOP Field Data" tbl_key="" source="redshop_fields_data" destination="redshop_fields_data" type="redshop" class="JTransportRedshopFieldData"/>
+
+		<table name="redshop_fields_value" title="redSHOP Field value" tbl_key="" source="redshop_fields_value" destination="redshop_fields_value" type="redshop" class="JTransportRedshopFieldValue"/>
+
+		<table name="redshop_giftcard" title="redSHOP Giftcard" tbl_key="" source="redshop_giftcard" destination="redshop_giftcard" type="redshop" class="JTransportRedshopGiftcard"/>
+
+		<table name="redshop_mail" title="redSHOP Mail" tbl_key="" source="redshop_mail" destination="redshop_mail" type="redshop" class="JTransportRedshopMail"/>
+
+		<table name="redshop_manufacturer" title="redSHOP Manufacturer" tbl_key="" source="redshop_manufacturer" destination="redshop_manufacturer" type="redshop" class="JTransportRedshopManufacturer"/>
+
+		<table name="redshop_mass_discount" title="redSHOP Mass discount" tbl_key="" source="redshop_mass_discount" destination="redshop_mass_discount" type="redshop" class="JTransportRedshopMassDiscount"/>
+
+		<table name="redshop_media" title="redSHOP Media" tbl_key="" source="redshop_media" destination="redshop_media" type="redshop" class="JTransportRedshopMedia"/>
+
+		<table name="redshop_media_download" title="redSHOP Media Download" tbl_key="" source="redshop_media_download" destination="redshop_media_download" type="redshop" class="JTransportRedshopMediaDownload"/>
+
+		<table name="redshop_newsletter" title="redSHOP Newsletter" tbl_key="" source="redshop_newsletter" destination="redshop_newsletter" type="redshop" class="JTransportRedshopNewsletter"/>
+
+		<table name="redshop_newsletter_subscription" title="redSHOP Newsletter Subscription" tbl_key="" source="redshop_newsletter_subscription" destination="redshop_newsletter_subscription" type="redshop" class="JTransportRedshopNewsletterSubscription"/>
+
+		<table name="redshop_newsletter_tracker" title="redSHOP Newsletter tracker" tbl_key="" source="redshop_newsletter_tracker" destination="redshop_newsletter_tracker" type="redshop" class="JTransportRedshopNewsletterTracker"/>
+
+		<table name="redshop_orderbarcode_log" title="redSHOP Orderbarcode Log" tbl_key="" source="redshop_orderbarcode_log" destination="redshop_orderbarcode_log" type="redshop" class="JTransportRedshopOrderbarcodeLog"/>
+
+		<table name="redshop_ordernumber_track" title="redSHOP Ordernumber Track" tbl_key="" source="redshop_ordernumber_track" destination="redshop_ordernumber_track" type="redshop" class="JTransportRedshopOrdernumberTrack"/>
+
+		<table name="redshop_orders" title="redSHOP Order" tbl_key="" source="redshop_orders" destination="redshop_orders" type="redshop" class="JTransportRedshopOrder"/>
+
+		<table name="redshop_order_acc_item" title="redSHOP Order acc item" tbl_key="" source="redshop_order_acc_item" destination="redshop_order_acc_item" type="redshop" class="JTransportRedshopOrderAccItem"/>
+
+		<table name="redshop_order_attribute_item" title="redSHOP Order Attribute Item" tbl_key="" source="redshop_order_attribute_item" destination="redshop_order_attribute_item" type="redshop" class="JTransportRedshopOrderAttributeItem"/>
+
+		<table name="redshop_order_item" title="redSHOP Order Item" tbl_key="" source="redshop_order_item" destination="redshop_order_item" type="redshop" class="JTransportRedshopOrderItem"/>
+
+		<table name="redshop_order_payment" title="redSHOP Order Payment" tbl_key="" source="redshop_order_payment" destination="redshop_order_payment" type="redshop" class="JTransportRedshopOrderPayment"/>
+
+		<table name="redshop_order_status" title="redSHOP Order Status" tbl_key="" source="redshop_order_status" destination="redshop_order_status" type="redshop" class="JTransportRedshopOrderStatus"/>
+
+		<table name="redshop_order_status_log" title="redSHOP Order Status Log" tbl_key="" source="redshop_order_status_log" destination="redshop_order_status_log" type="redshop" class="JTransportRedshopOrderStatusLog"/>
+
+		<table name="redshop_order_users_info" title="redSHOP Order User Info" tbl_key="" source="redshop_order_users_info" destination="redshop_order_users_info" type="redshop" class="JTransportRedshopOrderUserInfo"/>
+
+		<table name="redshop_pageviewer" title="redSHOP Pageviewer" tbl_key="" source="redshop_pageviewer" destination="redshop_pageviewer" type="redshop" class="JTransportRedshopPageviewer"/>
+
+		<table name="redshop_payment_method" title="redSHOP Payment Method" tbl_key="" source="redshop_payment_method" destination="redshop_payment_method" type="redshop" class="JTransportRedshopPaymentMethod"/>
+
+		<table name="redshop_product" title="redSHOP Product" tbl_key="" source="redshop_product" destination="redshop_product" type="redshop" class="JTransportRedshopProduct"/>
+
+		<table name="redshop_product_accessory" title="redSHOP Product Accessory" tbl_key="" source="redshop_product_accessory" destination="redshop_product_accessory" type="redshop" class="JTransportRedshopProductAccessory"/>
+
+		<table name="redshop_product_attribute" title="redSHOP Product Attribute" tbl_key="" source="redshop_product_attribute" destination="redshop_product_attribute" type="redshop" class="JTransportRedshopProductAttribute"/>
+
+		<table name="redshop_product_attribute_price" title="redSHOP Product Attribute Price" tbl_key="" source="redshop_product_attribute_price" destination="redshop_product_attribute_price" type="redshop" class="JTransportRedshopProductAttributePrice"/>
+
+		<table name="redshop_product_attribute_property" title="redSHOP Product Attribute Property" tbl_key="" source="redshop_product_attribute_property" destination="redshop_product_attribute_property" type="redshop" class="JTransportRedshopProductAttributeProperty"/>
+
+		<table name="redshop_product_attribute_stockroom_xref" title="redSHOP Product Attribute Stockroom Xref" tbl_key="" source="redshop_product_attribute_stockroom_xref" destination="redshop_product_attribute_stockroom_xref" type="redshop" class="JTransportRedshopProductAttributeStockroomXref"/>
+
+		<table name="redshop_product_category_xref" title="redSHOP Product Category Xref" tbl_key="" source="redshop_product_category_xref" destination="redshop_product_category_xref" type="redshop" class="JTransportRedshopProductCategoryXref"/>
+
+		<table name="redshop_product_compare" title="redSHOP Product Compare" tbl_key="" source="redshop_product_compare" destination="redshop_product_compare" type="redshop" class="JTransportRedshopProductCompare"/>
+
+		<table name="redshop_product_discount_calc" title="redSHOP Product Discount Calc" tbl_key="" source="redshop_product_discount_calc" destination="redshop_product_discount_calc" type="redshop" class="JTransportRedshopProductDiscountCalc"/>
+
+		<table name="redshop_product_discount_calc_extra" title="redSHOP Product Discount Calc Extra" tbl_key="" source="redshop_product_discount_calc_extra" destination="redshop_product_discount_calc_extra" type="redshop" class="JTransportRedshopProductDiscountCalcExtra"/>
+
+		<table name="redshop_product_download" title="redSHOP Product Download" tbl_key="" source="redshop_product_download" destination="redshop_product_download" type="redshop" class="JTransportRedshopProductDownload"/>
+
+		<table name="redshop_product_download_log" title="redSHOP Product Download Log" tbl_key="" source="redshop_product_download_log" destination="redshop_product_download_log" type="redshop" class="JTransportRedshopProductDownloadLog"/>
+
+		<table name="redshop_product_navigator" title="redSHOP Product Navigator" tbl_key="" source="redshop_product_navigator" destination="redshop_product_navigator" type="redshop" class="JTransportRedshopProductNavigator"/>
+
+		<table name="redshop_product_price" title="redSHOP Product Price" tbl_key="" source="redshop_product_price" destination="redshop_product_price" type="redshop" class="JTransportRedshopProductPrice"/>
+
+		<table name="redshop_product_rating" title="redSHOP Product Rating" tbl_key="" source="redshop_product_rating" destination="redshop_product_rating" type="redshop" class="JTransportRedshopProductRating"/>
+
+		<table name="redshop_product_related" title="redSHOP Product Related" tbl_key="" source="redshop_product_related" destination="redshop_product_related" type="redshop" class="JTransportRedshopProductRelated"/>
+
+		<table name="redshop_product_serial_number" title="redSHOP Product Serial Number" tbl_key="" source="redshop_product_serial_number" destination="redshop_product_serial_number" type="redshop" class="JTransportRedshopProductSerialNumber"/>
+
+		<table name="redshop_product_stockroom_xref" title="redSHOP Product Stockroom Xref" tbl_key="" source="redshop_product_stockroom_xref" destination="redshop_product_stockroom_xref" type="redshop" class="JTransportRedshopProductStockroomXref"/>
+
+		<table name="redshop_product_subattribute_color" title="redSHOP Product Subattribute Color" tbl_key="" source="redshop_product_subattribute_color" destination="redshop_product_subattribute_color" type="redshop" class="JTransportRedshopProductSubattributeColor"/>
+
+		<table name="redshop_product_subscribe_detail" title="redSHOP Product Subscribe Detail" tbl_key="" source="redshop_product_subscribe_detail" destination="redshop_product_subscribe_detail" type="redshop" class="JTransportRedshopProductSubscribeDetail"/>
+
+		<table name="redshop_product_subscription" title="redSHOP Product Subscription" tbl_key="" source="redshop_product_subscription" destination="redshop_product_subscription" type="redshop" class="JTransportRedshopProductSubscription"/>
+
+		<table name="redshop_product_tags" title="redSHOP Product Tag" tbl_key="" source="redshop_product_tags" destination="redshop_product_tags" type="redshop" class="JTransportRedshopProductTag"/>
+
+		<table name="redshop_product_tags_xref" title="redSHOP Product Tag Xref" tbl_key="" source="redshop_product_tags_xref" destination="redshop_product_tags_xref" type="redshop" class="JTransportRedshopProductTagXref"/>
+
+		<table name="redshop_product_voucher" title="redSHOP Product Voucher" tbl_key="" source="redshop_product_voucher" destination="redshop_product_voucher" type="redshop" class="JTransportRedshopProductVoucher"/>
+
+		<table name="redshop_product_voucher_transaction" title="redSHOP Product Voucher Transaction" tbl_key="" source="redshop_product_voucher_transaction" destination="redshop_product_voucher_transaction" type="redshop" class="JTransportRedshopProductVoucherTransaction"/>
+
+		<table name="redshop_product_voucher_xref" title="redSHOP Product Voucher Xref" tbl_key="" source="redshop_product_voucher_xref" destination="redshop_product_voucher_xref" type="redshop" class="JTransportRedshopProductVoucherXref"/>
+
+		<table name="redshop_quotation" title="redSHOP Quotation" tbl_key="" source="redshop_quotation" destination="redshop_quotation" type="redshop" class="JTransportRedshopQuotation"/>
+
+		<table name="redshop_quotation_accessory_item" title="redSHOP Quotation Accessory Item" tbl_key="" source="redshop_quotation_accessory_item" destination="redshop_quotation_accessory_item" type="redshop" class="JTransportRedshopQuotationAccessoryItem"/>
+
+		<table name="redshop_quotation_attribute_item" title="redSHOP Quotation Attribute Item" tbl_key="" source="redshop_quotation_attribute_item" destination="redshop_quotation_attribute_item" type="redshop" class="JTransportRedshopQuotationAttributeItem"/>
+
+		<table name="redshop_quotation_field_data" title="redSHOP Quotation Field Data" tbl_key="" source="redshop_quotation_field_data" destination="redshop_quotation_fields_data" type="redshop" class="JTransportRedshopQuotationFieldData"/>
+
+		<table name="redshop_quotation_item" title="redSHOP Quotation Item" tbl_key="" source="redshop_quotation_item" destination="redshop_quotation_item" type="redshop" class="JTransportRedshopQuotationItem"/>
+
+		<table name="redshop_sample_request" title="redSHOP Sample Request" tbl_key="" source="redshop_sample_request" destination="redshop_sample_request" type="redshop" class="JTransportRedshopSampleRequest"/>
+
+		<table name="redshop_shipping_boxes" title="redSHOP Shipping Box" tbl_key="" source="redshop_shipping_boxes" destination="redshop_shipping_boxes" type="redshop" class="JTransportRedshopShippingBox"/>
+
+		<table name="redshop_shipping_rate" title="redSHOP Shipping Rate" tbl_key="" source="redshop_shipping_rate" destination="redshop_shipping_rate" type="redshop" class="JTransportRedshopShippingRate"/>
+
+		<table name="redshop_shopper_group" title="redSHOP Shopper Group" tbl_key="" source="redshop_shopper_group" destination="redshop_shopper_group" type="redshop" class="JTransportRedshopShopperGroup"/>
+
+		<table name="redshop_siteviewer" title="redSHOP Siteviewer" tbl_key="" source="redshop_siteviewer" destination="redshop_siteviewer" type="redshop" class="JTransportRedshopSiteviewer"/>
+
+		<table name="redshop_state" title="redSHOP State" tbl_key="" source="redshop_state" destination="redshop_state" type="redshop" class="JTransportRedshopState"/>
+
+		<table name="redshop_stockroom" title="redSHOP Stockroom" tbl_key="" source="redshop_stockroom" destination="redshop_stockroom" type="redshop" class="JTransportRedshopStockroom"/>
+
+		<table name="redshop_stockroom_amount_image" title="redSHOP Stockroom Amount Image" tbl_key="" source="redshop_stockroom_amount_image" destination="redshop_stockroom_amount_image" type="redshop" class="JTransportRedshopStockroomAmountImage"/>
+
+		<table name="redshop_stockroom_container_xref" title="redSHOP Stockroom Container Xref" tbl_key="" source="redshop_stockroom_container_xref" destination="redshop_stockroom_container_xref" type="redshop" class="JTransportRedshopStockroomContainerXref"/>
+
+		<table name="redshop_subscription_renewal" title="redSHOP Subscription Renewal" tbl_key="" source="redshop_subscription_renewal" destination="redshop_subscription_renewal" type="redshop" class="JTransportRedshopSubscriptionRenewal"/>
+
+		<table name="redshop_supplier" title="redSHOP Supplier" tbl_key="" source="redshop_supplier" destination="redshop_supplier" type="redshop" class="JTransportRedshopSupplier"/>
+
+		<table name="redshop_tax_group" title="redSHOP Tax Group" tbl_key="" source="redshop_tax_group" destination="redshop_tax_group" type="redshop" class="JTransportRedshopTaxGroup"/>
+
+		<table name="redshop_tax_rate" title="redSHOP Tax Rate" tbl_key="" source="redshop_tax_rate" destination="redshop_tax_rate" type="redshop" class="JTransportRedshopTaxRate"/>
+
+		<table name="redshop_template" title="redSHOP Template" tbl_key="" source="redshop_template" destination="redshop_template" type="redshop" class="JTransportRedshopTemplate"/>
+
+		<table name="redshop_textlibrary" title="redSHOP Textlibrary" tbl_key="" source="redshop_textlibrary" destination="redshop_textlibrary" type="redshop" class="JTransportRedshopTextlibrary"/>
+
+		<table name="redshop_usercart" title="redSHOP Usercart" tbl_key="" source="redshop_usercart" destination="redshop_usercart" type="redshop" class="JTransportRedshopUsercart"/>
+
+		<table name="redshop_usercart_accessory_item" title="redSHOP Usercart Accessory Item" tbl_key="" source="redshop_usercart_accessory_item" destination="redshop_usercart_accessory_item" type="redshop" class="JTransportRedshopUsercartAccessoryItem"/>
+
+		<table name="redshop_usercart_attribute_item" title="redSHOP Usercart Attribute Item" tbl_key="" source="redshop_usercart_attribute_item" destination="redshop_usercart_attribute_item" type="redshop" class="JTransportRedshopUsercartAttributeItem"/>
+
+		<table name="redshop_users_info" title="redSHOP Users Info" tbl_key="" source="redshop_users_info" destination="redshop_users_info" type="redshop" class="JTransportRedshopUsersInfo"/>
+
+		<table name="redshop_wishlist" title="redSHOP Wishlist" tbl_key="" source="redshop_wishlist" destination="redshop_wishlist" type="redshop" class="JTransportRedshopWishlist"/>
+
+		<table name="redshop_wishlist_product" title="redSHOP Wishlist Product" tbl_key="" source="redshop_wishlist_product" destination="redshop_wishlist_product" type="redshop" class="JTransportRedshopWishlistProduct"/>
+
+		<table name="redshop_wishlist_userfielddata" title="redSHOP Wishlist Userfielddata" tbl_key="" source="redshop_wishlist_userfielddata" destination="redshop_wishlist_userfielddata" type="redshop" class="JTransportRedshopWishlistUserfielddata"/>
+
+		<table name="redshop_wrapper" title="redSHOP Wrapper" tbl_key="" source="redshop_wrapper" destination="redshop_wrapper" type="redshop" class="JTransportRedshopWrapper"/>
+
+		<table name="redshop_xml_export" title="redSHOP Xml Export" tbl_key="" source="redshop_xml_export" destination="redshop_xml_export" type="redshop" class="JTransportRedshopXmlExport"/>
+
+		<table name="redshop_xml_export_ipaddress" title="redSHOP Xml Export Ipaddress" tbl_key="" source="redshop_xml_export_ipaddress" destination="redshop_xml_export_ipaddress" type="redshop" class="JTransportRedshopXmlExportIpaddress"/>
+
+		<table name="redshop_xml_export_log" title="redSHOP Xml Export Log" tbl_key="" source="redshop_xml_export_log" destination="redshop_xml_export_log" type="redshop" class="JTransportRedshopXmlExportLog"/>
+
+		<table name="redshop_xml_import" title="redSHOP Xml Import" tbl_key="" source="redshop_xml_import" destination="redshop_xml_import" type="redshop" class="JTransportRedshopXmlImport"/>
+
+		<table name="redshop_xml_import_log" title="redSHOP Xml Import Log" tbl_key="" source="redshop_xml_import_log" destination="redshop_xml_import_log" type="redshop" class="JTransportRedshopXmlImportLog"/>
+
+		<table name="redshop_zipcode" title="redSHOP Zipcode" tbl_key="" source="redshop_zipcode" destination="redshop_zipcode" type="redshop" class="JTransportRedshopZipcode"/>
+	</tables>
+
+</jtransport>
