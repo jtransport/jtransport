@@ -4,41 +4,41 @@
 	<name>Joomla 2.5 core</name>
 
 	<tables>
-		<table name="users" title="Users" source="users" destination="users" type="core25" class="jTransportUsers" />
+		<table name="users" title="Users" tbl_key="" source="users" destination="users" type="core25" class="jTransportUsers" />
 
-		<table name="usergroups" title="Users groups" source="usergroups" destination="usergroups" type="core25" class="jTransportUsergroups" />
+		<table name="usergroups" title="Users groups" tbl_key="" source="usergroups" destination="usergroups" type="core25" class="jTransportUsergroups" />
 
-		<table name="usergroupmap" title="Users - Usergroups Map" source="user_usergroup_map" destination="user_usergroup_map" type="core25" class="jTransportUsergroupMap" />
+		<table name="usergroupmap" title="Users - Usergroups Map" tbl_key="" source="user_usergroup_map" destination="user_usergroup_map" type="core25" class="jTransportUsergroupMap" />
 
-		<table name="usernotes" title="Users notes" source="user_notes" destination="user_notes" type="core25" class="jTransportUsernotes" />
+		<table name="usernotes" title="Users notes" tbl_key="" source="user_notes" destination="user_notes" type="core25" class="jTransportUsernotes" />
 
-		<table name="userprofiles" title="Users profile" source="user_profiles" destination="user_profiles" type="core25" class="jTransportUserprofiles" />
+		<table name="userprofiles" title="Users profile" tbl_key="" source="user_profiles" destination="user_profiles" type="core25" class="jTransportUserprofiles" />
 
-		<table name="categories" title="Categories" source="categories" destination="categories" type="core25" class="jTransportCategories" />
+		<table name="categories" title="Categories" tbl_key="" source="categories" destination="categories" type="core25" class="jTransportCategories" />
 
-		<table name="content" title="Content" source="content" destination="content" type="core25" class="jTransportContent" />
+		<table name="content" title="Content" tbl_key="" source="content" destination="content" type="core25" class="jTransportContent" />
 
-		<table name="content_frontpage" title="Content frontpage" source="content_frontpage" destination="content_frontpage" type="core25" class="jTransportContentFrontpage" />
+		<table name="content_frontpage" title="Content frontpage" tbl_key="" source="content_frontpage" destination="content_frontpage" type="core25" class="jTransportContentFrontpage" />
 
-		<table name="menu" title="Menu" source="menu" destination="menu" type="core25" class="jTransportMenu" />
+		<table name="menu" title="Menu" tbl_key="" source="menu" destination="menu" type="core25" class="jTransportMenu" />
 
-		<table name="menu_types" title="Menu Types" source="menu_types" destination="menu_types" type="core25" class="jTransportMenuTypes" />
+		<table name="menu_types" title="Menu Types" tbl_key="" source="menu_types" destination="menu_types" type="core25" class="jTransportMenuTypes" />
 
-		<table name="modules" title="Modules" source="modules" destination="modules" type="core25" class="jTransportModules" />
+		<table name="modules" title="Modules" tbl_key="" source="modules" destination="modules" type="core25" class="jTransportModules" />
 
-		<table name="modules_menu" title="Modules Menu" source="modules_menu" destination="modules_menu" type="core25" class="jTransportModulesMenu" />
+		<table name="modules_menu" title="Modules Menu" tbl_key="" source="modules_menu" destination="modules_menu" type="core25" class="jTransportModulesMenu" />
 
-		<table name="banners" title="Banners" source="banners" destination="banners" type="core25" class="jTransportBanners" />
+		<table name="banners" title="Banners" tbl_key="" source="banners" destination="banners" type="core25" class="jTransportBanners" />
 
-		<table name="banner_clients" title="Banner Clients" source="banner_clients" destination="banner_clients" type="core25" class="jTransportBannerClients" />
+		<table name="banner_clients" title="Banner Clients" tbl_key="" source="banner_clients" destination="banner_clients" type="core25" class="jTransportBannerClients" />
 
-		<table name="banner_tracks" title="Banner Tracks" source="banner_tracks" destination="banner_tracks" type="core25" class="jTransportBannerTracks" />
+		<table name="banner_tracks" title="Banner Tracks" tbl_key="" source="banner_tracks" destination="banner_tracks" type="core25" class="jTransportBannerTracks" />
 
-		<table name="contacts" title="Contacts" source="contact_details" destination="contact_details" type="core25" class="jTransportContacts" />
+		<table name="contacts" title="Contacts" tbl_key="" source="contact_details" destination="contact_details" type="core25" class="jTransportContacts" />
 
-		<table name="newsfeeds" title="Newsfeeds" source="newsfeeds" destination="newsfeeds" type="core25" class="jTransportNewsfeeds" />
+		<table name="newsfeeds" title="Newsfeeds" tbl_key="" source="newsfeeds" destination="newsfeeds" type="core25" class="jTransportNewsfeeds" />
 
-		<table name="weblinks" title="Weblinks" source="weblinks" destination="weblinks" type="core25" class="jTransportWeblinks" />
+		<table name="weblinks" title="Weblinks" tbl_key="" source="weblinks" destination="weblinks" type="core25" class="jTransportWeblinks" />
 	</tables>
 
 </jtransport>
