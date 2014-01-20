@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>JComment for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="jcomments" title="JComments jcomments" tbl_key="" source="jcomments" destination="jcomments" type="jcomments" class="JTransportJComment"/>
+
+		<table name="jcomments_blacklist" title="JComments Blacklist" tbl_key="" source="jcomments_blacklist" destination="jcomments_blacklist" type="jcomments" class="JTransportJCommentBlacklist"/>
+
+		<table name="jcomments_custom_bbcodes" title="JComments Custom bbcode" tbl_key="" source="jcomments_custom_bbcodes" destination="jcomments_custom_bbcodes" type="jcomments" class="JTransportJCommentCustomBbcode"/>
+
+		<table name="jcomments_objects" title="JComments Object" tbl_key="" source="jcomments_objects" destination="jcomments_objects" type="jcomments" class="JTransportJCommentObject"/>
+
+		<table name="jcomments_reports" title="JComments Report" tbl_key="" source="jcomments_reports" destination="jcomments_reports" type="jcomments" class="JTransportJCommentReport"/>
+
+		<table name="jcomments_settings" title="JComments Setting" tbl_key="" source="jcomments_settings" destination="jcomments_settings" type="jcomments" class="JTransportJCommentSetting"/>
+
+		<table name="jcomments_subscriptions" title="JComments Subscription" tbl_key="" source="jcomments_subscriptions" destination="jcomments_subscriptions" type="jcomments" class="JTransportJCommentSubscription"/>
+
+		<table name="jcomments_version" title="JComments Version" tbl_key="" source="jcomments_version" destination="jcomments_version" type="jcomments" class="JTransportJCommentVersion"/>
+
+		<table name="jcomments_votes" title="JComments Vote" tbl_key="" source="jcomments_votes" destination="jcomments_votes" type="jcomments" class="JTransportJCommentVote"/>
+	</tables>
+
+</jtransport>
