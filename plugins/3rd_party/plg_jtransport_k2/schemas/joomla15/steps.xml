@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>K2 for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="k2_attackments" title="K2 Attachment" tbl_key="" source="k2_attackments" destination="k2_attackments" type="k2" class="JTransportK2Attackment"/>
+
+		<table name="k2_categories" title="K2 Category" tbl_key="" source="k2_categories" destination="k2_categories" type="k2" class="JTransportK2Category"/>
+
+		<table name="k2_comments" title="K2 Comment" tbl_key="" source="k2_comments" destination="k2_comments" type="k2" class="JTransportK2Comment"/>
+
+		<table name="k2_extra_fields" title="K2 Extra field" tbl_key="" source="k2_extra_fields" destination="k2_extra_fields" type="k2" class="JTransportK2ExtraField"/>
+
+		<table name="k2_extra_fields_groups" title="K2 Extra field group" tbl_key="" source="k2_extra_fields_groups" destination="k2_extra_fields_groups" type="k2" class="JTransportK2ExtraFieldGroup"/>
+
+		<table name="k2_items" title="K2 Items" tbl_key="" source="k2_items" destination="k2_items" type="k2" class="JTransportK2Item"/>
+
+		<table name="k2_rating" title="K2 Rating" tbl_key="" source="k2_rating" destination="k2_rating" type="k2" class="JTransportK2Rating"/>
+
+		<table name="k2_tags" title="K2 Tag" tbl_key="" source="k2_tags" destination="k2_tags" type="k2" class="JTransportK2Tag"/>
+
+		<table name="k2_tags_xref" title="K2 Tag Xref" tbl_key="" source="k2_tags_xref" destination="k2_tags_xref" type="k2" class="JTransportK2TagXref"/>
+
+		<table name="k2_users" title="K2 User" tbl_key="" source="k2_users" destination="k2_users" type="k2" class="JTransportK2User"/>
+
+		<table name="k2_user_groups" title="K2 User Group" tbl_key="" source="k2_user_groups" destination="k2_user_groups" type="k2" class="JTransportK2UserGroup"/>
+	</tables>
+
+</jtransport>
