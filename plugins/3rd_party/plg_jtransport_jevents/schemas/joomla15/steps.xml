@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!DOCTYPE jtransport>
+<jtransport>
+	<name>JEvents for Joomla</name>
+
+	<!-- The tables to copy to the new site. -->
+	<tables>
+		<table name="jevents_categories" title="JEvents categories" tbl_key="" source="jevents_categories" destination="categories" type="jevents" class="JTransportJEventsCategory"/>
+
+		<table name="jevents_catmap" title="JEvents Catmap" tbl_key="" source="jevents_catmap" destination="jevents_catmap" type="jevents" class="JTransportJEventsCatmap"/>
+		
+		<table name="jevents_exception" title="JEvents Exception" tbl_key="" source="jevents_exception" destination="jevents_exception" type="jevents" class="JTransportJEventsException"/>
+
+		<table name="jevents_icsfile" title="JEvents Icsfile" tbl_key="" source="jevents_icsfile" destination="jevents_icsfile" type="jevents" class="JTransportJEventsIcsfile"/>
+
+		<table name="jevents_repetition" title="JEvents Repetition" tbl_key="" source="jevents_repetition" destination="jevents_repetition" type="jevents" class="JTransportJEventsRepetition"/>
+
+		<table name="jevents_rrule" title="JEvents Rrule" tbl_key="" source="jevents_rrule" destination="jevents_rrule" type="jevents" class="JTransportJEventsRrule"/>
+
+		<table name="jevents_vevdetail" title="JEvents Vevdetail" tbl_key="" source="jevents_vevdetail" destination="jevents_vevdetail" type="jevents" class="JTransportJEventsVevdetail"/>
+
+		<table name="jevents_vevent" title="JEvents Vevent" tbl_key="" source="jevents_vevent" destination="jevents_vevent" type="jevents" class="JTransportJEventsVevent"/>
+
+		<table name="jev_defaults" title="JEvents Default" tbl_key="" source="jev_defaults" destination="jev_defaults" type="jevents" class="JTransportJEventsDefault"/>
+
+		<table name="jev_users" title="JEvents User" tbl_key="" source="jev_users" destination="jev_users" type="jevents" class="JTransportJEventsUser"/>
+	</tables>
+
+</jtransport>
