@@ -32,7 +32,7 @@ class JTransportDriverWebservice extends JTransportDriver
 	 *
 	 * @throws	Exception
 	 */
-	public function getRestfulAuthData()
+	public function getAuthData()
 	{
 		$data = array();
 
@@ -73,7 +73,7 @@ class JTransportDriverWebservice extends JTransportDriver
 	 */
 	public function getSourceData()
 	{
-		return (array) $this->_requestRestful('row');
+		return (array) $this->_request('row');
 	}
 
 	/**
@@ -83,7 +83,7 @@ class JTransportDriverWebservice extends JTransportDriver
 	 */
 	public function getTotal()
 	{
-		return (int) $this->_requestRestful('total');
+		return (int) $this->_request('total');
 	}
 
 	/**
@@ -95,11 +95,11 @@ class JTransportDriverWebservice extends JTransportDriver
 	 *
 	 * @throws Exception
 	 */
-	protected function _requestRestful($task = 'total')
+	protected function _request($task = 'total')
 	{
 		$http = JHttpFactory::getHttp();
 
-		$data = $this->getRestfulAuthData();
+		$data = $this->getAuthData();
 
 		$data['table'] = $this->_step->source;
 		$data['task'] = $task;
@@ -108,6 +108,7 @@ class JTransportDriverWebservice extends JTransportDriver
 		{
 			$data['start'] = $this->_step->cid;
 			$data['limit'] = 1;
+			$data['order'] = $this->_step->tbl_key;
 		}
 
 		$request = $http->get($this->params->webservice_hostname . '/index.php', $data);
@@ -116,7 +117,7 @@ class JTransportDriverWebservice extends JTransportDriver
 
 		if ($code == 500)
 		{
-			throw new Exception('COM_JTRANSPORT_JTRANSPORT_ERROR_REST_REQUEST');
+			throw new Exception('COM_JTRANSPORT_JTRANSPORT_ERROR_REQUEST');
 		}
 		else
 		{

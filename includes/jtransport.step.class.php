@@ -23,10 +23,6 @@ class JTransportStep
 
 	public $class = null;
 
-	public $element = null;
-
-	public $conditions = null;
-
 	public $tbl_key = '';
 
 	public $source = '';

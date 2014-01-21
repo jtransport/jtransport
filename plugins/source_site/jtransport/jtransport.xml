@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system" method="upgrade">
+	<name>JTransport - System plugin</name>
+	<author>vdkhai</author>
+	<creationDate>January 1st, 2013</creationDate>
+	<copyright>All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later.</license>
+	<authorEmail>vudinhkhai@gmail.com</authorEmail>
+	<version>1.0.0</version>
+	<description>WebService for jtransport</description>
+	<files>
+		<folder>jtransport</folder>
+		<filename plugin="jtransport">jtransport.php</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_jtransport.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_jtransport.sys.ini</language>
+	</languages>
+	<params>
+		<param
+			name="client_key"
+			type="password"
+			default=""
+			label="Key of the client side"
+			description="Key of the client side"
+		/>
+	</params>
+</install>
