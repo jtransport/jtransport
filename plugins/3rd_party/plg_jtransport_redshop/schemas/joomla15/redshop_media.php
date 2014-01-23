@@ -11,5 +11,24 @@
 
 class JTransportRedshopMedia extends JTransport
 {
+	public function dataHook($rows)
+	{
+		// Do some custom post processing on the list.
+		foreach ($rows as &$row)
+		{
+			$row = (array) $row;
+
+			if ($row['media_type'] == "download")
+			{
+				$arrMediaName = explode("/", $row['media_name']);
+
+				$filename = $arrMediaName[count($arrMediaName) - 1];
+
+				$row['media_name'] = JPATH_ROOT . '/components/com_redshop/assets/download/product/' . $filename;
+			}
+		}
+
+		return $rows;
+	}
 }
 ?>
