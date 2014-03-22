@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="2.5.0" method="upgrade">
 	<name>JTransport</name>
-	<author>vdkhai</author>
-	<authorEmail>vdkhai@gmail.com</authorEmail>
+	<author>jtransport</author>
+	<authorEmail>vudinhkhai@gmail.com</authorEmail>
 	<copyright>Copyright 2006 - 2013. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later.</license>
 	<creationDate>2013-01-01</creationDate>
 	<version>1.0</version>
 	<description>Data transport for joomla</description>
 
-	<install>
+	<install> <!-- Runs on install -->
 		<sql>
-			<file charset="utf8" driver="mysql">sql/install.sql</file>
+			<file driver="mysql" charset="utf8">sql/install/mysql/install.sql</file>
+            <file driver="mysqli" charset="utf8">sql/install/mysql/install.sql</file>
 		</sql>
 	</install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install/mysql/uninstall.sql</file>
+            <file driver="mysqli" charset="utf8">sql/install/mysql/uninstall.sql</file>
+        </sql>
+    </uninstall>
+    <update> <!-- Runs on update -->
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+            <schemapath type="mysqli">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <!-- Medias -->
+    <media destination="com_jtransport" folder="media">
+        <folder>css</folder>
+        <folder>fonts</folder>
+        <folder>img</folder>
+        <folder>js</folder>
+        <folder>less</folder>
+        <filename>index.html</filename>
+    </media>
+
+    <!-- Libraries -->
+    <!--<libraries destination="jtransport" folder="libraries">
+        <folder>joomla</folder>
+        <filename>index.html</filename>
+    </libraries>-->
 
 	<files folder="site">
 		<filename>index.html</filename>
@@ -26,14 +55,10 @@
 			<folder>assets</folder>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
-			<folder>images</folder>
 			<folder>includes</folder>
-			<folder>language</folder>
-			<folder>libraries</folder>
 			<folder>models</folder>
 			<folder>sql</folder>
 			<folder>views</folder>
-
 			<filename>jtransport.php</filename>
 			<filename>access.xml</filename>
 			<filename>controller.php</filename>
@@ -45,5 +70,4 @@
 			<language tag="en-GB">language/en-GB/en-GB.com_jtransport.sys.ini</language>
 		</languages>
 	</administration>
-
 </extension>
